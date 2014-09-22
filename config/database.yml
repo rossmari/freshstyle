@@ -3,7 +3,8 @@ default: &default
   encoding: unicode
   pool: 5
   user: styler
-  password:
+  password: qwerty
+  host: localhost
 
 development:
   <<: *default
