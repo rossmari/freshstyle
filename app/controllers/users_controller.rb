@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /users/new
+  # GET /users/haml
   def new
     @user = User.new
   end

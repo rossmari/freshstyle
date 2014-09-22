@@ -1,0 +1,11 @@
+= form_for [:admin, @user], html: {class: 'form-horizontal'}  do |f|
+
+  = render partial: 'partials/errors', locals: {model: @user}
+
+  .form-group
+    = f.label :email, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :email, class: 'form-control'
+  .form-group
+    .col-sm-offset-3.col-sm-10
+      = f.submit t('actions.save'), class: 'btn btn-primary btn-sm'

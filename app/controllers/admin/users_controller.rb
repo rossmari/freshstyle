@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
   def show
   end
 
-  # GET /users/new
+  # GET /users/haml
   def new
     @user = User.new
   end
@@ -31,7 +31,7 @@ class Admin::UsersController < Admin::BaseController
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { render :haml }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

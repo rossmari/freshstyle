@@ -6,3 +6,10 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( admin.js application.js admin.css application.css)
+
+
+#javascripts
+Rails.application.config.assets.precompile += %w( admin/sortable_tree/sortable_pack.js)
+
+#styles
+Rails.application.config.assets.precompile += %w( admin/sortable_tree/sortable_pack.css)

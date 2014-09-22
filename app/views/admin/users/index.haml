@@ -1,23 +1,25 @@
 = content_for :page_title do
-  Listing users
+  = t('user.users')
 
 = content_for :main_content do
 
   %table.table.table-bordered
     %thead
       %tr
-        %th Email
-        %th Actions
+        %th
+          = t('user.email')
+        %th
+          = t('actions.title')
 
     %tbody
       - @users.each do |user|
         %tr
           %td= user.email
           %td
-            = link_to 'Show', admin_user_path(user)
-            = link_to 'Edit', edit_admin_user_path(user)
-            = link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+            = show_button(admin_user_path(user))
+            = edit_button(edit_admin_user_path(user))
+            = delete_button(admin_user_path(user))
 
 
 = content_for :side_bar do
-  = link_to 'New User', new_user_path
+  = add_button(new_admin_user_path)

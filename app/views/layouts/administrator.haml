@@ -8,7 +8,7 @@
     / Bootstrap
     = stylesheet_link_tag 'admin.css'
     = javascript_include_tag 'admin.js'
-
+    = yield(:assets)
     / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     / WARNING: Respond.js doesn't work if you view the page via file://
     /[if lt IE 9]
@@ -30,9 +30,9 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              = link_to 'Users', admin_users_path
+              = link_to t('user.users'), admin_users_path
             %li
-              %a{:href => "#"} Shmotkies
+              = link_to t('category.categories'), admin_categories_path
 
 
           %ul.nav.navbar-nav.navbar-right

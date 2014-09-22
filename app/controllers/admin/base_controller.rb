@@ -1,5 +1,7 @@
 class Admin::BaseController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   layout 'administrator'
 
   before_action :authenticate_user!
