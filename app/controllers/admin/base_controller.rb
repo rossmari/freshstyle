@@ -1,8 +1,7 @@
 class Admin::BaseController < ApplicationController
+  layout 'administrator'
 
   skip_before_action :verify_authenticity_token
-
-  layout 'administrator'
 
   before_action :authenticate_user!
 
@@ -13,5 +12,4 @@ class Admin::BaseController < ApplicationController
       redirect_to root_path unless current_user.is_admin?
     end
   end
-
 end

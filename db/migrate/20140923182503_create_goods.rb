@@ -13,6 +13,8 @@ class CreateGoods < ActiveRecord::Migration
       t.references :brand
       t.references :origin_country
       t.references :design_country
+
+      t.timestamps
     end
   end
 end

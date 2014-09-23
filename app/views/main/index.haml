@@ -1,0 +1,5 @@
+zdesya budet pizdets
+= link_to 'Adminka', admin_root_path
+- if current_user
+  = current_user.email
+  = link_to 'exit', destroy_user_session_path, method: :delete

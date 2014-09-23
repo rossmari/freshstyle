@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  root 'main#index'
+
+  devise_for :users
 
   resources :categories
-  devise_for :users
   resources :users
+  resources :pages
+  resources :brands
 
   namespace :admin do
+    root to: 'categories#index'
+
     resources :users
     resources :categories do
       collection do
@@ -14,9 +20,8 @@ Rails.application.routes.draw do
     end
 
     resources :goods
-
+    resources :pages
+    resources :brands
+    resources :countries
   end
-
-  root 'main#index'
-
 end
