@@ -1,14 +1,11 @@
 class Good < ActiveRecord::Base
 
+  # == REFERENCES
   belongs_to :origin_country, class_name: 'Country'
   belongs_to :design_country, class_name: 'Country'
+  belongs_to :brand
 
-  validates_presence_of :name,
-                        :article,
-                        :color,
-                        :size,
-                        :consist,
-                        :count_in_store,
-                        :price
 
+  # == VALIDATORS
+  validates :title, :count_in_store, :price, presence: true
 end
