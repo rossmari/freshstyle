@@ -1,0 +1,9 @@
+= content_for :page_title do
+  = t('good.new')
+
+= content_for :main_content do
+  = render 'form'
+
+= content_for :side_bar do
+  = back(admin_goods_path)
+

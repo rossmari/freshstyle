@@ -1,0 +1,13 @@
+= content_for :page_title do
+  = t('category.show')
+
+= content_for :side_bar do
+  = back(admin_categories_path)
+  = edit_button(edit_admin_category_path(@category))
+
+= content_for :main_content do
+
+  %p
+    %strong
+      = human_name('name')
+    = @category.name

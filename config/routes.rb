@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :categories
-
   devise_for :users
   resources :users
 
@@ -13,6 +12,9 @@ Rails.application.routes.draw do
         post :rebuild
       end
     end
+
+    resources :goods
+
   end
 
   root 'main#index'

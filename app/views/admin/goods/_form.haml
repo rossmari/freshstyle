@@ -1,0 +1,58 @@
+= form_for [:admin, @good], html: {class: 'form-horizontal'}  do |f|
+
+  = render partial: 'partials/errors', locals: {model: @good}
+
+  .form-group
+    = f.label :name, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :article, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :article, class: 'form-control'
+
+  .form-group
+    = f.label :color, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :color, class: 'form-control'
+
+  .form-group
+    = f.label :size, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :size, class: 'form-control'
+
+  .form-group
+    = f.label :consist, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :consist, class: 'form-control'
+
+  .form-group
+    = f.label :design_country, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.collection_select :design_country_id, Country.all, :id, :name, {}, class: 'form-control'
+
+  .form-group
+    = f.label :origin_country, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
+
+  .form-group
+    = f.label :count_in_store, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :count_in_store, class: 'form-control'
+
+  .form-group
+    = f.label :active, class: 'col-sm-3 control-label'
+    .col-sm-1
+      = f.check_box :active, class: 'form-control'
+
+  .form-group
+    = f.label :price, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :price, class: 'form-control'
+
+
+  .form-group
+    .col-sm-offset-3.col-sm-10
+      = f.submit t('actions.save'), class: 'btn btn-primary btn-sm'

@@ -29,10 +29,7 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              = link_to t('user.users'), admin_users_path
-            %li
-              = link_to t('category.categories'), admin_categories_path
+            = admin_menu
 
 
           %ul.nav.navbar-nav.navbar-right

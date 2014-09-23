@@ -1,9 +1,12 @@
 = content_for :page_title do
   = t('user.users')
 
+= content_for :side_bar do
+  = add_button(new_admin_user_path)
+
 = content_for :main_content do
 
-  %table.table.table-bordered
+  %table.table.table-bordered.small
     %thead
       %tr
         %th
@@ -19,7 +22,3 @@
             = show_button(admin_user_path(user))
             = edit_button(edit_admin_user_path(user))
             = delete_button(admin_user_path(user))
-
-
-= content_for :side_bar do
-  = add_button(new_admin_user_path)

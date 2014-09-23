@@ -266,10 +266,19 @@ ru:
   user:
     users: Пользователи
     email: Адрес электронной почты
+    show: Просмотр пользователя
+
   category:
     categories: Категории
     edit: Изменение категории
     new: Новая категория
+    show: Просмотр категории
+
+  good:
+    goods: Товары
+    edit: Изменение товара
+    new: Новый товар
+    show: Просмотр товара
 
   activerecord:
       models:
@@ -280,3 +289,14 @@ ru:
           email: Электронная почта
         category:
           name: Название категории
+        good:
+          color: Цвет
+          article: Артикул
+          size: Размер
+          consist: Состав
+          origin_country: Страна производитель
+          design_country: Страна дизайна
+          name: Название товара
+          price: Цена
+          count_in_store: Количество на складе
+          active: В наличии
