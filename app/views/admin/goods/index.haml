@@ -1,12 +1,14 @@
 = content_for :page_title do
   = t('good.goods')
 
-= content_for :main_content do
+%h1.page-header
+  = t('good.goods')
 
-  %table.table.table-bordered.small
+.table-responsive
+  %table.table.table-striped
     %thead
       %tr
-        %th
+        %th(width=10)
           ID
         %th
           = human_name('title')
@@ -30,8 +32,7 @@
           = human_name('season')
         %th
           = human_name('price')
-        %th
-          = t('actions.title')
+        %th(width=70)
 
     %tbody
       - @goods.each do |good|
@@ -48,12 +49,10 @@
           %td= good.count_in_stock
           %td= good.season
           %td= good.price
-
           %td
             = show_button(admin_good_path(good))
             = edit_button(edit_admin_good_path(good))
             = delete_button(admin_good_path(good))
-
 
 = content_for :side_bar do
   = add_button(new_admin_good_path)

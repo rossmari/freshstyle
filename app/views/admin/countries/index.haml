@@ -1,17 +1,18 @@
 = content_for :page_title do
   = t('country.countries')
 
-= content_for :main_content do
+%h1.page-header
+  = t('country.countries')
 
-  %table.table.table-bordered.small
+.table-responsive
+  %table.table.table-striped
     %thead
       %tr
-        %th
+        %th(width=10)
           ID
         %th
           = human_name('name')
-        %th
-          = t('actions.title')
+        %th(width=50)
 
     %tbody
       - @countries.each do |country|
@@ -22,7 +23,6 @@
           %td
             = edit_button(edit_admin_country_path(country))
             = delete_button(admin_country_path(country))
-
 
 = content_for :side_bar do
   = add_button(new_admin_country_path)

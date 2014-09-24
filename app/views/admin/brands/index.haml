@@ -1,17 +1,18 @@
 = content_for :page_title do
   = t('brand.brands')
 
-= content_for :main_content do
+%h1.page-header
+  = t('brand.brands')
 
-  %table.table.table-bordered.small
+.table-responsive
+  %table.table.table-striped
     %thead
       %tr
-        %th
+        %th(width=10)
           ID
         %th
           = human_name('title')
-        %th
-          = t('actions.title')
+        %th(width=50)
 
     %tbody
       - @brands.each do |brand|
@@ -22,7 +23,6 @@
           %td
             = edit_button(edit_admin_brand_path(brand))
             = delete_button(admin_brand_path(brand))
-
 
 = content_for :side_bar do
   = add_button(new_admin_brand_path)
