@@ -261,7 +261,7 @@ ru:
    edit: Изменить
    delete: Удалить
    back: Назад
-   save: Сохранение
+   save: Сохранить
 
   user:
     users: Пользователи
@@ -296,6 +296,11 @@ ru:
     sizes: Размеры
     edit: Изменение размера
     new: Новый размер
+
+  page:
+    pages: Страницы
+    edit: Редактирование страницы
+    new: Новая страница
 
   activerecord:
       models:

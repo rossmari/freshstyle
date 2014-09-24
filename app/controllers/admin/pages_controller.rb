@@ -32,7 +32,7 @@ class Admin::PagesController < Admin::BaseController
 
   def update
     respond_to do |format|
-      if @good.update(good_params)
+      if @page.update(page_params)
         format.html { redirect_to admin_pages_path, notice: 'Page was successfully updated.' }
         format.json { render :show, status: :ok, location: @page }
       else
@@ -56,6 +56,6 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def page_params
-    params.require(:page).permit(:title)
+    params.require(:page).permit(:title, :content)
   end
 end
