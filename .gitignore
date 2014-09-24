@@ -12,8 +12,13 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+log/*.*
 /log/*.log
 /tmp
+
+# Ignore all test files
+test/
+test/*.*
 
 # Developers env
 .ruby-version

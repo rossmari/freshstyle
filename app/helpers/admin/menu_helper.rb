@@ -7,6 +7,9 @@ module Admin::MenuHelper
      link_to(t('user.users'), admin_users_path),
      link_to(t('category.categories'), admin_categories_path),
      link_to(t('good.goods'), admin_goods_path),
+     link_to(t('brand.brands'), admin_brands_path),
+     link_to(t('country.countries'), admin_countries_path),
+     link_to(t('size.sizes'), admin_sizes_path)
     ]
 
     raw(generate_menu(items))

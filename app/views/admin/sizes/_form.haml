@@ -1,0 +1,11 @@
+= form_for [:admin, @size], html: {class: 'form-horizontal'}  do |f|
+
+  = render partial: 'partials/errors', locals: {model: @size}
+
+  .form-group
+    = f.label :name, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    .col-sm-offset-3.col-sm-10
+      = f.submit t('actions.save'), class: 'btn btn-primary btn-sm'

@@ -1,0 +1,28 @@
+= content_for :page_title do
+  = t('size.sizes')
+
+= content_for :main_content do
+
+  %table.table.table-bordered.small
+    %thead
+      %tr
+        %th
+          ID
+        %th
+          = human_name('name')
+        %th
+          = t('actions.title')
+
+    %tbody
+      - @sizes.each do |size|
+        %tr
+          %td= size.id
+          %td= size.name
+
+          %td
+            = edit_button(edit_admin_size_path(size))
+            = delete_button(admin_size_path(size))
+
+
+= content_for :side_bar do
+  = add_button(new_admin_size_path)

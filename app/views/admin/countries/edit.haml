@@ -1,0 +1,9 @@
+= content_for :page_title do
+  = t('country.edit')
+
+= content_for :main_content do
+  = render 'form'
+
+= content_for :side_bar do
+  -#= show_button(admin_category_path(@category))
+  = back(admin_countries_path)

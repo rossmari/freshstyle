@@ -9,23 +9,25 @@
         %th
           ID
         %th
-          = human_name('name')
+          = human_name('title')
+        %th
+          = human_name('size')
         %th
           = human_name('article')
         %th
           = human_name('color')
         %th
-          = human_name('size')
-        %th
           = human_name('consist')
+        %th
+          = human_name('brand')
         %th
           = human_name('origin_country')
         %th
           = human_name('design_country')
         %th
-          = human_name('count_in_store')
+          = human_name('count_in_stock')
         %th
-          = human_name('active')
+          = human_name('season')
         %th
           = human_name('price')
         %th
@@ -35,15 +37,16 @@
       - @goods.each do |good|
         %tr
           %td= good.id
-          %td= good.name
+          %td= good.title
+          %td= good.sizes.map(&:name).join('; ')
           %td= good.article
           %td= good.color
-          %td= good.size
           %td= good.consist
+          %td= good.brand.title
           %td= good.origin_country.name
           %td= good.design_country.name
-          %td= good.count_in_store
-          %td= good.active ? 'Да' : 'Нет'
+          %td= good.count_in_stock
+          %td= good.season
           %td= good.price
 
           %td

@@ -3,9 +3,15 @@
   = render partial: 'partials/errors', locals: {model: @good}
 
   .form-group
-    = f.label :name, class: 'col-sm-3 control-label'
+    = f.label :title, class: 'col-sm-3 control-label'
     .col-sm-6
-      = f.text_field :name, class: 'form-control'
+      = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :size, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.collection_select :size_ids, Size.all, :id, :name, {}, class: 'form-control', multiple: true
+      Ctrl + ЛКМ для выделения
 
   .form-group
     = f.label :article, class: 'col-sm-3 control-label'
@@ -18,14 +24,14 @@
       = f.text_field :color, class: 'form-control'
 
   .form-group
-    = f.label :size, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :size, class: 'form-control'
-
-  .form-group
     = f.label :consist, class: 'col-sm-3 control-label'
     .col-sm-6
       = f.text_field :consist, class: 'form-control'
+
+  .form-group
+    = f.label :brand, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.collection_select :brand_id, Brand.all, :id, :title, {}, class: 'form-control'
 
   .form-group
     = f.label :design_country, class: 'col-sm-3 control-label'
@@ -38,20 +44,29 @@
       = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
   .form-group
-    = f.label :count_in_store, class: 'col-sm-3 control-label'
+    = f.label :count_in_stock, class: 'col-sm-3 control-label'
     .col-sm-6
-      = f.text_field :count_in_store, class: 'form-control'
+      = f.text_field :count_in_stock, class: 'form-control'
 
   .form-group
-    = f.label :active, class: 'col-sm-3 control-label'
-    .col-sm-1
-      = f.check_box :active, class: 'form-control'
+    = f.label :season, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :season, class: 'form-control'
 
   .form-group
     = f.label :price, class: 'col-sm-3 control-label'
     .col-sm-6
       = f.text_field :price, class: 'form-control'
 
+  .form-group
+    = f.label :percents_discount, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :percents_discount, class: 'form-control'
+
+  .form-group
+    = f.label :monetary_discount, class: 'col-sm-3 control-label'
+    .col-sm-6
+      = f.text_field :monetary_discount, class: 'form-control'
 
   .form-group
     .col-sm-offset-3.col-sm-10

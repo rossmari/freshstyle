@@ -1,0 +1,9 @@
+= content_for :page_title do
+  = t('country.countries')
+
+= content_for :main_content do
+  = render 'form'
+
+= content_for :side_bar do
+  = back(admin_countries_path)
+
