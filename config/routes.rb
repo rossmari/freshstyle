@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root 'main#index'
 
-  devise_for :users
+  devise_for :users, path: :admin
 
   resources :categories
   resources :users

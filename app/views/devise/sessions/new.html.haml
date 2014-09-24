@@ -1,0 +1,10 @@
+= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin' } do |f|
+  %h2.form-signin-heading Вход
+  = f.email_field :email, class: 'form-control', placeholder: 'Email address', autofocus: true
+  = f.password_field :password, class: 'form-control', placeholder: 'Password', autocomplete: "off"
+  - if devise_mapping.rememberable?
+    = f.label :remember_me, class: 'checkbox' do
+      = f.check_box :remember_me
+      Запомнить меня
+  = f.submit 'Войти', class: 'btn btn-lg btn-primary btn-block'
+  = render "devise/shared/links"
