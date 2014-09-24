@@ -1,6 +1,9 @@
 - if model.errors.any?
-  %div#error_explanation
+  .alert.alert-danger.alert-dismissible{ role: 'alert' }
+    %button.close{ data: { dismiss: 'alert' }, type: 'button' }
+      %span{ aria: { hidden: true } } ×
+      %span.sr-only Close
     %ul
-    - model.errors.full_messages.each do |message|
-      %li
-        = message
+      - model.errors.full_messages.each do |message|
+        %li
+          = message

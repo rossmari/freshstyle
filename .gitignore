@@ -30,3 +30,4 @@ test/*.*
 
 # Assets
 public/assets/*
+public/ckeditor_assets/*

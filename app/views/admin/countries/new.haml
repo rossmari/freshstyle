@@ -1,9 +1,10 @@
 = content_for :page_title do
-  = t('country.countries')
+  = t('country.new')
 
-= content_for :main_content do
-  = render 'form'
+%h1.page-header
+  = t('country.new')
+
+= render 'form'
 
 = content_for :side_bar do
   = back(admin_countries_path)
-

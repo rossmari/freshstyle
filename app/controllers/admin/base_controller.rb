@@ -1,11 +1,7 @@
 class Admin::BaseController < ApplicationController
-  layout 'administrator'
+  layout 'admin'
 
-  skip_before_action :verify_authenticity_token
-
-  before_action :authenticate_user!
-
-  before_filter :check_role
+  before_action :authenticate_user!, :check_role
 
   def check_role
     if user_signed_in?

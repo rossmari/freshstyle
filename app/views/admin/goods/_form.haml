@@ -1,73 +1,59 @@
-= form_for [:admin, @good], html: {class: 'form-horizontal'}  do |f|
+= form_for [:admin, @good]  do |f|
 
   = render partial: 'partials/errors', locals: {model: @good}
 
   .form-group
-    = f.label :title, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :title, class: 'form-control'
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
 
   .form-group
-    = f.label :size, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.collection_select :size_ids, Size.all, :id, :name, {}, class: 'form-control', multiple: true
-      Ctrl + ЛКМ для выделения
+    = f.label :size
+    = f.collection_select :size_ids, Size.all, :id, :name, {}, class: 'form-control', multiple: true
+    Ctrl + ЛКМ для выделения
 
   .form-group
-    = f.label :article, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :article, class: 'form-control'
+    = f.label :article
+    = f.text_field :article, class: 'form-control'
 
   .form-group
-    = f.label :color, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :color, class: 'form-control'
+    = f.label :color
+    = f.text_field :color, class: 'form-control'
 
   .form-group
-    = f.label :consist, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :consist, class: 'form-control'
+    = f.label :consist
+    = f.text_field :consist, class: 'form-control'
 
   .form-group
-    = f.label :brand, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.collection_select :brand_id, Brand.all, :id, :title, {}, class: 'form-control'
+    = f.label :brand
+    = f.collection_select :brand_id, Brand.all, :id, :title, {}, class: 'form-control'
 
   .form-group
-    = f.label :design_country, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.collection_select :design_country_id, Country.all, :id, :name, {}, class: 'form-control'
+    = f.label :design_country
+    = f.collection_select :design_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
   .form-group
-    = f.label :origin_country, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
+    = f.label :origin_country
+    = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
   .form-group
-    = f.label :count_in_stock, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :count_in_stock, class: 'form-control'
+    = f.label :count_in_stock
+    = f.text_field :count_in_stock, class: 'form-control'
 
   .form-group
-    = f.label :season, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :season, class: 'form-control'
+    = f.label :season
+    = f.text_field :season, class: 'form-control'
 
   .form-group
-    = f.label :price, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :price, class: 'form-control'
+    = f.label :price
+    = f.text_field :price, class: 'form-control'
 
   .form-group
-    = f.label :percents_discount, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :percents_discount, class: 'form-control'
+    = f.label :percents_discount
+    = f.text_field :percents_discount, class: 'form-control'
 
   .form-group
-    = f.label :monetary_discount, class: 'col-sm-3 control-label'
-    .col-sm-6
-      = f.text_field :monetary_discount, class: 'form-control'
+    = f.label :monetary_discount
+    = f.text_field :monetary_discount, class: 'form-control'
 
   .form-group
-    .col-sm-offset-3.col-sm-10
-      = f.submit t('actions.save'), class: 'btn btn-primary btn-sm'
+    = f.submit t('actions.save'), class: 'btn btn-primary'

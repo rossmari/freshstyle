@@ -32,7 +32,7 @@ class Admin::SizesController < Admin::BaseController
 
   def update
     respond_to do |format|
-      if @good.update(good_params)
+      if @size.update(size_params)
         format.html { redirect_to admin_sizes_path, notice: 'Size was successfully updated.' }
         format.json { render :show, status: :ok, location: @size }
       else
