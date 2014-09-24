@@ -23,13 +23,17 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', group: :development
-gem 'foreman', group: :development
+group :development do
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'foreman'
+end
 
-gem 'devise'
-gem 'haml'
+gem 'devise', '~> 3.3.0'
+gem 'haml', '~> 4.0.5'
 
-gem 'awesome_nested_set' # or any similar gem (gem 'nested_set')
+gem 'awesome_nested_set', '~> 3.0.1'
 gem 'the_sortable_tree', '~> 2.5.0'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 5.0.0'
+
+gem 'bootstrap-sass', '~> 3.2.0.2'
