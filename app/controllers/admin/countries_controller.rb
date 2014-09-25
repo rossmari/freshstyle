@@ -3,7 +3,7 @@ class Admin::CountriesController < Admin::BaseController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
   def index
-    @countries = Country.all
+    @countries = Country.order(:name)
   end
 
   def show
@@ -51,6 +51,7 @@ class Admin::CountriesController < Admin::BaseController
   end
 
   private
+
   def set_country
     @country = Country.find(params[:id])
   end

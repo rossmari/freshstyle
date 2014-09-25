@@ -11,6 +11,7 @@ class CreateGoods < ActiveRecord::Migration
       t.integer :percents_discount
       t.integer :monetary_discount
       t.references :brand
+      t.references :category
       t.references :origin_country
       t.references :design_country
 

@@ -12,6 +12,8 @@
           ID
         %th
           = human_name('title')
+        %th
+          = human_name('country.name')
         %th(width=50)
 
     %tbody
@@ -19,6 +21,7 @@
         %tr
           %td= brand.id
           %td= brand.title
+          %td= brand.country.name
 
           %td
             = edit_button(edit_admin_brand_path(brand))

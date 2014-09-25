@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140925145336) do
     t.integer  "percents_discount"
     t.integer  "monetary_discount"
     t.integer  "brand_id"
+    t.integer  "category_id"
     t.integer  "origin_country_id"
     t.integer  "design_country_id"
     t.datetime "created_at"

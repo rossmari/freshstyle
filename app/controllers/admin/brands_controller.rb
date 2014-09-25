@@ -3,7 +3,7 @@ class Admin::BrandsController < Admin::BaseController
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   def index
-    @brands = Brand.all
+    @brands = Brand.includes(:country).order(:title)
   end
 
   def show
@@ -51,11 +51,12 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   private
+
   def set_brand
     @brand = Brand.find(params[:id])
   end
 
   def brand_params
-    params.require(:brand).permit(:title)
+    params.require(:brand).permit(:title, :description, :country_id)
   end
 end

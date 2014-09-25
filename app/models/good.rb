@@ -4,6 +4,8 @@ class Good < ActiveRecord::Base
   belongs_to :origin_country, class_name: 'Country'
   belongs_to :design_country, class_name: 'Country'
   belongs_to :brand
+  belongs_to :category
+
   has_many :goods_sizes
   has_many :sizes, through: :goods_sizes
   has_many :images, class_name: 'GoodPicture'
@@ -12,5 +14,4 @@ class Good < ActiveRecord::Base
 
   # == VALIDATORS
   validates :title, :count_in_stock, :price, presence: true
-
 end

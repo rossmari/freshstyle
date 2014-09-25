@@ -2,58 +2,80 @@
 
   = render partial: 'partials/errors', locals: {model: @good}
 
-  .form-group
-    = f.label :title
-    = f.text_field :title, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
 
-  .form-group
-    = f.label :size
-    = f.collection_select :size_ids, Size.all, :id, :name, {}, class: 'form-control', multiple: true
-    Ctrl + ЛКМ для выделения
+    .col-md-4
+      .form-group
+        = f.label :article
+        = f.text_field :article, class: 'form-control'
 
-  .form-group
-    = f.label :article
-    = f.text_field :article, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :size
+        = f.collection_select :size_ids, Size.all, :id, :name, {}, class: 'form-control', multiple: true
+        Ctrl + ЛКМ для выделения
 
-  .form-group
-    = f.label :color
-    = f.text_field :color, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :consist
+        = f.text_area :consist, class: 'form-control'
 
-  .form-group
-    = f.label :consist
-    = f.text_field :consist, class: 'form-control'
+  .row
+    .col-md-3
+      .form-group
+        = f.label :color
+        = f.text_field :color, class: 'form-control'
 
-  .form-group
-    = f.label :brand
-    = f.collection_select :brand_id, Brand.all, :id, :title, {}, class: 'form-control'
+  .row
+    .col-md-3
+      .form-group
+        = f.label :brand
+        = f.collection_select :brand_id, Brand.all, :id, :title, {}, class: 'form-control'
 
-  .form-group
-    = f.label :design_country
-    = f.collection_select :design_country_id, Country.all, :id, :name, {}, class: 'form-control'
+    .col-md-3
+      .form-group
+        = f.label :design_country
+        = f.collection_select :design_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
-  .form-group
-    = f.label :origin_country
-    = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
+    .col-md-3
+      .form-group
+        = f.label :origin_country
+        = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
-  .form-group
-    = f.label :count_in_stock
-    = f.text_field :count_in_stock, class: 'form-control'
+  .row
+    .col-md-3
+      .form-group
+        = f.label :category_id
+        = f.collection_select :category_id, Category.order(:name), :id, :name, {}, class: 'form-control'
 
-  .form-group
-    = f.label :season
-    = f.text_field :season, class: 'form-control'
+    .col-md-3
+      .form-group
+        = f.label :season
+        = f.text_field :season, class: 'form-control'
 
-  .form-group
-    = f.label :price
-    = f.text_field :price, class: 'form-control'
+    .col-md-3
+      .form-group
+        = f.label :count_in_stock
+        = f.text_field :count_in_stock, class: 'form-control'
 
-  .form-group
-    = f.label :percents_discount
-    = f.text_field :percents_discount, class: 'form-control'
-
-  .form-group
-    = f.label :monetary_discount
-    = f.text_field :monetary_discount, class: 'form-control'
+  .row
+    .col-md-3
+      .form-group
+        = f.label :price
+        = f.text_field :price, class: 'form-control'
+    .col-md-3
+      .form-group
+        = f.label :percents_discount
+        = f.text_field :percents_discount, class: 'form-control'
+    .col-md-3
+      .form-group
+        = f.label :monetary_discount
+        = f.text_field :monetary_discount, class: 'form-control'
 
   .form-group
     = f.submit t('actions.save'), class: 'btn btn-primary'
