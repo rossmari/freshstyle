@@ -1,11 +1,11 @@
 class Admin::GoodImagesController < Admin::BaseController
 
   def show
-    @images = Good.find(params[:good_id]).images
+    @images = Good.find(params[:id]).images
   end
 
   def edit
-    @good = Good.find(params[:good_id])
+    @good = Good.find(params[:id])
     @good.images.any? || @good.images.build
   end
 

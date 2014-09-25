@@ -1,0 +1,37 @@
+= content_for :page_title do
+  = t('order.orders')
+
+%h1.page-header
+  = t('order.orders')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('user')
+        %th
+          = human_name('goods')
+        %th
+          = human_name('price')
+        %th
+          = human_name('created_at')
+        %th(width=70)
+
+    %tbody
+      - @orders.each do |order|
+        %tr
+          %td= order.id
+          %td= link_to order.user.name, admin_user_path(order.user)
+          %td= raw(order.goods.map{|g| link_to(g.title, admin_good_path(g))}.join(', '))
+          %td= order.price
+          %td= l(order.created_at, format: :short)
+          %td
+            = show_button(admin_order_path(order))
+            -#= edit_button(edit_admin_good_path(good))
+            = delete_button(admin_order_path(order))
+
+-#= content_for :side_bar do
+-#  = add_button(new_admin_good_path)

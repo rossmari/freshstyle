@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925130001) do
+ActiveRecord::Schema.define(version: 20140925145336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20140925130001) do
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", unique: true, using: :btree
-  add_index "categories", ["rgt"], name: "index_categories_on_rgt", unique: true, using: :btree
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -90,6 +89,19 @@ ActiveRecord::Schema.define(version: 20140925130001) do
   create_table "goods_sizes", force: true do |t|
     t.integer  "good_id"
     t.integer  "size_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_goods", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "good_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,11 @@
+= content_for :page_title do
+  = t('order.show')
+
+= content_for :side_bar do
+  = back(admin_orders_path)
+  = edit_button(edit_admin_order_path(@order))
+
+%p
+  %strong
+    = human_name('name')
+  = @order.name

@@ -7,8 +7,8 @@
 
 %p
   %strong
-    = human_name('name')
-  = @good.name
+    = human_name('title')
+  = @good.title
 %p
   %strong
     = human_name('article')
@@ -20,7 +20,7 @@
 %p
   %strong
     = human_name('size')
-  = @good.size
+  = @good.sizes.map(&:name).join(', ')
 
 %p
   %strong
@@ -39,12 +39,9 @@
 
 %p
   %strong
-    = human_name('count_in_store')
-  = @good.count_in_store
-%p
-  %strong
-    = human_name('active')
-  = @good.active
+    = human_name('count_in_stock')
+  = @good.count_in_stock
+
 %p
   %strong
     = human_name('price')

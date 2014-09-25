@@ -53,7 +53,7 @@
           %td= good.price
           %td
             = good.images.count
-            = link_to '(Изменить)', edit_admin_good_images_path(good_id: good)
+            = link_to '(Изменить)', edit_admin_good_image_path(id: good.id)
 
           %td
             = show_button(admin_good_path(good))

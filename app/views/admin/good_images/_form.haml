@@ -1,6 +1,6 @@
 = stylesheet_link_tag 'admin/goods_images/table'
 
-= nested_form_for @good, url: admin_good_images_path(@good), method: :put  do |f|
+= nested_form_for @good, url: admin_good_image_path(id: @good.id), method: :put  do |f|
 
   = render partial: 'partials/errors', locals: {model: @good}
 
