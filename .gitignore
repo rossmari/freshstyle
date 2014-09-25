@@ -13,7 +13,6 @@
 
 # Ignore all logfiles and tempfiles.
 log/*.*
-/log/*.log
 /tmp
 
 # Ignore all test files
@@ -31,3 +30,4 @@ test/*.*
 # Assets
 public/assets/*
 public/ckeditor_assets/*
+public/good_pictures/*

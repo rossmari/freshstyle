@@ -10,8 +10,8 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :categories, :rgt, unique: true
-    add_index :categories, :parent_id, unique: true
+    add_index :categories, :rgt
+    add_index :categories, :parent_id
   end
 
   def self.down
