@@ -32,6 +32,8 @@
           = human_name('season')
         %th
           = human_name('price')
+        %th
+          = human_name('images')
         %th(width=70)
 
     %tbody
@@ -49,6 +51,10 @@
           %td= good.count_in_stock
           %td= good.season
           %td= good.price
+          %td
+            = good.images.count
+            = link_to '(Изменить)', edit_admin_good_images_path(good_id: good)
+
           %td
             = show_button(admin_good_path(good))
             = edit_button(edit_admin_good_path(good))

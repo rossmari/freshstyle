@@ -13,3 +13,4 @@ Rails.application.config.assets.precompile += %w( admin/sortable_tree/sortable_p
 
 #styles
 Rails.application.config.assets.precompile += %w( admin/sortable_tree/sortable_pack.css)
+Rails.application.config.assets.precompile += %w( admin/goods_images/table.css)

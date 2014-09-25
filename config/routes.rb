@@ -25,5 +25,7 @@ Rails.application.routes.draw do
     resources :brands
     resources :countries
     resources :sizes
+    resource :good_images
+
   end
 end

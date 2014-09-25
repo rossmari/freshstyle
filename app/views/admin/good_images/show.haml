@@ -1,0 +1,51 @@
+= content_for :page_title do
+  = t('good_image.show')
+
+= content_for :side_bar do
+  = back(admin_goods_path)
+  = edit_button(edit_admin_good_path(@good))
+
+%p
+  %strong
+    = human_name('name')
+  = @good.name
+%p
+  %strong
+    = human_name('article')
+  = @good.article
+%p
+  %strong
+    = human_name('color')
+  = @good.color
+%p
+  %strong
+    = human_name('size')
+  = @good.size
+
+%p
+  %strong
+    = human_name('consist')
+  = @good.consist
+
+%p
+  %strong
+    = human_name('origin_country')
+  = @good.origin_country.name
+
+%p
+  %strong
+    = human_name('design_country')
+  = @good.design_country.name
+
+%p
+  %strong
+    = human_name('count_in_store')
+  = @good.count_in_store
+%p
+  %strong
+    = human_name('active')
+  = @good.active
+%p
+  %strong
+    = human_name('price')
+  = @good.price

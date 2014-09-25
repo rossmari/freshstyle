@@ -304,6 +304,10 @@ ru:
     edit: Редактирование страницы
     new: Новая страница
 
+  good_image:
+    pages: Фотографии товара
+    edit: Изменение фотографий
+
   activerecord:
       models:
         user: Пользователь
@@ -329,9 +333,11 @@ ru:
           season: Сезон
           percents_discount: Скидка в процентах
           monetary_discount: Скидка в деньгах
+          images: Изображения
         brand:
           title: Название бренда
         country:
           name: Название страны
         size:
           name: Размер
+
