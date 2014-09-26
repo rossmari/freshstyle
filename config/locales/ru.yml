@@ -308,6 +308,11 @@ ru:
     pages: Фотографии товара
     edit: Изменение фотографий
 
+  order:
+    orders: Заказы
+    edit: Редактирование заказа
+    new: Новый заказ
+
   activerecord:
       models:
         user: Пользователь
@@ -340,4 +345,9 @@ ru:
           name: Название страны
         size:
           name: Размер
+        order:
+          created_at: Дата создания
+          user: Владелец
+          goods: Товары
+          price: Цена
 

@@ -41,7 +41,8 @@
       .row
         .col-sm-3.col-md-2.sidebar
           %ul.nav.nav-sidebar
-            %li= link_to t('order.orders'), admin_orders_path
+            %b
+              %li= link_to "#{t('order.orders')} (#{Good.count})", admin_orders_path
             -#%li.active= link_to 'Example link', '#'
           = yield(:side_bar)
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main

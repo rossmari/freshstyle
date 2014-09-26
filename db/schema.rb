@@ -34,8 +34,7 @@ ActiveRecord::Schema.define(version: 20140925145336) do
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
-  add_index "categories", ["rgt"], name: "index_categories_on_rgt", using: :btree
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", unique: true, using: :btree
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -81,7 +80,6 @@ ActiveRecord::Schema.define(version: 20140925145336) do
     t.integer  "percents_discount"
     t.integer  "monetary_discount"
     t.integer  "brand_id"
-    t.integer  "category_id"
     t.integer  "origin_country_id"
     t.integer  "design_country_id"
     t.datetime "created_at"
