@@ -1,0 +1,36 @@
+= content_for :page_title do
+  = t('carousel.carousels')
+
+%h1.page-header
+  = t('carousel.carousels')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('user')
+        %th
+          = human_name('goods')
+        %th
+          = human_name('price')
+        %th
+          = human_name('created_at')
+        %th(width=70)
+
+    %tbody
+      - @carousels.each do |carousel|
+        %tr
+          %td= carousel.id
+          %td= carousel.header
+          %td= carousel.content_text
+          %td= image_tag(carousel.picture.url(:admin_thumb))
+          %td= l(carousel.created_at, format: :short)
+          %td
+            = edit_button(edit_admin_carousel_path(carousel))
+            = delete_button(admin_carousel_path(carousel))
+
+= content_for :side_bar do
+  = add_button(new_admin_carousel_path)

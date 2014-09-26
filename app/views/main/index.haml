@@ -58,69 +58,44 @@
                 %span.icon-bar
                 %span.icon-bar
                 %span.icon-bar
-              %a.navbar-brand{:href => "#"} Project name
+              %a.navbar-brand{:href => "#"} Свежий стиль
             .navbar-collapse.collapse
               %ul.nav.navbar-nav
                 %li.active
-                  %a{:href => "#"} Home
+                  %a{:href => "#"} Главная
                 %li
-                  %a{:href => "#about"} About
+                  %a{:href => "#about"} О нас
                 %li
-                  %a{:href => "#contact"} Contact
-                %li.dropdown
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                    Dropdown
-                    %span.caret
-                  %ul.dropdown-menu{:role => "menu"}
-                    %li
-                      %a{:href => "#"} Action
-                    %li
-                      %a{:href => "#"} Another action
-                    %li
-                      %a{:href => "#"} Something else here
-                    %li.divider
-                    %li.dropdown-header Nav header
-                    %li
-                      %a{:href => "#"} Separated link
-                    %li
-                      %a{:href => "#"} One more separated link
+                  %a{:href => "#contact"} Как оплатить
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  - if user_signed_in?
+                    = link_to destroy_user_session_path, method: :delete do
+                      %span.glyphicon.glyphicon-off
+                      Выход
+                  - else
+                    = link_to 'Зарегистрироваться', new_registration_path(:user)
+
     /
       Carousel
       \==================================================
     #myCarousel.carousel.slide{"data-ride" => "carousel"}
       / Indicators
       %ol.carousel-indicators
-        %li{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-        %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
-        %li.active{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+        - @carousels.each_with_index do |carousel, index|
+          %li{class: ('active' if carousel.main), "data-slide-to" => "#{index}", "data-target" => "#myCarousel"}
+
       .carousel-inner
-        .item
-          %img{:alt => "First slide", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="}/
-          .container
-            .carousel-caption
-              %h1 Example headline.
-              %p
-                Note: If you're viewing this page via a
-                %code file://
-                URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
-              %p
-                %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Sign up today
-        .item
-          %img{:alt => "Second slide", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="}/
-          .container
-            .carousel-caption
-              %h1 Another example headline.
-              %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-              %p
-                %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Learn more
-        .item.active
-          %img{:alt => "Third slide", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="}/
-          .container
-            .carousel-caption
-              %h1 One more for good measure.
-              %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-              %p
-                %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Browse gallery
+        - @carousels.each_with_index do |carousel, index|
+          %div{class: "item #{'active' if carousel.main}"}
+            %img{:alt => "Slide #{index}", :src => carousel.picture.url(:main_thumb) }
+            .container
+              .carousel-caption
+                %h1
+                  = carousel.header
+                %p
+                  = carousel.content_text
+
       %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
         %span.glyphicon.glyphicon-chevron-left
       %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel", :role => "button"}

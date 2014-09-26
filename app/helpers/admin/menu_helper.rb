@@ -10,7 +10,8 @@ module Admin::MenuHelper
      link_to(t('brand.brands'), admin_brands_path),
      link_to(t('country.countries'), admin_countries_path),
      link_to(t('size.sizes'), admin_sizes_path),
-     link_to(t('page.pages'), admin_pages_path)
+     link_to(t('page.pages'), admin_pages_path),
+     link_to(t('carousel.carousels'), admin_carousels_path)
     ]
 
     raw(generate_menu(items))
