@@ -68,13 +68,17 @@
                 %li
                   %a{:href => "#contact"} Как оплатить
               %ul.nav.navbar-nav.navbar-right
-                %li
-                  - if user_signed_in?
+                - if user_signed_in?
+                  - if current_user.is_admin
+                    %li
+                      = link_to 'Кабинет администратора', admin_root_path
+                  %li
                     = link_to destroy_user_session_path, method: :delete do
                       %span.glyphicon.glyphicon-off
                       Выход
-                  - else
-                    = link_to 'Зарегистрироваться', new_registration_path(:user)
+                - else
+                  = link_to 'Зарегистрироваться', new_registration_path(:user)
+
 
     /
       Carousel
@@ -88,7 +92,7 @@
       .carousel-inner
         - @carousels.each_with_index do |carousel, index|
           %div{class: "item #{'active' if carousel.main}"}
-            %img{:alt => "Slide #{index}", :src => carousel.picture.url(:main_thumb) }
+            %img{:alt => "Slide #{index}", :src => carousel.picture.url(:cropped) }
             .container
               .carousel-caption
                 %h1
@@ -108,6 +112,7 @@
     .container.marketing
       / Three columns of text below the carousel
       .row
+
         .col-lg-4
           %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
           %h2 Heading
@@ -128,36 +133,19 @@
           %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
           %p
             %a.btn.btn-default{:href => "#", :role => "button"} View details »
-        / /.col-lg-4
+
       / /.row
       / START THE FEATURETTES
-      %hr.featurette-divider/
-      .row.featurette
-        .col-md-7
-          %h2.featurette-heading
-            First featurette heading.
-            %span.text-muted It'll blow your mind.
-          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-        .col-md-5
-          %img.featurette-image.img-responsive{:alt => "500x500", "data-src" => "holder.js/500x500/auto", :src => "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4="}/
-      %hr.featurette-divider/
-      .row.featurette
-        .col-md-5
-          %img.featurette-image.img-responsive{:alt => "500x500", "data-src" => "holder.js/500x500/auto", :src => "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4="}/
-        .col-md-7
-          %h2.featurette-heading
-            Oh yeah, it's that good.
-            %span.text-muted See for yourself.
-          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-      %hr.featurette-divider/
-      .row.featurette
-        .col-md-7
-          %h2.featurette-heading
-            And lastly, this one.
-            %span.text-muted Checkmate.
-          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-        .col-md-5
-          %img.featurette-image.img-responsive{:alt => "500x500", "data-src" => "holder.js/500x500/auto", :src => "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4="}/
+
+      - @main_offers.each do |main_offer|
+        %hr.featurette-divider/
+        .row.featurette
+          .col-md-7
+            %h2.featurette-heading
+              = main_offer.header
+            = main_offer.content_text
+          .col-md-5
+            = image_tag(main_offer.picture.url(:main_thumb))
       %hr.featurette-divider/
       / /END THE FEATURETTES
       / FOOTER
@@ -165,10 +153,10 @@
         %p.pull-right
           %a{:href => "#"} Back to top
         %p
-          © 2014 Company, Inc. ·
-          %a{:href => "#"} Privacy
-          ·
-          %a{:href => "#"} Terms
+          © 2014 ArVi Studio
+          -#%a{:href => "#"} Privacy
+          -#·
+          -#%a{:href => "#"} Terms
     / /.container
     /
       Bootstrap core JavaScript

@@ -11,11 +11,15 @@
         %th(width=10)
           ID
         %th
-          = human_name('user')
+          = human_name('id')
         %th
-          = human_name('goods')
+          = human_name('header')
         %th
-          = human_name('price')
+          = human_name('content_text')
+        %th
+          = human_name('main')
+        %th
+          = human_name('image')
         %th
           = human_name('created_at')
         %th(width=70)
@@ -26,7 +30,8 @@
           %td= carousel.id
           %td= carousel.header
           %td= carousel.content_text
-          %td= image_tag(carousel.picture.url(:admin_thumb))
+          %td= carousel.main
+          %td= image_tag(carousel.picture.url(:small))
           %td= l(carousel.created_at, format: :short)
           %td
             = edit_button(edit_admin_carousel_path(carousel))

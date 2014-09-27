@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :good_images
     resources :orders
     resources :carousels
+    resources :main_offers
 
   end
 end

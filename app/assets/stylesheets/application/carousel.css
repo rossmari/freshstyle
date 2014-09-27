@@ -50,16 +50,19 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
-  background-color: #777;
+    height: 500px;
+    background-color: #777;
+    /* width: 100%; */
+    text-align: center;
+    overflow: hidden;
 }
 .carousel-inner > .item > img {
-    height: 500px;
-    margin: auto;
+    overflow: hidden;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%,0);
+    height: 100%;
 }
-
-
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 

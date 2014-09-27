@@ -18,27 +18,19 @@ class Admin::CarouselsController < Admin::BaseController
 
   def create
     @carousel = Carousel.new(carousel_params)
-
-    respond_to do |format|
-      if @carousel.save
-        format.html { redirect_to admin_carousels_path, notice: 'Carousel was successfully created.' }
-        format.json { render :show, status: :created, location: @carousel }
-      else
-        format.html { render :new }
-        format.json { render json: @carousel.errors, status: :unprocessable_entity }
-      end
+    if @carousel.save
+      redirect_to admin_carousels_path, notice: 'Carousel was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @carousel.update(carousel_params)
-        format.html { redirect_to admin_carousels_path, notice: 'Carousel was successfully updated.' }
-        format.json { render :show, status: :ok, location: @carousel }
-      else
-        format.html { render :edit }
-        format.json { render json: @carousel.errors, status: :unprocessable_entity }
-      end
+    if @carousel.update(carousel_params)
+        @carousel.crop_image
+       redirect_to admin_carousels_path, notice: 'Carousel was successfully updated.'
+    else
+       render :edit
     end
   end
 
@@ -52,11 +44,11 @@ class Admin::CarouselsController < Admin::BaseController
 
   private
 
-  def set_brand
+  def set_carousel
     @carousel = Carousel.find(params[:id])
   end
 
   def carousel_params
-    params.require(:carousel).permit(:header, :content_text, :picture)
+    params.require(:carousel).permit(:header, :content_text, :main, :picture, :crop_x, :crop_y, :crop_w, :crop_h)
   end
 end
