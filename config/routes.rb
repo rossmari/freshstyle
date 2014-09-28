@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :pages
   resources :brands
+  resources :goods
 
   namespace :admin do
     root to: 'categories#index'

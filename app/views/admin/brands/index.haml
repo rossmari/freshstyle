@@ -13,6 +13,8 @@
         %th
           = human_name('title')
         %th
+          = human_name('description')
+        %th
           = human_name('country.name')
         %th(width=50)
 
@@ -21,11 +23,12 @@
         %tr
           %td= brand.id
           %td= brand.title
+          %td= brand.description
           %td= brand.country.name
-
           %td
             = edit_button(edit_admin_brand_path(brand))
             = delete_button(admin_brand_path(brand))
 
 = content_for :side_bar do
   = add_button(new_admin_brand_path)
+

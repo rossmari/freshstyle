@@ -17,3 +17,5 @@ Rails.application.config.assets.precompile += %w( admin/goods_images/table.css)
 Rails.application.config.assets.precompile += %w( admin/carousel.css)
 Rails.application.config.assets.precompile += %w( bootstrap/bootstrap.css)
 Rails.application.config.assets.precompile += %w( bootstrap/bootstrap.css.map)
+
+Rails.application.config.assets.precompile += %w( application/goods/index.css )

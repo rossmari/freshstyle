@@ -14,4 +14,9 @@ class Good < ActiveRecord::Base
 
   # == VALIDATORS
   validates :title, :count_in_stock, :price, presence: true
+
+  def main_image
+    GoodPicture.where(main_image: true, good_id: self.id).first
+  end
+
 end

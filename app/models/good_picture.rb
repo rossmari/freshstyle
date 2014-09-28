@@ -8,7 +8,7 @@ class GoodPicture < ActiveRecord::Base
   has_attached_file :picture,
                     :url  => '/good_pictures/:id/:style_:basename.:extension',
                     :path => ':rails_root/public/good_pictures/:id/:style_:basename.:extension',
-                    :styles => { admin_thumb: '100x100#', main_thumb: '400x300#' }
+                    :styles => { admin_thumb: '100x100#', main_thumb: '400x150#' }
 
   # == VALIDATORS
   validates_attachment_presence :picture
