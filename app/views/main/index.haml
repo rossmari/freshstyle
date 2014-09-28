@@ -113,42 +113,41 @@
       / Three columns of text below the carousel
       .row
 
-        .col-lg-4
-          %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
-          %h2 Heading
-          %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details »
-        / /.col-lg-4
-        .col-lg-4
-          %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
-          %h2 Heading
-          %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details »
-        / /.col-lg-4
-        .col-lg-4
-          %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
-          %h2 Heading
-          %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          %p
-            %a.btn.btn-default{:href => "#", :role => "button"} View details »
+        - @categories.each do |category|
+          .col-lg-4
+            = image_tag(category.picture.url(:icon), style: 'width: 140px; height: 140px;', class: 'img-circle')
+            %h2
+              = category.name
+            %p
+              Небольшое описание категории товара
+            %p
+              = link_to 'Подробнее', categories_path(category), class: 'btn btn-default'
 
-      / /.row
-      / START THE FEATURETTES
-
-      - @main_offers.each do |main_offer|
+      //START THE FEATURETTES
+      - @main_offers.each_with_index do |main_offer, index|
         %hr.featurette-divider/
         .row.featurette
-          .col-md-7
-            %h2.featurette-heading
-              = main_offer.header
-            = main_offer.content_text
-          .col-md-5
-            = image_tag(main_offer.picture.url(:main_thumb))
+          - if index.odd?
+            .col-md-7
+              %h2.featurette-heading
+                = main_offer.header
+              %p.lead
+                = main_offer.content_text
+            .col-md-5
+              = image_tag(main_offer.picture.url(:main_thumb), class: 'featurette-image img-responsive')
+          - else
+            .col-md-5
+              = image_tag(main_offer.picture.url(:main_thumb), class: 'featurette-image img-responsive')
+            .col-md-7
+              %h2.featurette-heading
+                = main_offer.header
+              %p.lead
+                = main_offer.content_text
+
       %hr.featurette-divider/
-      / /END THE FEATURETTES
-      / FOOTER
+
+      // END THE FEATURETTES
+      // FOOTER
       %footer
         %p.pull-right
           %a{:href => "#"} Back to top
@@ -157,25 +156,3 @@
           -#%a{:href => "#"} Privacy
           -#·
           -#%a{:href => "#"} Terms
-    / /.container
-    /
-      Bootstrap core JavaScript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    -#%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
-    -#%script{:src => "../../dist/js/bootstrap.min.js"}
-    -#%script{:src => "../../assets/js/docs.min.js"}
-    / IE10 viewport hack for Surface/desktop Windows 8 bug
-    -#%script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
-    -##global-zeroclipboard-html-bridge.global-zeroclipboard-container{"data-original-title" => "Copy to clipboard", :style => "position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;", :title => ""}
-      %object#global-zeroclipboard-flash-bridge{:classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :height => "100%", :width => "100%"}
-        %param{:name => "movie", :value => "/assets/flash/ZeroClipboard.swf?noCache=1411741169523"}/
-        %param{:name => "allowScriptAccess", :value => "sameDomain"}/
-        %param{:name => "scale", :value => "exactfit"}/
-        %param{:name => "loop", :value => "false"}/
-        %param{:name => "menu", :value => "false"}/
-        %param{:name => "quality", :value => "best"}/
-        %param{:name => "bgcolor", :value => "#ffffff"}/
-        %param{:name => "wmode", :value => "transparent"}/
-        %param{:name => "flashvars", :value => "trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com"}/
-        %embed{:allowfullscreen => "false", :allowscriptaccess => "sameDomain", :bgcolor => "#ffffff", :flashvars => "trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com", :height => "100%", :loop => "false", :menu => "false", :name => "global-zeroclipboard-flash-bridge", :pluginspage => "http://www.macromedia.com/go/getflashplayer", :quality => "best", :scale => "exactfit", :src => "/assets/flash/ZeroClipboard.swf?noCache=1411741169523", :type => "application/x-shockwave-flash", :width => "100%", :wmode => "transparent"}

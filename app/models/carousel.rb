@@ -4,7 +4,7 @@ class Carousel < ActiveRecord::Base
   has_attached_file :picture,
                     :url  => '/carousel_pictures/:id/:style_:basename.:extension',
                     :path => ':rails_root/public/carousel_pictures/:id/:style_:basename.:extension',
-                    :styles => { :small => "100x100#", :large => "500x500>", cropped: '' }
+                    :styles => { small: '100x100#', large: '500x500>', cropped: '' }
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 

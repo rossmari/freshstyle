@@ -7,4 +7,8 @@
     = f.text_field :name, class: 'form-control'
 
   .form-group
+    = f.label :picture
+    = f.file_field :picture, class: 'form-control'
+
+  .form-group
     = f.submit t('actions.save'), class: 'btn btn-primary'
