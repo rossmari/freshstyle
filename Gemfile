@@ -42,3 +42,5 @@ gem 'ckeditor', '~> 4.1.0'
 gem 'nested_form'
 gem 'papercrop'
 gem 'rmagick'
+
+gem 'capistrano', '~> 2.15.5'
