@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore database.yml
+config/database.yml
+
 # Ignore all logfiles and tempfiles.
 log/*.*
 /tmp
@@ -31,3 +34,4 @@ test/*.*
 public/assets/*
 public/ckeditor_assets/*
 public/good_pictures/*
+public/carousel_pictures/*
