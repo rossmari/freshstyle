@@ -19,3 +19,4 @@ Rails.application.config.assets.precompile += %w( bootstrap/bootstrap.css)
 Rails.application.config.assets.precompile += %w( bootstrap/bootstrap.css.map)
 
 Rails.application.config.assets.precompile += %w( application/goods/index.css )
+Rails.application.config.assets.precompile += %w( application/goods/show.css )

@@ -1,42 +1,12 @@
-.navbar-wrapper
-  .container
-    .navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
-      .container
-        .navbar-header
-          %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => "#"} Свежий стиль
-        .navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} Главная
-            %li
-              %a{:href => "#contact"} Товары
-            %li
-              %a{:href => "#about"} О нас
-            %li
-              %a{:href => "#contact"} Как оплатить
-          %ul.nav.navbar-nav.navbar-right
-            - if user_signed_in?
-              - if current_user.is_admin
-                %li
-                  = link_to 'Кабинет администратора', admin_root_path
-              %li
-                = link_to destroy_user_session_path, method: :delete do
-                  %span.glyphicon.glyphicon-off
-                  Выход
-            - else
-              = link_to 'Зарегистрироваться', new_registration_path(:user)
+= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
 
+= render partial: 'partials/navbar'
 
-/
-  Carousel
-  \==================================================
+-# Carousel starts here
+
 #myCarousel.carousel.slide{"data-ride" => "carousel"}
-  / Indicators
   %ol.carousel-indicators
     - @carousels.each_with_index do |carousel, index|
       %li{class: ('active' if carousel.main), "data-slide-to" => "#{index}", "data-target" => "#myCarousel"}
@@ -56,15 +26,12 @@
     %span.glyphicon.glyphicon-chevron-left
   %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel", :role => "button"}
     %span.glyphicon.glyphicon-chevron-right
-/ /.carousel
-/
-  Marketing messaging and featurettes
-  \==================================================
-/ Wrap the rest of the page in another container to center all the content.
-.container.marketing
-  / Three columns of text below the carousel
-  .row
 
+-#end of carousel
+
+-#Marketing messaging and featurettes
+.container.marketing
+  .row
     - @categories.each do |category|
       .col-lg-4
         = image_tag(category.picture.url(:icon), style: 'width: 140px; height: 140px;', class: 'img-circle')
@@ -75,7 +42,7 @@
         %p
           = link_to 'Подробнее', categories_path(category), class: 'btn btn-default'
 
-  //START THE FEATURETTES
+  -#START THE FEATURETTES
   - @main_offers.each_with_index do |main_offer, index|
     %hr.featurette-divider/
     .row.featurette
@@ -97,8 +64,8 @@
             = main_offer.content_text
 
   %hr.featurette-divider/
-
   // END THE FEATURETTES
+
   // FOOTER
   %footer
     %p.pull-right
