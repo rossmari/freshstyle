@@ -5,7 +5,7 @@
 //= require jquery_nested_form
 //= require jquery.jcrop
 //= require papercrop
-//= require bootstrap/bootstrap.js
+//= require bootstrap
 
 $(document).ready(function() {
     $('a').tooltip();
