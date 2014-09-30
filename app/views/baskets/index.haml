@@ -30,6 +30,6 @@
         = link_to 'Удалить из корзины', '#', class: 'remove_good_from_basket', data: {good_id: good.id}
 
   = link_to 'Очистить корзину', '#', class: 'clear_basket btn btn-danger'
-  = link_to 'Оформить заказ', '#', class: 'clear_basket btn btn-primary'
+  = link_to 'Оформить заказ', new_order_path, class: 'btn btn-primary'
 - else
   Корзина пуста
