@@ -1,7 +1,11 @@
 class BasketsController < ApplicationController
 
   def index
-    ids  = JSON.parse(cookies['basket'])
+    unless cookies['basket'].blank?
+      ids  = JSON.parse(cookies['basket'])
+    else
+      ids = []
+    end
     @goods = Good.where(id: ids)
   end
 

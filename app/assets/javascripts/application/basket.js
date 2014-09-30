@@ -15,6 +15,11 @@ $(document).ready(function() {
         remove_good(good_id);
     })
 
+    $(document).on('click', '.clear_basket', function(event){
+        event.preventDefault();
+        clear_basket();
+    })
+
     function add_good(good_id){
         localBasket.push(good_id);
         update_basket();
@@ -34,7 +39,7 @@ $(document).ready(function() {
     }
 
     function check_basket(){
-        if(cookie.get('basket') == null)
+        if(cookie.get('basket') == null || cookie.get('basket') == "")
         {
             cookie.set('basket', []);
         }
@@ -42,6 +47,11 @@ $(document).ready(function() {
         {
             localBasket = JSON.parse(cookie.get('basket'));
         }
+    }
+
+    function clear_basket(){
+        localBasket = [];
+        cookie.set('basket', []);
     }
 
 });
