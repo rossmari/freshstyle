@@ -11,6 +11,8 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( admin.js )
 # /admin directory
 Rails.application.config.assets.precompile += %w( admin/sortable_tree/sortable_pack.js)
+# /application directory
+Rails.application.config.assets.precompile += %w( application/basket.js )
 
 # CSS and styles
 # root

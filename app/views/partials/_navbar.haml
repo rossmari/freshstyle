@@ -20,7 +20,11 @@
             %li
               %a{:href => "#contact"} Как оплатить
           %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to 'Корзина', baskets_path
+
             - if user_signed_in?
+
               - if current_user.is_admin
                 %li
                   = link_to 'Кабинет администратора', admin_root_path

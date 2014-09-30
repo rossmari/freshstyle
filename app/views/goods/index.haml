@@ -21,3 +21,5 @@
         = link_to 'Подробнее ->', good_path(good)
       .brand
         = link_to good.category.name, ''
+
+      = link_to 'Добавить в корзину', '#', class: 'add_good_to_basket', data: {good_id: good.id}
