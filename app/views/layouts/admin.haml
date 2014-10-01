@@ -4,16 +4,14 @@
     %meta{ charset: 'utf-8' }
     %meta{ content: 'IE=edge', http: { equiv: 'X-UA-Compatible' } }
     %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport' }
+    %meta{ content: '', name: 'description' }
+    %meta{ content: 'Rossmary', name: 'author' }
     = csrf_meta_tags
 
     %title FreshStyle
 
-    = stylesheet_link_tag 'bootstrap_manifest.css'
-    = stylesheet_link_tag 'admin.css'
-
-    = javascript_include_tag 'admin.js'
-
-    = yield(:assets)
+    = stylesheet_link_tag 'bootstrp', 'admin'
+    = javascript_include_tag 'admin'
 
     -#HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     -#WARNING: Respond.js doesn't work if you view the page via file://

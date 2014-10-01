@@ -33,13 +33,15 @@ gem 'haml', '~> 4.0.5'
 
 gem 'awesome_nested_set', '~> 3.0.1'
 gem 'the_sortable_tree', '~> 2.5.0'
+
+gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'jquery-ui-rails', '~> 5.0.0'
 
 gem 'paperclip', '~> 4.2.0'
 gem 'ckeditor', '~> 4.1.0'
-gem 'nested_form'
-gem 'papercrop'
-gem 'rmagick'
+gem 'nested_form', '~> 0.3.2'
+gem 'papercrop', '~> 0.2.0'
+gem 'rmagick', '~> 2.13.3'
 
 gem 'capistrano', '~> 2.15.5'
 gem 'unicorn'
