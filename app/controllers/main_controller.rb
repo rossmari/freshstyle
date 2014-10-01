@@ -4,7 +4,6 @@ class MainController < ApplicationController
     @carousels = Carousel.all
     @main_offers = MainOffer.all
     @categories = Category.all
-    render layout: false
   end
 
 end

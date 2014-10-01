@@ -1,12 +1,4 @@
-= stylesheet_link_tag 'bootstrap_manifest.css'
-= stylesheet_link_tag 'application.css'
-= javascript_include_tag 'application.js'
-= csrf_meta_tags
-
-= render partial: 'partials/navbar'
-
 -# Carousel starts here
-
 #myCarousel.carousel.slide{"data-ride" => "carousel"}
   %ol.carousel-indicators
     - @carousels.each_with_index do |carousel, index|

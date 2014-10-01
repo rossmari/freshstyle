@@ -7,7 +7,7 @@
     %meta{:content => '', :name => 'description'}/
     %meta{:content => '', :name => 'author'}/
     %link{:href => '../../favicon.ico', :rel => 'icon'}/
-    %title Carousel Template for Bootstrap
+    %title Fresh Style
 
     = stylesheet_link_tag 'bootstrap_manifest.css'
     = stylesheet_link_tag 'application.css'
@@ -16,7 +16,12 @@
 
   %body
     = render partial: 'partials/navbar'
-    %div{class: 'container', style: 'padding-top: 120px;'}
-    %div{ class: 'container' }
+
+    - if controller_name == 'main'
       = yield
+
+    - else
+      %div{class: 'container', style: 'padding-top: 120px;'}
+      %div{ class: 'container' }
+        = yield
 
