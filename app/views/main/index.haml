@@ -1,21 +1,12 @@
-= stylesheet_link_tag 'bootstrap_manifest.css'
-= stylesheet_link_tag 'application.css'
-= javascript_include_tag 'application.js'
-= csrf_meta_tags
-
-= render partial: 'partials/navbar'
-
--# Carousel starts here
-
-#myCarousel.carousel.slide{"data-ride" => "carousel"}
+#myCarousel.carousel.slide{ data: { ride: 'carousel' } }
   %ol.carousel-indicators
     - @carousels.each_with_index do |carousel, index|
-      %li{class: ('active' if carousel.main), "data-slide-to" => "#{index}", "data-target" => "#myCarousel"}
+      %li{ class: ('active' if carousel.main), data: { 'slide-to' => "#{index}", target: '#myCarousel' } }
 
   .carousel-inner
     - @carousels.each_with_index do |carousel, index|
-      %div{class: "item #{'active' if carousel.main}"}
-        %img{:alt => "Slide #{index}", :src => carousel.picture.url(:cropped) }
+      %div{ class: "item #{'active' if carousel.main}" }
+        %img{ alt: "Slide #{index}", src: carousel.picture.url(:cropped) }
         .container
           .carousel-caption
             %h1
@@ -23,14 +14,11 @@
             %p
               = carousel.content_text
 
-  %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
+  %a.left.carousel-control{ data: { slide: 'prev' }, href: '#myCarousel', role: 'button' }
     %span.glyphicon.glyphicon-chevron-left
-  %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel", :role => "button"}
+  %a.right.carousel-control{ data: { slide: 'next' }, href: '#myCarousel', role: 'button' }
     %span.glyphicon.glyphicon-chevron-right
 
--#end of carousel
-
--#Marketing messaging and featurettes
 .container.marketing
   .row
     - @categories.each do |category|
@@ -43,9 +31,8 @@
         %p
           = link_to 'Подробнее', categories_path(category), class: 'btn btn-default'
 
-  -#START THE FEATURETTES
   - @main_offers.each_with_index do |main_offer, index|
-    %hr.featurette-divider/
+    %hr.featurette-divider
     .row.featurette
       - if index.odd?
         .col-md-7
@@ -64,15 +51,13 @@
           %p.lead
             = main_offer.content_text
 
-  %hr.featurette-divider/
-  // END THE FEATURETTES
+  %hr.featurette-divider
 
-  // FOOTER
   %footer
     %p.pull-right
-      %a{:href => "#"} Back to top
+      = link_to 'Back to top', '#'
     %p
-      © 2014 ArVi Studio
-      -#%a{:href => "#"} Privacy
+      © 2014 FreshStyle
+      -#%a{href: "#"} Privacy
       -#·
-      -#%a{:href => "#"} Terms
+      -#%a{href: "#"} Terms
