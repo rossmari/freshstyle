@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+  root 'main#index'
+
+  devise_for :users, path: :admin
 
   resources :categories
-  devise_for :users
   resources :users
+  resources :pages
+  resources :brands
+  resources :goods
+  resources :baskets
 
   namespace :admin do
+    root to: 'categories#index'
+
     resources :users
     resources :categories do
       collection do
@@ -14,9 +23,14 @@ Rails.application.routes.draw do
     end
 
     resources :goods
+    resources :pages
+    resources :brands
+    resources :countries
+    resources :sizes
+    resources :good_images
+    resources :orders
+    resources :carousels
+    resources :main_offers
 
   end
-
-  root 'main#index'
-
 end

@@ -1,0 +1,25 @@
+= stylesheet_link_tag 'application/goods/index'
+
+- @goods.each do | good|
+  .row.good_item.border_bottom
+    .col-md-5
+      = image_tag(good.main_image.picture.url(:main_thumb))
+    .col-md-7
+      .title.border_bottom
+        = good.title
+      .brand
+        = "#{good.brand.title} (#{good.brand.country.name})"
+      .info
+        .price
+          = "Р #{good.price}"
+        .price
+          = " Размеры: #{good.sizes.map(&:name).join(' - ')} "
+        .price
+          = " На складе осталось: #{good.count_in_stock}"
+
+      .brand
+        = link_to 'Подробнее ->', good_path(good)
+      .brand
+        = link_to good.category.name, ''
+
+      = link_to 'Добавить в корзину', '#', class: 'add_good_to_basket', data: {good_id: good.id}

@@ -261,12 +261,14 @@ ru:
    edit: Изменить
    delete: Удалить
    back: Назад
-   save: Сохранение
+   save: Сохранить
 
   user:
     users: Пользователи
     email: Адрес электронной почты
     show: Просмотр пользователя
+    edit: Редактирование пользователя
+    new: Новый пользователь
 
   category:
     categories: Категории
@@ -279,6 +281,37 @@ ru:
     edit: Изменение товара
     new: Новый товар
     show: Просмотр товара
+
+  brand:
+    brands: Бренды
+    edit: Изменение бренда
+    new: Новый бренд
+    show: Просмотр бренда
+
+  country:
+    countries: Страны
+    edit: Изменение страны
+    new: Новая страна
+    show: Просмотр страны
+
+  size:
+    sizes: Размеры
+    edit: Изменение размера
+    new: Новый размер
+
+  page:
+    pages: Страницы
+    edit: Редактирование страницы
+    new: Новая страница
+
+  good_image:
+    pages: Фотографии товара
+    edit: Изменение фотографий
+
+  order:
+    orders: Заказы
+    edit: Редактирование заказа
+    new: Новый заказ
 
   activerecord:
       models:
@@ -298,5 +331,23 @@ ru:
           design_country: Страна дизайна
           name: Название товара
           price: Цена
-          count_in_store: Количество на складе
+          count_in_stock: Количество на складе
           active: В наличии
+          brand: Бренд
+          title: Название товара
+          season: Сезон
+          percents_discount: Скидка в процентах
+          monetary_discount: Скидка в деньгах
+          images: Изображения
+        brand:
+          title: Название бренда
+        country:
+          name: Название страны
+        size:
+          name: Размер
+        order:
+          created_at: Дата создания
+          user: Владелец
+          goods: Товары
+          price: Цена
+

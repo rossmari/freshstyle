@@ -1,0 +1,22 @@
+= stylesheet_link_tag 'admin/goods_images/table'
+
+= nested_form_for @good, url: admin_good_image_path(id: @good.id), method: :put  do |f|
+
+  = render partial: 'partials/errors', locals: {model: @good}
+
+  = f.hidden_field :id
+
+  .form-group
+    = f.label :images
+
+    %table
+      = f.fields_for :images do |image|
+        = image.file_field :picture#, class: 'btn btn-primary'
+        Главное изображение
+        = image.radio_button :main_image, true, checked: image.object.main_image
+        - if image.object.picture.present?
+          = image_tag image.object.picture(:admin_thumb)
+        = image.link_to_remove 'Удалить изображение', class: 'btn btn-danger btn-sm'
+    =  f.link_to_add 'Добавить фотографию', :images, class: 'btn btn-primary btn-sm'
+
+  = f.submit t('actions.save'), class: 'btn btn-primary'

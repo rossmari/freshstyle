@@ -1,0 +1,14 @@
+= stylesheet_link_tag 'application/goods/show'
+
+.row
+  = image_tag(@good.main_image.picture.url(:big), class: 'good_image')
+  = @good.title
+  = @good.brand.title
+  = @good.sizes.map(&:name).join(',')
+  = @good.count_in_stock
+  = @good.design_country.name
+  = @good.origin_country.name
+  = @good.color
+  = @good.consist
+  = @good.season
+  = @good.price

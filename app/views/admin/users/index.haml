@@ -1,24 +1,28 @@
 = content_for :page_title do
   = t('user.users')
 
-= content_for :side_bar do
-  = add_button(new_admin_user_path)
+%h1.page-header
+  = t('user.users')
 
-= content_for :main_content do
-
-  %table.table.table-bordered.small
+.table-responsive
+  %table.table.table-striped
     %thead
       %tr
+        %th(width=10)
+          ID
         %th
           = t('user.email')
-        %th
-          = t('actions.title')
+        %th(width=70)
 
     %tbody
       - @users.each do |user|
         %tr
+          %td= user.id
           %td= user.email
           %td
             = show_button(admin_user_path(user))
             = edit_button(edit_admin_user_path(user))
             = delete_button(admin_user_path(user))
+
+= content_for :side_bar do
+  = add_button(new_admin_user_path)

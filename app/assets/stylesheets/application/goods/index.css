@@ -1,0 +1,41 @@
+.row.good_item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(238, 238, 238, 0.7);
+}
+
+.border_bottom {
+    border: 0 solid orange;
+    border-bottom-width: 1px;
+    margin-bottom: 5px;
+}
+
+.good_item .title {
+    text-align: left;
+    font-size: 20pt;
+    color: rgb(90, 65, 65);
+}
+
+.good_item .brand {
+    text-align: right;
+    color: #4F6B77;
+}
+
+.good_item .info
+{
+    font-size: 14pt;
+    border: 0 solid orange;
+    border-bottom-width: 1px;
+}
+
+.good_item .price
+{
+    color: rgb(124, 63, 63);
+    display: inline;
+    border: 0 solid orange;
+    border-right-width: 1px;
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+

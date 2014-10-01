@@ -1,56 +1,64 @@
 = content_for :page_title do
   = t('good.goods')
 
-= content_for :main_content do
+%h1.page-header
+  = t('good.goods')
 
-  %table.table.table-bordered.small
+.table-responsive
+  %table.table.table-striped
     %thead
       %tr
-        %th
+        %th(width=10)
           ID
         %th
-          = human_name('name')
+          = human_name('title')
+        %th
+          = human_name('size')
         %th
           = human_name('article')
         %th
           = human_name('color')
         %th
-          = human_name('size')
-        %th
           = human_name('consist')
+        %th
+          = human_name('brand')
         %th
           = human_name('origin_country')
         %th
           = human_name('design_country')
         %th
-          = human_name('count_in_store')
+          = human_name('count_in_stock')
         %th
-          = human_name('active')
+          = human_name('season')
         %th
           = human_name('price')
         %th
-          = t('actions.title')
+          = human_name('images')
+        %th(width=70)
 
     %tbody
       - @goods.each do |good|
         %tr
           %td= good.id
-          %td= good.name
+          %td= good.title
+          %td= good.sizes.map(&:name).join('; ')
           %td= good.article
           %td= good.color
-          %td= good.size
           %td= good.consist
+          %td= good.brand.title
           %td= good.origin_country.name
           %td= good.design_country.name
-          %td= good.count_in_store
-          %td= good.active ? 'Да' : 'Нет'
+          %td= good.count_in_stock
+          %td= good.season
           %td= good.price
+          %td
+            = good.images.count
+            = link_to '(Изменить)', edit_admin_good_image_path(id: good.id)
 
           %td
             = show_button(admin_good_path(good))
             = edit_button(edit_admin_good_path(good))
             = delete_button(admin_good_path(good))
-
 
 = content_for :side_bar do
   = add_button(new_admin_good_path)

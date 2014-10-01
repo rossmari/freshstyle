@@ -1,0 +1,24 @@
+= form_for [:admin, @brand]  do |f|
+
+  = render partial: 'partials/errors', locals: { model: @brand }
+
+  .row
+    .col-md-4
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+
+  .row
+    .col-md-4
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control'
+
+  .row
+    .col-md-4
+      .form-group
+        = f.label :country
+        = f.collection_select :country_id, Country.order(:name), :id, :name, {}, class: 'form-control'
+
+  .form-group
+    = f.submit t('actions.save'), class: 'btn btn-primary'

@@ -1,0 +1,18 @@
+= form_for [:admin, @page] do |f|
+
+  = render partial: 'partials/errors', locals: { model: @page }
+
+  .row
+    .col-md-4
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+
+  .row
+    .col-md-12
+      .form-group
+        = f.label :content
+        = f.cktext_area :content, class: 'form-control'
+
+  .form-group
+    = f.submit t('actions.save'), class: 'btn btn-primary'

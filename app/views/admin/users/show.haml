@@ -5,9 +5,7 @@
   = back(admin_users_path)
   = edit_button(edit_admin_user_path(@user))
 
-= content_for :main_content do
-
-  %p
-    %strong
-      Email:
-    = @user.email
+%p
+  %strong
+    Email:
+  = @user.email
