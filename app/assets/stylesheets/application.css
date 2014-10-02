@@ -1,4 +1,4 @@
 /*
-    *= require application/carousel.css
-    *= require jquery.jcrop.css
-*/
+ *= require_tree ./application/.
+ *= require jquery.jcrop.css
+ */

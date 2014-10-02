@@ -6,7 +6,4 @@
 //= require jquery.jcrop
 //= require papercrop
 //= require bootstrap
-
-$(document).ready(function() {
-    $('a').tooltip();
-});
+//= require_tree ./admin/.
