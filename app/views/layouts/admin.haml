@@ -4,14 +4,14 @@
     %meta{ charset: 'utf-8' }
     %meta{ content: 'IE=edge', http: { equiv: 'X-UA-Compatible' } }
     %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport' }
+    %meta{ content: 'https://github.com/rossmari', name: 'description' }
+    %meta{ content: 'Rossmari', name: 'author' }
     = csrf_meta_tags
 
-    %title FreshStyle
+    %title Fresh Style
 
-    = stylesheet_link_tag 'bootstrap_manifest.css'
-    = stylesheet_link_tag 'admin.css'
-
-    = javascript_include_tag 'admin.js'
+    = stylesheet_link_tag 'bootstrap_manifest', 'admin'
+    = javascript_include_tag 'admin'
 
     = yield(:assets)
 
