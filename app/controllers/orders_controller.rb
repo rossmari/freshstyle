@@ -20,23 +20,26 @@ class OrdersController < ApplicationController
   end
 
   def create
+    unless cookies['basket'].blank?
+      ids  = JSON.parse(cookies['basket'])
+    else
+      ids = []
+    end
+    goods = Good.where(id: ids)
     @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to admin_orders_path, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    @order.goods = goods
+    if @order.save
+      cookies['basket'] = ''
+      redirect_to root_path, notice: 'Order was successfully created.'
+    else
+      render :new
     end
   end
 
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to admin_orders_path, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -47,6 +50,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit()
+      params.require(:order).permit(:name, :second_name, :family, :second_name, :city, :post_index, :street)
     end
 end

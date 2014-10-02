@@ -5,11 +5,16 @@ class Order < ActiveRecord::Base
   has_many :order_goods
   has_many :goods, through: :order_goods
 
-  # === VALIDATORS
-  validates_presence_of :user
-
   def price
     self.goods.sum(:price)
+  end
+
+  def full_name
+    "#{name} #{family} #{second_name}"
+  end
+
+  def address
+    "#{post_index} #{city} #{street}"
   end
 
 end

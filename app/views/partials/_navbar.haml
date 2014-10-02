@@ -8,11 +8,9 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Свежий стиль
+          %a.navbar-brand{:href => root_path} Свежий стиль
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
-            %li.active
-              = link_to 'Главная', root_path
             %li
               = link_to t('good.goods'), goods_path
             %li

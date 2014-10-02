@@ -8,7 +8,8 @@
   - @goods.each do | good|
     .row.good_item.border_bottom
       .col-md-5
-        = image_tag(good.main_image.picture.url(:main_thumb))
+        - if good.main_image.present?
+          = image_tag(good.main_image.picture.url(:main_thumb))
       .col-md-7
         .title.border_bottom
           = good.title

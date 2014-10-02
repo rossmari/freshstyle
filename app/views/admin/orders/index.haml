@@ -17,6 +17,10 @@
         %th
           = human_name('price')
         %th
+          = human_name('name')
+        %th
+          = human_name('address')
+        %th
           = human_name('created_at')
         %th(width=70)
 
@@ -24,9 +28,13 @@
       - @orders.each do |order|
         %tr
           %td= order.id
-          %td= link_to order.user.name, admin_user_path(order.user)
+          %td
+            [use no user order]
+            -#= link_to order.user.name, admin_user_path(order.user)
           %td= raw(order.goods.map{|g| link_to(g.title, admin_good_path(g))}.join(', '))
           %td= order.price
+          %td= order.full_name
+          %td= order.address
           %td= l(order.created_at, format: :short)
           %td
             = show_button(admin_order_path(order))

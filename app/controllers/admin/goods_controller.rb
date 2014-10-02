@@ -66,6 +66,7 @@ class Admin::GoodsController < Admin::BaseController
                                  :origin_country_id,
                                  :design_country_id,
                                  :count_in_stock,
+                                 :category_id,
                                  :price, :percents_discount, :monetary_discount)
   end
 end
