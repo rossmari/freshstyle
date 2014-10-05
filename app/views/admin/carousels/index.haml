@@ -1,7 +1,4 @@
-= content_for :page_title do
-  = t('carousel.carousels')
-
-%h1.page-header
+%h2.page-header
   = t('carousel.carousels')
 
 .table-responsive
@@ -10,8 +7,6 @@
       %tr
         %th(width=10)
           ID
-        %th
-          = human_name('id')
         %th
           = human_name('header')
         %th
@@ -32,7 +27,7 @@
           %td= carousel.content_text
           %td= carousel.main
           %td= image_tag(carousel.picture.url(:small))
-          %td= l(carousel.created_at, format: :short)
+          %td= l(carousel.created_at, format: :long)
           %td
             = edit_button(edit_admin_carousel_path(carousel))
             = delete_button(admin_carousel_path(carousel))

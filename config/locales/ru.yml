@@ -312,6 +312,9 @@ ru:
     orders: Заказы
     edit: Редактирование заказа
     new: Новый заказ
+  carousel:
+    carousels: Главный слайдер
+    edit: Изменение изображения слайдера
 
   activerecord:
       models:
@@ -350,4 +353,9 @@ ru:
           user: Владелец
           goods: Товары
           price: Цена
-
+        carousel:
+          header: Заголовок текста
+          content_text: Текст
+          main: Главный слайд
+          image: Изображение слайда
+          created_at: Дата создания
