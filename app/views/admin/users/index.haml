@@ -1,7 +1,4 @@
-= content_for :page_title do
-  = t('user.users')
-
-%h1.page-header
+%h2.page-header
   = t('user.users')
 
 .table-responsive
@@ -11,14 +8,26 @@
         %th(width=10)
           ID
         %th
-          = t('user.email')
+          = human_name('email')
+        %th
+          = human_name('name')
+        %th
+          = human_name('is_admin')
+        %th
+          = human_name('last_sign_in_at')
+        %th
+          = human_name('created_at')
         %th(width=70)
 
     %tbody
       - @users.each do |user|
         %tr
           %td= user.id
+          %td= user.name
           %td= user.email
+          %td= user.is_admin
+          %td= user.last_sign_in_at
+          %td= l(user.created_at, format: :long)
           %td
             = show_button(admin_user_path(user))
             = edit_button(edit_admin_user_path(user))

@@ -1,7 +1,4 @@
-= content_for :page_title do
-  = t('order.orders')
-
-%h1.page-header
+%h2.page-header
   = t('order.orders')
 
 .table-responsive
@@ -38,8 +35,4 @@
           %td= l(order.created_at, format: :short)
           %td
             = show_button(admin_order_path(order))
-            -#= edit_button(edit_admin_good_path(good))
             = delete_button(admin_order_path(order))
-
--#= content_for :side_bar do
--#  = add_button(new_admin_good_path)

@@ -12,6 +12,15 @@ class Carousel < ActiveRecord::Base
   validates_attachment_presence :picture
   validates_attachment_content_type :picture, :content_type => /\Aimage/
 
+  # == BEFORE FILTERS
+  before_save :refresh_main
+
+  def refresh_main
+    if self.main
+      Carousel.update_all(main: false)
+    end
+  end
+
   def picture_geometry(style = :original)
     @geometry ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(picture.path(style))

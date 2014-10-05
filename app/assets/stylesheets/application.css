@@ -1,4 +1,6 @@
 /*
  *= require_tree ./application/.
  *= require jquery.jcrop.css
+ *= require application/devise.css
+ *= require application/styles.css
  */

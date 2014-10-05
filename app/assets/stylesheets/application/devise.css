@@ -1,0 +1,22 @@
+.form-signin {
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 4px
+}

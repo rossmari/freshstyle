@@ -17,4 +17,8 @@ class Order < ActiveRecord::Base
     "#{post_index} #{city} #{street}"
   end
 
+  def self.count_of_new
+    0
+  end
+
 end
