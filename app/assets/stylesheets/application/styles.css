@@ -1,15 +1,25 @@
-.main_logo_container{
-    width: 100%;
-    background: #fff;
-}
-
-.header{
+/* logo block */
+.header {
     background-color: #fff;
     position: relative;
     height: 140px;
     width: 980px;
     margin: 0 auto;
 }
+
+.header div {
+    display: inline-block;
+    width: 320px;
+    height: 140px;
+    background-color: #7aedff;
+}
+
+.header .center_logo {
+    background: url('/assets/non-transparent-background.png') no-repeat;
+    background-size: 200px;
+    background-position-x: 50%;
+}
+/*end logo block*/
 
 .menu {
     position: relative;
@@ -25,6 +35,7 @@
         width: 50%;
         margin: 0 auto;
         line-height: 45px;
+        text-align: center;
     }
     .menu li
     {

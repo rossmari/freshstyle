@@ -1,1 +1,8 @@
-= link_to 'На главную', root_path
+%div.header
+  %div
+    = link_to 'горячие новинки', root_path
+
+  = link_to root_path, title: 'На главную' do
+    %div.center_logo
+
+  %div
