@@ -25,7 +25,12 @@
 
     = render partial: 'partials/common_navbar'
 
+  - if controller_name == 'main'
     = yield
+  - else
+    %div.row.content-wrapper
+      .col-md-offset-3.col-md-6.content-block
+        = yield
 
 
   = render partial: 'partials/footer_menu'

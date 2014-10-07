@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002134238) do
+ActiveRecord::Schema.define(version: 20141007143841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "back_calls", force: true do |t|
+    t.string   "phone"
+    t.boolean  "answered"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "brands", force: true do |t|
     t.string   "title",       null: false
