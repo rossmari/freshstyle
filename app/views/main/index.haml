@@ -19,47 +19,8 @@
   = link_to '#myCarousel', class: 'right carousel-control', role: 'button', data: { slide: 'next' } do
     %span.glyphicon.glyphicon-chevron-right
 
-
-
--#.container.marketing
-  .row
-    - @categories.each do |category|
-      .col-lg-4
-        = image_tag(category.picture.url(:icon), style: 'width: 140px; height: 140px;', class: 'img-circle')
-        %h2
-          = category.name
-        %p
-          Небольшое описание категории товара
-        %p
-          = link_to 'Подробнее', categories_path(category), class: 'btn btn-default'
-
-  - @main_offers.each_with_index do |main_offer, index|
-    %hr.featurette-divider
-    .row.featurette
-      - if index.odd?
-        .col-md-7
-          %h2.featurette-heading
-            = main_offer.header
-          %p.lead
-            = main_offer.content_text
-        .col-md-5
-          = image_tag(main_offer.picture.url(:main_thumb), class: 'featurette-image img-responsive')
-      - else
-        .col-md-5
-          = image_tag(main_offer.picture.url(:main_thumb), class: 'featurette-image img-responsive')
-        .col-md-7
-          %h2.featurette-heading
-            = main_offer.header
-          %p.lead
-            = main_offer.content_text
-
-  %hr.featurette-divider/
-
-  %footer
-    %p.pull-right
-      = link_to 'Наверх', '#'
-    %p
-      © 2014 Fresh Style
-      -#%a{:href => "#"} Privacy
-      -#·
-      -#%a{:href => "#"} Terms
+.row
+  .col-md-5
+  .col-md-2
+    to bottom
+  .col-md-5
