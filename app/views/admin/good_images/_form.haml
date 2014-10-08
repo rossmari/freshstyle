@@ -1,5 +1,3 @@
-= stylesheet_link_tag 'admin/table'
-
 = nested_form_for @good, url: admin_good_image_path(id: @good.id), method: :put  do |f|
 
   = render partial: 'partials/errors', locals: {model: @good}

@@ -9,35 +9,18 @@
       = link_to 'Оплата и доставка', '#'
   .col-md-4
 
-.categories_box
+.categories_box.category_box_toggle
   .col-md-8
-    .col-md-4
-      .category_header
-        Категория 1
-      .category_item
-        Категория 1.1
-        Категория 1.2
-        Категория 1.3
-        Категория 1.4
-        Категория 1.5
-    .col-md-4
-      .category_header
-        Категория 1
-      .category_item
-        Категория 1.1
-        Категория 1.2
-        Категория 1.3
-        Категория 1.4
-        Категория 1.5
-    .col-md-4
-      .category_header
-        Категория 1
-      .category_item
-        Категория 1.1
-        Категория 1.2
-        Категория 1.3
-        Категория 1.4
-        Категория 1.5
+
+    - Category.roots.map{|c| [c, c.children]}.flatten.in_groups_of(13, false).each do |group|
+      .col-md-4
+        - group.each do |category|
+          - if category.root?
+            .category_header
+              = category.name
+          - else
+            .category_item
+              = link_to category.name, category_goods_path(category)
 
   .col-md-4.text-center
     = image_tag('eva.jpg')

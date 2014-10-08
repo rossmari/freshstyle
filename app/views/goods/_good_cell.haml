@@ -1,21 +1,22 @@
 .col-md-3.text-center
   .row.image
-    = image_tag('eva.jpg')
+    = image_tag(good.main_image.picture.url(:list))
   .row
-    = link_to 'More', good_path(Good.first)
+    = link_to 'Подробнее', good_path(good)
   .row
-    Escada
+    = good.brand.title
   .row
-    Category
+    = @category.name
 
   .row.prices
     .col-md-offset-2
     .col-md-4
-      24 000
+      = good.price
     .col-md-4
-      23 500
+      = good.price
   .row.discount_procents
   .row.sizes
-    Sizes
+    Размеры
   .row
-    size1 size2
+    - good.sizes.each do |size|
+      = size.name

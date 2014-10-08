@@ -1,26 +1,32 @@
 .row
-  Short info and pagination
+  .col-md-6
+    = "главная / #{@good.category.name} / #{@good.article}"
+  .col-md-6
+    [TODO : next good prev good]
 
 .row
   .col-md-2
-    images
+    - @good.images.each do |image|
+      .row
+        = image_tag(image.picture.url(:preview))
   .col-md-6
-    big image
+    = image_tag(@good.main_image.picture.url(:big))
   .col-md-4
-    information
+    = "#{@good.category.name} #{@good.brand.title}"
     .row
-      Good Type, Good Brand
+      = "Артикул #{@good.article}"
     .row
-      good price + good discount
+      = "#{@good.price} -50% #{@good.price}"
     .row
-      Choose Size:
+      Выберите размер:
     .row
-      Sizes
+      - @good.sizes.each do |size|
+        = size.name
     .row
-      = link_to 'Sizes talbe', '#'
+      = link_to 'Таблица размеров', '#'
     .row
-      = link_to 'Add to korzina', '#'
+      = link_to 'Добавить в корзину', '#'
     .row
-      consist and conditions
+      [TODO: block with consist and conditions]
     .row
-      likes and sharing
+      [TODO: block with likes or share]

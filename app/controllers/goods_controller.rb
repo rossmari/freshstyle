@@ -4,7 +4,9 @@ class GoodsController < ApplicationController
 
   def index
     if params[:category_id].present?
-      @goods = Good.by_category(2)
+      @goods = []
+      20.times{@goods << Good.first }
+      @category = Category.find(params[:category_id])
     else
       @goods = Good.all
     end
