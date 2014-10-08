@@ -1,12 +1,26 @@
 .row
-  = image_tag(@good.main_image.picture.url(:big), class: 'good_image')
-  = @good.title
-  = @good.brand.title
-  = @good.sizes.map(&:name).join(',')
-  = @good.count_in_stock
-  = @good.design_country.name
-  = @good.origin_country.name
-  = @good.color
-  = @good.consist
-  = @good.season
-  = @good.price
+  Short info and pagination
+
+.row
+  .col-md-2
+    images
+  .col-md-6
+    big image
+  .col-md-4
+    information
+    .row
+      Good Type, Good Brand
+    .row
+      good price + good discount
+    .row
+      Choose Size:
+    .row
+      Sizes
+    .row
+      = link_to 'Sizes talbe', '#'
+    .row
+      = link_to 'Add to korzina', '#'
+    .row
+      consist and conditions
+    .row
+      likes and sharing

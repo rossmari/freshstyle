@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :admin
 
-  resources :categories
+  resources :categories do
+    resources :goods
+  end
   resources :users
   resources :pages
   resources :brands
@@ -12,9 +14,12 @@ Rails.application.routes.draw do
   resources :baskets
   resources :orders
   resources :feedbacks
+  resources :back_calls
+  resources :client_messages
 
   namespace :admin do
     root to: 'categories#index'
+
 
     resources :users
     resources :categories do
