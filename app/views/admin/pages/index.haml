@@ -1,0 +1,25 @@
+%h2.page-header
+  = t('page.pages')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('title')
+        %th(width=50)
+
+    %tbody
+      - @pages.each do |page|
+        %tr
+          %td= page.id
+          %td= page.title
+
+          %td
+            = edit_button(edit_admin_page_path(page))
+            = delete_button(admin_page_path(page))
+
+= content_for :side_bar do
+  = add_button(new_admin_page_path)

@@ -1,0 +1,10 @@
+= content_for :page_title do
+  = t('size.new')
+
+%h1.page-header
+  = t('size.new')
+
+= render 'form'
+
+= content_for :side_bar do
+  = back(admin_sizes_path)

@@ -6,7 +6,12 @@ class CreateCategories < ActiveRecord::Migration
       t.integer :lft
       t.integer :rgt
       t.integer :depth # this is optional.
+
+      t.timestamps
     end
+
+    add_index :categories, :rgt
+    add_index :categories, :parent_id
   end
 
   def self.down

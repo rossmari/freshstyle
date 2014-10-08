@@ -56,6 +56,17 @@ class Admin::GoodsController < Admin::BaseController
   end
 
   def good_params
-    params.require(:good).permit(:name, :color, :article, :size, :consist, :origin_country_id, :design_country_id, :count_in_store, :active, :price)
+    params.require(:good).permit(:title,
+                                 :color,
+                                 :article,
+                                 {size_ids: []},
+                                 :season,
+                                 :brand_id,
+                                 :consist,
+                                 :origin_country_id,
+                                 :design_country_id,
+                                 :count_in_stock,
+                                 :category_id,
+                                 :price, :percents_discount, :monetary_discount)
   end
 end

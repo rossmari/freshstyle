@@ -11,9 +11,28 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore database.yml
+config/database.yml
+
 # Ignore all logfiles and tempfiles.
-/log/*.log
+log/*.*
 /tmp
-.idea/
-log/
-public/
+
+# Ignore all test files
+test/
+test/*.*
+
+# Developers env
+.ruby-version
+.idea
+*.DS_Store
+
+# VM
+.vagrant
+
+# Assets
+public/assets/*
+public/ckeditor_assets/*
+public/good_pictures/*
+public/carousel_pictures/*
+public/category_pictures/*

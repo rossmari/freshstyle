@@ -1,0 +1,28 @@
+---
+- name: Ensure that packanges required by rbenv are installed
+  sudo: yes
+  action: apt name={{item}}
+  with_items:
+    - curl
+    - autoconf
+    - bison
+    - build-essential
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - zlib1g-dev
+    - libncurses5-dev
+- name: install rbenv
+  git: repo=git://github.com/sstephenson/rbenv.git dest=~/.rbenv
+- name: install ruby-build
+  git: repo=git://github.com/sstephenson/ruby-build.git dest=~/.rbenv/plugins/ruby-build
+- name: add rbenv to path
+  shell: echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+- name: enable shims
+  shell: echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+- name: reload shell
+  shell: bash -lc "source ~/.bash_profile"
+- name: install ruby
+  shell: bash -lc "rbenv install 2.1.2"
+- name: set default ruby
+  shell: bash -lc "rbenv global 2.1.2"

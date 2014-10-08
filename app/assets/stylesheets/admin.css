@@ -1,5 +1,4 @@
-/* ...
-    *= require admin/bootstrap/bootstrap.css
-    *= require jquery-ui
-    *= require admin/custom
-*/
+/*
+ *= require_tree ./admin/.
+ *= require jquery.jcrop.css
+ */

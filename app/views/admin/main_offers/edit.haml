@@ -1,0 +1,10 @@
+= content_for :page_title do
+  = t('main_offer.edit')
+
+%h1.page-header
+  = t('main_offer.edit')
+
+= render 'form'
+
+= content_for :side_bar do
+  = back(admin_main_offers_path)

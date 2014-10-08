@@ -1,0 +1,11 @@
+-# for future , now it's not used, we don't change an order
+= form_for [:admin, @order]  do |f|
+
+  = render partial: 'partials/errors', locals: { model: @order }
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.submit t('actions.save'), class: 'btn btn-primary'

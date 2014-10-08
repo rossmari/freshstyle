@@ -1,14 +1,15 @@
 = content_for :assets do
-  = javascript_include_tag 'admin/sortable_tree/sortable_pack.js'
-  = stylesheet_link_tag 'admin/sortable_tree/sortable_pack'
+  = javascript_include_tag 'sortable_pack'
+  = stylesheet_link_tag 'sortable_pack'
 
 = content_for :page_title do
   = t('category.categories')
 
-= content_for :main_content do
+%h1.page-header
+  = t('category.categories')
 
-  %ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_admin_categories_url } }
-    = sortable_tree @categories, title: :name
+%ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_admin_categories_url } }
+  = sortable_tree @categories, title: :name
 
 = content_for :side_bar do
   = add_button(new_admin_category_path)

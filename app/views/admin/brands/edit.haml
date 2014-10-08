@@ -1,0 +1,10 @@
+= content_for :page_title do
+  = t('brand.edit')
+
+%h1.page-header
+  = t('brand.edit')
+
+= render 'form'
+
+= content_for :side_bar do
+  = back(admin_brands_path)

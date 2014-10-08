@@ -1,0 +1,24 @@
+%h2.page-header
+  = t('size.sizes')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('name')
+        %th(width=50)
+
+    %tbody
+      - @sizes.each do |size|
+        %tr
+          %td= size.id
+          %td= size.name
+          %td
+            = edit_button(edit_admin_size_path(size))
+            = delete_button(admin_size_path(size))
+
+= content_for :side_bar do
+  = add_button(new_admin_size_path)

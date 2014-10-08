@@ -1,0 +1,33 @@
+- if @goods.any?
+  .row
+    = "В корзине #{@goods.count} товаров. Общая стоймость #{@goods.sum(:price)}"
+
+  - @goods.each do | good|
+    .row.good_item.border_bottom
+      .col-md-5
+        - if good.main_image.present?
+          = image_tag(good.main_image.picture.url(:main_thumb))
+      .col-md-7
+        .title.border_bottom
+          = good.title
+        .brand
+          = "#{good.brand.title} (#{good.brand.country.name})"
+        .info
+          .price
+            = "Р #{good.price}"
+          .price
+            = " Размеры: #{good.sizes.map(&:name).join(' - ')} "
+          .price
+            = " На складе осталось: #{good.count_in_stock}"
+
+        .brand
+          = link_to 'Подробнее ->', good_path(good)
+        .brand
+          = link_to good.category.name, ''
+
+        = link_to 'Удалить из корзины', '#', class: 'remove_good_from_basket', data: {good_id: good.id}
+
+  = link_to 'Очистить корзину', '#', class: 'clear_basket btn btn-danger'
+  = link_to 'Оформить заказ', new_order_path, class: 'btn btn-primary'
+- else
+  Корзина пуста

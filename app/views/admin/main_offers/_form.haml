@@ -1,0 +1,18 @@
+= form_for [:admin, @main_offer]  do |f|
+
+  = render partial: 'partials/errors', locals: { model: @main_offer }
+
+  .form-group
+    = f.label :header
+    = f.text_field :header, class: 'form-control'
+
+  .form-group
+    = f.label :content_text
+    = f.text_field :content_text, class: 'form-control'
+
+  .form-group
+    = f.label :picture
+    = f.file_field :picture, class: 'form-control'
+
+  .form-group
+    = f.submit t('actions.save'), class: 'btn btn-primary'

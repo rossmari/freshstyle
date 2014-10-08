@@ -1,0 +1,29 @@
+.navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.navbar-text
+          + 7 (913) 594-09-03
+        %li
+          = link_to 'Обратная связь', new_feedback_path
+
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to 'Ваша корзина', baskets_path
+
+        - if user_signed_in?
+
+          - if current_user.is_admin
+            %li
+              = link_to 'Кабинет администратора', admin_root_path
+          %li
+            = link_to 'Выход', destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to 'Вход', new_user_session_path

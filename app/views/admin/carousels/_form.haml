@@ -1,0 +1,55 @@
+= form_for [:admin, @carousel]  do |f|
+
+  = render partial: 'partials/errors', locals: { model: @carousel }
+
+  .form-group
+    = f.label :header
+    = f.text_field :header, class: 'form-control'
+
+  .form-group
+    = f.label :content_text
+    = f.text_field :content_text, class: 'form-control'
+
+  .form-group
+    = f.label :main
+    = f.check_box :main, class: 'form-control'
+
+  .form-group
+    = f.label :picture
+    = f.file_field :picture, class: 'form-control'
+
+  - unless @carousel.new_record?
+    = image_tag @carousel.picture.url(:large), :id => "cropbox"
+
+    - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+      = f.hidden_field attribute, :id => attribute
+
+  .form-group
+    = f.submit t('actions.save'), class: 'btn btn-primary'
+
+  - unless @carousel.new_record?
+    :javascript
+      $(function() {
+
+        var hratio = "#{@carousel.picture_geometry(:original).height}" /  "#{@carousel.picture_geometry(:large).height}";
+        var wratio = "#{@carousel.picture_geometry(:original).width}" /  "#{@carousel.picture_geometry(:large).width}";
+        $('#cropbox').Jcrop({
+          onChange: update_crop,
+          onSelect: update_crop,
+          setSelect: [0, 0, 100, 100],
+          aspectRatio: 0,
+          maxSize: [0, 700 / hratio ]
+        });
+
+
+      function update_crop(coords) {
+        var rx = 100/coords.w;
+        var ry = 100/coords.h;
+
+
+        $("#crop_x").val(Math.round(coords.x * hratio));
+        $("#crop_y").val(Math.round(coords.y * wratio));
+        $("#crop_w").val(Math.round(coords.w * hratio));
+        $("#crop_h").val(Math.round(coords.h * wratio));
+      }
+      });

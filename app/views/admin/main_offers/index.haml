@@ -1,0 +1,35 @@
+%h2.page-header
+  = t('main_offer.main_offers')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('id')
+        %th
+          = human_name('header')
+        %th
+          = human_name('content_text')
+        %th
+          = human_name('image')
+        %th
+          = human_name('created_at')
+        %th(width=70)
+
+    %tbody
+      - @main_offers.each do |main_offer|
+        %tr
+          %td= main_offer.id
+          %td= main_offer.header
+          %td= main_offer.content_text
+          %td= image_tag(main_offer.picture.url(:admin_thumb))
+          %td= l(main_offer.created_at, format: :short)
+          %td
+            = edit_button(edit_admin_main_offer_path(main_offer))
+            = delete_button(admin_main_offer_path(main_offer))
+
+= content_for :side_bar do
+  = add_button(new_admin_main_offer_path)

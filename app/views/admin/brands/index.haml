@@ -1,0 +1,31 @@
+%h2.page-header
+  = t('brand.brands')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('title')
+        %th
+          = human_name('description')
+        %th
+          = human_name('country.name')
+        %th(width=50)
+
+    %tbody
+      - @brands.each do |brand|
+        %tr
+          %td= brand.id
+          %td= brand.title
+          %td= brand.description
+          %td= brand.country.name
+          %td
+            = edit_button(edit_admin_brand_path(brand))
+            = delete_button(admin_brand_path(brand))
+
+= content_for :side_bar do
+  = add_button(new_admin_brand_path)
+
