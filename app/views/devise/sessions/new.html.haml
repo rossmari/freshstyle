@@ -1,8 +1,6 @@
 = form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin' } do |f|
-
-  %h3.form-signin-heading Вход в личный кабинет
-
-  = f.email_field :email, class: 'form-control', placeholder: 'Адрес электронной почты', autofocus: true
+  %h2.form-signin-heading Вход
+  = f.email_field :email, class: 'form-control', placeholder: 'Email', autofocus: true
   = f.password_field :password, class: 'form-control', placeholder: 'Пароль', autocomplete: "off"
   - if devise_mapping.rememberable?
     = f.label :remember_me, class: 'checkbox' do
