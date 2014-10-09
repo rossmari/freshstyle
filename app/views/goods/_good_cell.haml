@@ -1,0 +1,22 @@
+.col-md-3.text-center
+  .row.image
+    = image_tag(good.main_image.picture.url(:list))
+  .row
+    = link_to 'Подробнее', good_path(good)
+  .row
+    = good.brand.title
+  .row
+    = @category.name
+
+  .row.prices
+    .col-md-offset-2
+    .col-md-4
+      = good.price
+    .col-md-4
+      = good.price
+  .row.discount_procents
+  .row.sizes
+    Размеры
+  .row
+    - good.sizes.each do |size|
+      = size.name

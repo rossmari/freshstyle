@@ -1,2 +1,44 @@
-.h1
-  Обратная связь
+.row
+  .col-md-offset-4.text-center
+    .col-md-4
+      .h3
+        Обратная связь
+
+.row
+  = form_for @back_call, url: back_calls_path, method: :post, html: { class: 'form-horizontal' } do |f|
+    .form-group
+      = f.label :phone, class: 'col-sm-2 control-label'
+      .col-md-4
+        = f.text_field :phone, class: 'form-control'
+
+    .col-sm-2
+      = f.submit 'Жду звонка'
+
+.row
+  .col-md-offset-4.col-md-4.text-center
+    .h3
+      Отправить сообщение
+
+.row
+  = form_for @message, url: client_messages_path, method: :post, html: { class: 'form-horizontal' } do |f|
+    .form-group
+      = f.label :name, class: 'col-sm-2 control-label'
+      .col-md-4
+        = f.text_field :name, class: 'form-control'
+
+    .form-group
+      = f.label :email, class: 'col-sm-2 control-label'
+      .col-md-4
+        = f.text_field :email, class: 'form-control'
+
+    .form-group
+      = f.label :content, class: 'col-sm-2 control-label'
+      .col-md-4
+        = f.text_area :content, class: 'form-control'
+
+    .col-sm-2
+      = f.submit 'Жду звонка'
+
+.row
+  .col-md-offset-2.col-md-8.text-center
+    РЕКВИЗИТЫ КОМПАНИИ:

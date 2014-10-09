@@ -5,5 +5,5 @@
 //= require jquery_nested_form
 //= require jquery.jcrop
 //= require papercrop
-//= require bootstrap
+//= require bootstrap.min
 //= require_tree ./admin/.

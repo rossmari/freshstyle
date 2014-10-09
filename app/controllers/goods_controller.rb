@@ -3,7 +3,14 @@ class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
 
   def index
-    @goods = Good.all
+    if params[:category_id].present?
+      @goods = []
+      20.times{@goods << Good.first }
+      @category = Category.find(params[:category_id])
+    else
+      @goods = Good.all
+    end
+
   end
 
   def show

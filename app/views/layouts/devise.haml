@@ -10,8 +10,8 @@
 
     %title FreshStyles
 
-    = stylesheet_link_tag 'bootstrap_manifest', 'application'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'bootstrap_manifest', 'devise'
+    -#= javascript_include_tag 'devise'
 
     = yield(:assets)
 
@@ -22,15 +22,5 @@
       %script{ src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' }
 
   %body
-    = render partial: 'partials/navbar'
-    = render partial: 'partials/logo_bar'
-    = render partial: 'partials/common_navbar'
-
-  - if controller_name == 'main'
-    = yield
-  - else
-    %div.row.content-wrapper
-      .col-md-offset-2.col-md-8.content-block
-        = yield
-
-  = render partial: 'partials/footer_menu'
+    .container
+      = yield

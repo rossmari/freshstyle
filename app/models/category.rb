@@ -15,7 +15,7 @@ class Category < ActiveRecord::Base
                     :styles => { admin: '100x100#', icon: '300x300#'}
 
   # == VALIDATORS
-  validates_attachment_presence :picture
-  validates_attachment_content_type :picture, :content_type => /\Aimage/
+  #validates_attachment_presence :picture
+  #validates_attachment_content_type :picture, :content_type => /\Aimage/
 
 end

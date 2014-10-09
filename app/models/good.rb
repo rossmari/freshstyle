@@ -19,4 +19,6 @@ class Good < ActiveRecord::Base
     GoodPicture.where(main_image: true, good_id: self.id).first
   end
 
+  scope :by_category, ->(id){where(category_id: id)}
+
 end

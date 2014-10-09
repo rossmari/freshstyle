@@ -9,7 +9,7 @@ module ButtonHelper
   end
 
   def show_button(route)
-    template_button(route, t('actions.show'), 'glyphicon glyphicon-question-sign')
+    template_button(route, t('actions.show'), 'glyphicon glyphicon-eye-open')
   end
 
   def edit_button(route)

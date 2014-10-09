@@ -1,12 +1,32 @@
 .row
-  = image_tag(@good.main_image.picture.url(:big), class: 'good_image')
-  = @good.title
-  = @good.brand.title
-  = @good.sizes.map(&:name).join(',')
-  = @good.count_in_stock
-  = @good.design_country.name
-  = @good.origin_country.name
-  = @good.color
-  = @good.consist
-  = @good.season
-  = @good.price
+  .col-md-6
+    = "главная / #{@good.category.name} / #{@good.article}"
+  .col-md-6
+    [TODO : next good prev good]
+
+.row
+  .col-md-2
+    - @good.images.each do |image|
+      .row
+        = image_tag(image.picture.url(:preview))
+  .col-md-6
+    = image_tag(@good.main_image.picture.url(:big))
+  .col-md-4
+    = "#{@good.category.name} #{@good.brand.title}"
+    .row
+      = "Артикул #{@good.article}"
+    .row
+      = "#{@good.price} -50% #{@good.price}"
+    .row
+      Выберите размер:
+    .row
+      - @good.sizes.each do |size|
+        = size.name
+    .row
+      = link_to 'Таблица размеров', '#'
+    .row
+      = link_to 'Добавить в корзину', '#'
+    .row
+      [TODO: block with consist and conditions]
+    .row
+      [TODO: block with likes or share]
