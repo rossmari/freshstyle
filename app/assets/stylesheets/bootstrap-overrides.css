@@ -1,21 +1,20 @@
 /*you must make this work beach! ^_^ */
 
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-    display: block;
-    width: 100% \9;
+/*.carousel-inner>.item>img, .carousel-inner>.item>a>img {*/
+    /*display: block;*/
+    /*width: 100% \9;*/
     /*we don't need 100% of width*/
      /*max-width: 100%; */
-    height: auto;
-}
+    /*height: auto;*/
+/*}*/
 
-
-.navbar {
-    position: relative;
-    min-height: 50px;
+/*.navbar {*/
+    /*position: relative;*/
+    /*min-height: 50px;*/
     /*and we don't need any bottom margin da fuck*/
     /* margin-bottom: 20px; */
-    border: 1px solid transparent;
-}
+    /*border: 1px solid transparent;*/
+/*}*/
 
 .alert {
     padding: 15px;
