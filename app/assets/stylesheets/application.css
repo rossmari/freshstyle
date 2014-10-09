@@ -1,4 +1,5 @@
 /*
  *= require_tree ./application/.
  *= require jquery.jcrop.css
+ *= require bootstrap-overrides.css
  */

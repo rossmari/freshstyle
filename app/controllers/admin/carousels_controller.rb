@@ -27,10 +27,10 @@ class Admin::CarouselsController < Admin::BaseController
 
   def update
     if @carousel.update(carousel_params)
-        @carousel.crop_image
-       redirect_to admin_carousels_path, notice: 'Carousel was successfully updated.'
+      @carousel.crop_image
+      redirect_to admin_carousels_path, notice: 'Carousel was successfully updated.'
     else
-       render :edit
+      render :edit
     end
   end
 
