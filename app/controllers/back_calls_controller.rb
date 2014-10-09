@@ -5,7 +5,7 @@ class BackCallsController < ApplicationController
 
     respond_to do |format|
       if @back_call.save
-        format.html { redirect_to new_feedback_path }
+        format.html { redirect_to new_feedback_path, notice: 'Back call created!' }
         format.json { render :show, status: :created, location: @back_call }
       else
         format.html { render :new }

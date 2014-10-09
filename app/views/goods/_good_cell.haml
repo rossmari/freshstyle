@@ -1,22 +1,23 @@
 .col-md-3.text-center
-  .row.image
-    = image_tag(good.main_image.picture.url(:list))
-  .row
-    = link_to 'Подробнее', good_path(good)
-  .row
-    = good.brand.title
-  .row
-    = @category.name
+  .col-md-offset-1.col-md-10.good_cell
+    .row.image
+      = image_tag(good.main_image.picture.url(:list))
+    .row.hidden_row
+      = link_to 'Подробнее', good_path(good), class: 'btn btn-info'
+    .row
+      = good.brand.title
+    .row
+      = @category.name
 
-  .row.prices
-    .col-md-offset-2
-    .col-md-4
-      = good.price
-    .col-md-4
-      = good.price
-  .row.discount_procents
-  .row.sizes
-    Размеры
-  .row
-    - good.sizes.each do |size|
-      = size.name
+    .row.prices
+
+      .col-md-offset-2.col-md-4.text-center
+        = good.price
+      .col-md-4.text-center
+        = good.price
+    .row.discount_procents
+    .row.sizes.hidden_row
+      Размеры
+    .row.hidden_row
+      - good.sizes.each do |size|
+        = size.name

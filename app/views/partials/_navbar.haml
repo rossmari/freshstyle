@@ -8,10 +8,14 @@
         %span.icon-bar
     .navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li.navbar-text
-          + 7 (913) 594-09-03
+        %li
+          -# потому что как то нам надо на главную попадать
+          = link_to 'Fresh style', root_path, title: 'На Главную страницу'
         %li
           = link_to 'Обратная связь', new_feedback_path
+        %li
+          = link_to 'Товары', '#', class: 'category_box_toggle'
+
 
       %ul.nav.navbar-nav.navbar-right
         %li

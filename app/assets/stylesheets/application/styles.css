@@ -58,6 +58,22 @@
     background-color: #ffffff;
 }
 
-.good_container {
-    width: 200px;
+.good_cell {
+    border: 1px solid white;
+}
+
+.good_cell .hidden_row {
+    opacity: 0;
+}
+
+.good_cell:hover {
+    border: 1px solid #6e000d;
+}
+
+.good_cell:hover .hidden_row {
+    opacity: 1;
+}
+
+.good_cell .row {
+    padding: 4px;
 }
