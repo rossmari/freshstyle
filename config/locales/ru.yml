@@ -313,7 +313,7 @@ ru:
     edit: Редактирование заказа
     new: Новый заказ
   carousel:
-    carousels: Главный слайдер
+    carousels: Слайдер
     edit: Изменение изображения слайдера
 
   activerecord:
