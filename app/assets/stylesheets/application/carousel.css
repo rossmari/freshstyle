@@ -7,6 +7,8 @@ body {
   color: #5a5a5a;
 }
 
+
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
@@ -32,12 +34,15 @@ body {
   width: auto;
 }
 
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
-  height: 700px;
+  /*height: 500px;*/
+  margin-bottom: 10px;
+  min-height: 80px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -46,19 +51,19 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-    height: 700px;
-    background-color: #777;
-    /* width: 100%; */
-    text-align: center;
-    overflow: hidden;
+  height: 500px;
+  background-color: #777;
 }
 .carousel-inner > .item > img {
-    overflow: hidden;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%,0);
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
 }
+
+
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
@@ -75,6 +80,7 @@ body {
   margin-left: 10px;
 }
 
+
 /* Featurettes
 ------------------------- */
 
@@ -88,6 +94,8 @@ body {
   line-height: 1;
   letter-spacing: -1px;
 }
+
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

@@ -7,7 +7,7 @@ class GoodsFilter
   attr_reader :season, :category_id, :brand_id, :size_id
 
   def initialize(params)
-    @params = params
+    @params = params || {}
   end
 
   def process_params
@@ -25,7 +25,7 @@ class GoodsFilter
         goods = goods.where("#{key} = ?", value)
       end
     end
-    return goods.uniq
+    goods.uniq
   end
 
   def clear_params_hash(hash)
@@ -45,6 +45,4 @@ class GoodsFilter
   def clear_params_array(array)
     array.delete_if{|value| value.empty?}
   end
-
-
 end

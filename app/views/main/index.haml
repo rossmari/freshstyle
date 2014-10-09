@@ -1,26 +1,33 @@
-#myCarousel.carousel.slide{ data: { ride: 'carousel' } }
-  %ol.carousel-indicators
-    - @carousels.each_with_index do |carousel, index|
-      %li{ class: ('active' if carousel.main), data: { 'slide-to' => "#{index}", target: '#myCarousel' } }
-
-  .carousel-inner
-    - @carousels.each_with_index do |carousel, index|
-      %div{ class: "item #{'active' if carousel.main}" }
-        %img{ alt: "Slide #{index}", src: carousel.picture.url(:cropped) }
-        .container
-          .carousel-caption
-            %h1
-              = carousel.header
-            %p
-              = carousel.content_text
-
-  = link_to '#myCarousel', class: 'left carousel-control', role: 'button', data: { slide: 'prev' } do
-    %span.glyphicon.glyphicon-chevron-left
-  = link_to '#myCarousel', class: 'right carousel-control', role: 'button', data: { slide: 'next' } do
-    %span.glyphicon.glyphicon-chevron-right
-
-.row
+-#.row
   .col-md-5
   .col-md-2
     = link_to 'goods by category', category_goods_path(Category.first)
   .col-md-5
+
+/ Three columns of text below the carousel
+%ol.breadcrumb
+  - @categories.each do |category|
+    %li
+      = link_to category.name, category_goods_path(category)
+
+.row
+  .col-lg-4
+    %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
+    %h2 Heading
+    %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+    %p
+      %a.btn.btn-default{:href => "#", :role => "button"} View details »
+  / /.col-lg-4
+  .col-lg-4
+    %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
+    %h2 Heading
+    %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+    %p
+      %a.btn.btn-default{:href => "#", :role => "button"} View details »
+  / /.col-lg-4
+  .col-lg-4
+    %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
+    %h2 Heading
+    %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    %p
+      %a.btn.btn-default{:href => "#", :role => "button"} View details »

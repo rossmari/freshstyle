@@ -54,6 +54,7 @@ class GoodsController < ApplicationController
   end
 
   private
+
   def set_good
     @good = Good.find(params[:id])
   end

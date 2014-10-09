@@ -1,3 +1,12 @@
+%ol.breadcrumb
+  - Category.roots.order(:name).each do |category|
+    %li
+      = link_to category.name, category_goods_path(category)
+%ol.breadcrumb
+  - Category.roots.order(:name).each do |category|
+    %li
+      = link_to category.name, category_goods_path(category)
+
 = form_for :filter, url: goods_path, method: :get do |f|
   = f.text_field :season, value: @filter.season
   = f.text_field :category_id, value: @filter.category_id
@@ -35,4 +44,3 @@
 .row
   .col-md-offset-3.col-md-6.text-center
     = will_paginate @goods
-
