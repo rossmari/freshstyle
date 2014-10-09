@@ -7,18 +7,14 @@ module Admin::MenuHelper
       link_to("#{t('order.orders')} (#{Order.count_of_new})", admin_orders_path),
       link_to(t('good.goods'), admin_goods_path),
       link_to(t('page.pages'), admin_pages_path),
-
-     link_to(t('category.categories'), admin_categories_path),
-
-     link_to(t('brand.brands'), admin_brands_path),
-     link_to(t('country.countries'), admin_countries_path),
-     link_to(t('size.sizes'), admin_sizes_path),
-
-     link_to(t('carousel.carousels'), admin_carousels_path),
-     link_to(t('main_offer.main_offers'), admin_main_offers_path),
-      link_to(t('user.users'), admin_users_path)
+      link_to(t('category.categories'), admin_categories_path),
+      link_to(t('brand.brands'), admin_brands_path),
+      link_to(t('country.countries'), admin_countries_path),
+      link_to(t('size.sizes'), admin_sizes_path),
+      link_to(t('carousel.carousels'), admin_carousels_path),
+      link_to(t('main_offer.main_offers'), admin_main_offers_path)
+      # link_to(t('user.users'), admin_users_path)
     ]
-
     raw(generate_menu(items))
   end
 

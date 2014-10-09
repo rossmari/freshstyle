@@ -7,5 +7,5 @@ class Brand < ActiveRecord::Base
 
 
   # == VALIDATORS
-  validates :title, presence: true
+  validates :title, :country, presence: true
 end
