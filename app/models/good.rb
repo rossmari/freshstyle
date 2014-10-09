@@ -23,4 +23,7 @@ class Good < ActiveRecord::Base
 
   scope :by_category, ->(id){where(category_id: id)}
 
+  scope :winter, ->{where(season: 'winter')}
+  scope :summer, ->{where(season: 'summer')}
+  scope :by_season, ->(season){where(season: season)}
 end

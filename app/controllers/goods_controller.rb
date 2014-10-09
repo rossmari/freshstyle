@@ -3,13 +3,10 @@ class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:category_id].present?
-      @category = Category.find(params[:category_id])
-      @goods = Good.by_category(@category.id).paginate(page: params[:page])
-    else
-      @goods = Good.all
-    end
-
+    @category = Category.find(params[:filter][:category_id]) rescue Category.find(params[:category_id])
+    @filter = GoodsFilter.new(params[:filter])
+    @filter.process_params
+    @goods = @filter.search.paginate(page: params[:page])
   end
 
   def show

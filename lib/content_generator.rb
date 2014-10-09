@@ -22,10 +22,12 @@ class ContentGenerator
   end
 
   def self.clone_good(count)
+    seasons = %w(winter summer)
     good = Good.first
     count.times do |i|
       clone = good.dup
       clone.sizes = good.sizes
+      clone.seson = seasons.sample
       clone.save
     end
   end
