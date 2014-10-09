@@ -1,8 +1,8 @@
 .row
-  .col-md-6
+  .col-md-6.text-left
     [TODO: filters ]
-  .col-md-6
-    [TODO: top pagination ]
+  .col-md-6.text-right
+    = will_paginate @goods
 
 .row
   .col-md-offset-3.col-md-6.text-center
@@ -21,7 +21,8 @@
 - @goods.in_groups_of(4).each do |group|
   .row
     - group.each do |good|
-      = render partial: 'good_cell', locals: {good: good}
+      - if good
+        = render partial: 'good_cell', locals: {good: good}
 
 
 

@@ -4,9 +4,8 @@ class GoodsController < ApplicationController
 
   def index
     if params[:category_id].present?
-      @goods = []
-      20.times{@goods << Good.first }
       @category = Category.find(params[:category_id])
+      @goods = Good.by_category(@category.id).paginate(page: params[:page])
     else
       @goods = Good.all
     end

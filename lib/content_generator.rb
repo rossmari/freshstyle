@@ -21,4 +21,13 @@ class ContentGenerator
     end
   end
 
+  def self.clone_good(count)
+    good = Good.first
+    count.times do |i|
+      clone = good.dup
+      clone.sizes = good.sizes
+      clone.save
+    end
+  end
+
 end

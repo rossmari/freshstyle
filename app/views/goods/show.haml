@@ -1,16 +1,19 @@
 .row
-  .col-md-6
+  .col-md-6.text-left
     = "главная / #{@good.category.name} / #{@good.article}"
-  .col-md-6
+  .col-md-6.text-right
     [TODO : next good prev good]
 
 .row
-  .col-md-2
+  .col-md-2.text-center
     - @good.images.each do |image|
-      .row
+      .row.preview_image
         = image_tag(image.picture.url(:preview))
-  .col-md-6
-    = image_tag(@good.main_image.picture.url(:big))
+
+  .col-md-4.text-center.big_image
+    -#= image_tag(@good.main_image.picture.url(:big))
+    = image_tag('eva.jpg')
+
   .col-md-4
     = "#{@good.category.name} #{@good.brand.title}"
     .row
@@ -19,14 +22,20 @@
       = "#{@good.price} -50% #{@good.price}"
     .row
       Выберите размер:
-    .row
+    .row.sizes
       - @good.sizes.each do |size|
-        = size.name
+        %span
+          = size.name
     .row
       = link_to 'Таблица размеров', '#'
     .row
       = link_to 'Добавить в корзину', '#'
     .row
       [TODO: block with consist and conditions]
-    .row
-      [TODO: block with likes or share]
+
+.row
+  .col-md-2
+  .col-md-4.text-center
+    смотреть подробнее
+  .col-md-4
+    [TODO: block with consist and conditions]

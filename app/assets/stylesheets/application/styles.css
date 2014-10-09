@@ -58,6 +58,7 @@
     background-color: #ffffff;
 }
 
+/* === GOOD CELL FOR INDEX === */
 .good_cell {
     border: 1px solid white;
 }
@@ -75,5 +76,32 @@
 }
 
 .good_cell .row {
-    padding: 4px;
+    padding: 2px;
+}
+
+.sizes span {
+    display: inline-block;
+    border: 1px solid rgb(245, 117, 17);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+}
+
+/* === GOOD PAGE SHOW === */
+.preview_image img {
+    border: 1px solid white;
+    padding: 2px;
+    margin: 5px;
+}
+
+.preview_image img:hover {
+    border: 1px solid #ff7c20;
+    padding: 2px;
+    margin: 5px;
+}
+
+.big_image img {
+    margin: 5px;
 }
