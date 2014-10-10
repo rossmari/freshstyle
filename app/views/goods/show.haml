@@ -3,17 +3,21 @@
 
 
 .row
-  .col-md-offset-6.col-md-6.text-right
-    [TODO : next good prev good]
+  .col-md-offset-9.col-md-2.text-right
+    = link_to '', title: 'Предыдущий товар' do
+      %span.glyphicon.glyphicon-chevron-left
+    = link_to '', title: 'Следущий товар' do
+      %span.glyphicon.glyphicon-chevron-right
 
 .row
   .col-md-2.text-center
     - @good.images.each do |image|
-      = link_to '#', class: 'preview thumbnail col-md-offset-2 col-md-8' do
+      = link_to image.picture.url, class: 'preview fancybox thumbnail col-md-offset-2 col-md-8', rel: 'gallery1' do
         = image_tag(image.picture.url(:preview))
 
   .col-md-4.text-center.big_image
-    = image_tag(@good.main_image.picture.url(:big))
+    = link_to @good.main_image.picture.url, class: 'fancybox', rel: 'gallery1' do
+      = image_tag(@good.main_image.picture.url(:big))
 
   .col-md-4
     .h3.text-center
@@ -67,10 +71,3 @@
         #collapseThree.panel-collapse.collapse
           .panel-body
             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-
-.row
-  .col-md-2
-  .col-md-4.text-center
-    смотреть подробнее
-  .col-md-4
-    [TODO: block with consist and conditions]
