@@ -1,14 +1,13 @@
 = goods_breadcrumbs(@filter.category)
 
-= form_for :filter, url: category_goods_path(@filter.category), method: :get do |f|
-  = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], include_blank: true
-  = f.collection_select :brand_id, Brand.all, :id, :title, include_blank: true, class: 'form-control'
-  = f.collection_select :size_id, Size.all, :id, :name, include_blank: true
-  = f.submit 'Найти'
-
 .row
   .col-md-6.text-left
-    [TODO: BRAND AND SIZE filters ]
+    = form_for :filter, url: category_goods_path(@filter.category), method: :get do |f|
+      = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], include_blank: true
+      = f.collection_select :brand_id, Brand.all, :id, :title, include_blank: true, class: 'form-control'
+      = f.collection_select :size_id, Size.all, :id, :name, include_blank: true
+      = f.submit 'Найти'
+
   .col-md-6.text-right
     = will_paginate @goods
 
@@ -20,11 +19,6 @@
 .row
   .col-md-offset-3.col-md-6.text-center
     = "Найдено #{@goods.count} товаров"
-
-.row
-  .col-md-offset-3.col-md-6.text-center
-    [TODO: brands of these category]
-
 
 - @goods.in_groups_of(4).each do |group|
   .row
