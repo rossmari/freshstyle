@@ -1,18 +1,17 @@
 .row
-  .col-md-offset-4.text-center
-    .col-md-4
-      .h3
-        Обратная связь
+  .col-md-offset-3.col-md-6.text-center
+    .h1
+      Обратная связь
 
 .row
   = form_for @back_call, url: back_calls_path, method: :post, html: { class: 'form-horizontal' } do |f|
     .form-group
-      = f.label :phone, class: 'col-sm-2 control-label'
+      = f.label :phone, class: 'col-md-offset-2 col-md-2 control-label'
       .col-md-4
         = f.text_field :phone, class: 'form-control'
 
-    .col-sm-2
-      = f.submit 'Жду звонка'
+    .col-md-offset-5.col-sm-2
+      = f.submit 'Жду звонка', class: 'btn btn-primary btn-block'
 
 .row
   .col-md-offset-4.col-md-4.text-center
@@ -22,23 +21,27 @@
 .row
   = form_for @message, url: client_messages_path, method: :post, html: { class: 'form-horizontal' } do |f|
     .form-group
-      = f.label :name, class: 'col-sm-2 control-label'
+
+      = f.label :name, class: 'col-md-offset-2 col-md-2 control-label'
       .col-md-4
         = f.text_field :name, class: 'form-control'
 
     .form-group
-      = f.label :email, class: 'col-sm-2 control-label'
+      = f.label :email, class: 'col-md-offset-2 col-md-2 control-label'
       .col-md-4
         = f.text_field :email, class: 'form-control'
 
     .form-group
-      = f.label :content, class: 'col-sm-2 control-label'
+      = f.label :content, class: 'col-md-offset-2 col-md-2 control-label'
       .col-md-4
         = f.text_area :content, class: 'form-control'
 
-    .col-sm-2
-      = f.submit 'Жду звонка'
+    .col-md-offset-5.col-sm-2
+      = f.submit 'Отправить сообщение', class: 'btn btn-primary btn-block'
 
 .row
-  .col-md-offset-2.col-md-8.text-center
+  .col-md-offset-3.col-md-6.text-center
     РЕКВИЗИТЫ КОМПАНИИ:
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus viverra urna eget lacinia.
+    Donec ultricies placerat justo, quis ornare nibh fringilla id. Proin et tempor felis, a rutrum ligula.
+    Sed maximus facilisis nisi, non varius tellus dictum eu. Duis et turpis ante.

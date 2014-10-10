@@ -8,7 +8,7 @@
 %h1.page-header
   = t('category.categories')
 
-%ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_admin_categories_url } }
+%ol.sortable_tree{ data: { max_levels: 2, rebuild_url: rebuild_admin_categories_url } }
   = sortable_tree @categories, title: :name
 
 = content_for :side_bar do

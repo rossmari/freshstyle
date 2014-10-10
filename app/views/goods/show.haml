@@ -1,32 +1,73 @@
-.row
-  .col-md-6
-    = "главная / #{@good.category.name} / #{@good.article}"
-  .col-md-6
-    [TODO : next good prev good]
+-# if it's need here , i don't know
+= goods_breadcrumbs(@good.category)
+
 
 .row
-  .col-md-2
+  .col-md-offset-9.col-md-2.text-right
+    = link_to '', title: 'Предыдущий товар' do
+      %span.glyphicon.glyphicon-chevron-left
+    = link_to '', title: 'Следущий товар' do
+      %span.glyphicon.glyphicon-chevron-right
+
+.row
+  .col-md-2.text-center
     - @good.images.each do |image|
-      .row
+      = link_to image.picture.url, class: 'preview fancybox thumbnail col-md-offset-2 col-md-8', rel: 'gallery1' do
         = image_tag(image.picture.url(:preview))
-  .col-md-6
-    = image_tag(@good.main_image.picture.url(:big))
+
+  .col-md-4.text-center.big_image
+    = link_to @good.main_image.picture.url, class: 'fancybox', rel: 'gallery1' do
+      = image_tag(@good.main_image.picture.url(:big))
+
   .col-md-4
-    = "#{@good.category.name} #{@good.brand.title}"
+    .h3.text-center
+      = "#{@good.category.name}, #{@good.brand.title}"
+    .h5.text-muted.text-center
+      = "артикул: #{@good.article}"
+
     .row
-      = "Артикул #{@good.article}"
+      .h4
+        Цена:
+        = number_to_rubls(@good.price)
+        %span.label.label-danger
+          %del
+            ="#{number_to_rubls(@good.monetary_discount)}"
+    %br
+    .h4
+      Доступные размеры:
     .row
-      = "#{@good.price} -50% #{@good.price}"
-    .row
-      Выберите размер:
-    .row
-      - @good.sizes.each do |size|
-        = size.name
-    .row
-      = link_to 'Таблица размеров', '#'
-    .row
-      = link_to 'Добавить в корзину', '#'
-    .row
-      [TODO: block with consist and conditions]
-    .row
-      [TODO: block with likes or share]
+      .col-md-offset-2.col-md-10.text-center.btn-group
+        - @good.sizes.each do |size|
+          = button_tag size.name, class: 'btn btn-default'
+
+    %br
+      = link_to 'Таблица размеров', '#', class: 'btn btn-block btn-default', title: 'К таблице размеров'
+    %br
+      - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
+      = link_to raw("Добавить в корзину #{icon}"), '#', class: 'btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину'
+
+    #accordion.panel-group
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title
+            %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+              Состав продукта
+        #collapseOne.panel-collapse.collapse.in
+          .panel-body
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title
+            %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+              Условия доставки
+        #collapseTwo.panel-collapse.collapse
+          .panel-body
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title
+            %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
+              Условия возврата
+        #collapseThree.panel-collapse.collapse
+          .panel-body
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.

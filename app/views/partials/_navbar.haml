@@ -1,18 +1,25 @@
-.navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
+.navbar-wrapper
   .container
-    .navbar-header
-      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-    .navbar-collapse.collapse
-      %ul.nav.navbar-nav
-        %li.navbar-text
-          + 7 (913) 594-09-03
-        %li
-          = link_to 'Обратная связь', new_feedback_path
+    .navbar.navbar-inverse.navbar-static-top{ role: 'navigation' }
+      .container
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              -# потому что как то нам надо на главную попадать
+              = link_to 'Fresh Styles', root_path, title: 'На Главную страницу'
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to 'Обратная связь', new_feedback_path
 
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          = link_to 'Корзина', baskets_path
+            %li.dropdown
+              = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
+                Помощь
+                %span.caret
+              %ul.dropdown-menu{ role: 'menu' }
+                - Page.order(:title).each do |page|
+                  %li
+                    = link_to page.title, page
+            %li
+              = link_to baskets_path do
+                Корзина
+                %span.badge 0

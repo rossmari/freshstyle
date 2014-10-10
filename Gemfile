@@ -40,6 +40,7 @@ gem 'ckeditor', '~> 4.1.0'
 gem 'nested_form'
 gem 'papercrop'
 gem 'rmagick'
+gem 'will_paginate', '~> 3.0'
 
 gem 'capistrano', '~> 2.15.5'
 gem 'unicorn'

@@ -1,10 +1,14 @@
-= form_for [:admin, @category]  do |f|
+= form_for [:admin, @category] do |f|
 
   = render partial: 'partials/errors', locals: { model: @category }
 
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :parent_id
+    = f.collection_select :parent_id, Category.roots.order(:name), :id, :name, { include_blank: true }, class: 'form-control'
 
   .form-group
     = f.label :picture

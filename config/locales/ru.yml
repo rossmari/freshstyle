@@ -315,6 +315,9 @@ ru:
   carousel:
     carousels: Слайдер
     edit: Изменение изображения слайдера
+  main_offer:
+    main_offers: Главные предложения
+
 
   activerecord:
       models:
@@ -359,3 +362,9 @@ ru:
           main: Главный слайд
           image: Изображение слайда
           created_at: Дата создания
+        back_call:
+          phone: Телефон
+        client_message:
+          name: Ваше имя
+          email: Email
+          content: Сообщение

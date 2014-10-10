@@ -1,0 +1,21 @@
+#myCarousel.carousel.slide{ data: { ride: 'carousel' } }
+  - if @carousels
+    %ol.carousel-indicators
+      - @carousels.each_with_index do |carousel, index|
+        %li{ class: ('active' if carousel.main), data: { 'slide-to' => "#{index}", target: '#myCarousel' } }
+
+    .carousel-inner
+      - @carousels.each_with_index do |carousel, index|
+        %div{ class: "item #{'active' if carousel.main}" }
+          %img{ alt: "Slide #{index}", src: carousel.picture.url(:cropped) }
+          .container
+            .carousel-caption
+              %h1
+                = carousel.header
+              %p
+                = carousel.content_text
+
+    = link_to '#myCarousel', class: 'left carousel-control', role: 'button', data: { slide: 'prev' } do
+      %span.glyphicon.glyphicon-chevron-left
+    = link_to '#myCarousel', class: 'right carousel-control', role: 'button', data: { slide: 'next' } do
+      %span.glyphicon.glyphicon-chevron-right

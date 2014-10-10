@@ -1,22 +1,29 @@
 .col-md-3.text-center
-  .row.image
-    = image_tag(good.main_image.picture.url(:list))
   .row
-    = link_to 'Подробнее', good_path(good)
-  .row
-    = good.brand.title
-  .row
-    = @category.name
+    .col-md-1
+    .col-md-10.good_cell
+      .row.image
+        -#= link_to image_tag(good.main_image.picture.url(:list)), good_path(good)
+        = link_to(image_tag('eva.jpg'), good_path(good))
+      .row.hidden_row
+        = link_to 'Подробнее', good_path(good), class: 'btn btn-info'
+      .row
+        = good.brand.title
+      .row
+        = @filter.category.name
 
-  .row.prices
-    .col-md-offset-2
-    .col-md-4
-      = good.price
-    .col-md-4
-      = good.price
-  .row.discount_procents
-  .row.sizes
-    Размеры
-  .row
-    - good.sizes.each do |size|
-      = size.name
+      .row.prices
+
+        .col-md-offset-2.col-md-4.text-center
+          -# price without discount
+          = good.price
+        .col-md-4.text-center
+          -# price with discount
+          = good.price
+      .row.discount_procents
+      .row.hidden_row
+        Размеры
+      .row.sizes.hidden_row
+        - good.sizes.each do |size|
+          %span
+            = size.name

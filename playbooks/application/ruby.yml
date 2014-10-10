@@ -21,7 +21,7 @@
 - name: enable shims
   shell: echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 - name: reload shell
-  shell: bash -lc "source ~/.bash_profile"
+  shell: bash -lc "fancybox ~/.bash_profile"
 - name: install ruby
   shell: bash -lc "rbenv install 2.1.2"
 - name: set default ruby

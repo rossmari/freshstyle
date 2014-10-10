@@ -56,7 +56,7 @@
     .col-md-3
       .form-group
         = f.label :season
-        = f.text_field :season, class: 'form-control'
+        = f.select :season, [ ['Осень - Зима', 'winter'], ['Весна - Лето', 'summer']], {include_blank: false}, class: 'form-control'
 
     .col-md-3
       .form-group

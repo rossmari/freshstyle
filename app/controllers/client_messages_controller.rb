@@ -5,7 +5,7 @@ class ClientMessagesController < ApplicationController
 
     respond_to do |format|
       if @client_message.save
-        format.html { redirect_to new_feedback_path }
+        format.html { redirect_to new_feedback_path, notice: 'Client message created' }
         format.json { render :show, status: :created, location: @client_message }
       else
         format.html { render :new }

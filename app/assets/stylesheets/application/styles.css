@@ -58,6 +58,43 @@
     background-color: #ffffff;
 }
 
-.good_container {
-    width: 200px;
+/* === GOOD CELL FOR INDEX === */
+.good_cell {
+    border: 1px solid white;
+}
+
+.good_cell .hidden_row {
+    opacity: 0;
+}
+
+.good_cell:hover {
+    border: 1px solid #6e000d;
+}
+
+.good_cell:hover .hidden_row {
+    opacity: 1;
+}
+
+.good_cell .row {
+    padding: 2px;
+}
+
+.sizes span {
+    display: inline-block;
+    border: 1px solid rgb(245, 117, 17);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+}
+
+/* === GOOD PAGE SHOW === */
+.preview img {
+    cursor: hand;
+}
+
+.big_image img {
+    margin: 5px;
+    cursor: zoom-in;
 }

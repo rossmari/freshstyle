@@ -1,5 +1,7 @@
 class Good < ActiveRecord::Base
 
+  self.per_page = 20
+
   # == REFERENCES
   belongs_to :origin_country, class_name: 'Country'
   belongs_to :design_country, class_name: 'Country'
@@ -21,4 +23,7 @@ class Good < ActiveRecord::Base
 
   scope :by_category, ->(id){where(category_id: id)}
 
+  scope :winter, ->{where(season: 'winter')}
+  scope :summer, ->{where(season: 'summer')}
+  scope :by_season, ->(season){where(season: season)}
 end
