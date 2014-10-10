@@ -27,7 +27,7 @@ class ContentGenerator
     count.times do |i|
       clone = good.dup
       clone.sizes = good.sizes
-      clone.seson = seasons.sample
+      clone.season = seasons.sample
       clone.save
     end
   end

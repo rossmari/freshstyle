@@ -3,9 +3,7 @@ class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
 
   def index
-    @category = Category.find(params[:filter][:category_id]) rescue Category.find(params[:category_id])
-    @filter = GoodsFilter.new(params[:filter])
-    @filter.process_params
+    @filter = GoodsFilter.new(params)
     @goods = @filter.search.paginate(page: params[:page])
   end
 
