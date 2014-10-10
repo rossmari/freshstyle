@@ -29,4 +29,8 @@ module ApplicationHelper
     return raw(levels)
   end
 
+  def number_to_rubls(number)
+    number_to_currency(number, :unit => "Руб.", :separator => ",", :delimiter => ".")
+  end
+
 end

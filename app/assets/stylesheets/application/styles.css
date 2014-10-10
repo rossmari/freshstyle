@@ -90,18 +90,11 @@
 }
 
 /* === GOOD PAGE SHOW === */
-.preview_image img {
-    border: 1px solid white;
-    padding: 2px;
-    margin: 5px;
-}
-
-.preview_image img:hover {
-    border: 1px solid #ff7c20;
-    padding: 2px;
-    margin: 5px;
+.preview img {
+    cursor: zoom-in;
 }
 
 .big_image img {
     margin: 5px;
+    cursor: zoom-in;
 }
