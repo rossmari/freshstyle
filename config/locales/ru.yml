@@ -368,3 +368,12 @@ ru:
           name: Ваше имя
           email: Email
           content: Сообщение
+
+  ckeditor:
+    page_title: 'CKEditor файловый менеджер'
+    confirm_delete: 'Удалить файл?'
+    buttons:
+      cancel: 'Отмена'
+      upload: 'Загрузить'
+      delete: 'Удалить'
+      next: 'Дальше'
