@@ -12,7 +12,7 @@ class Admin::OrdersController < Admin::BaseController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to admin_orders_path, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to admin_orders_path, notice: t('order.remove')}
       format.json { head :no_content }
     end
   end

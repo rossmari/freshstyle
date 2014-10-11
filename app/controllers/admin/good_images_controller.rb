@@ -13,7 +13,7 @@ class Admin::GoodImagesController < Admin::BaseController
     @good = Good.find(params[:good][:id])
 
     if @good.update(images_params)
-      redirect_to admin_goods_path, notice: 'Good was successfully updated.'
+      redirect_to admin_goods_path, notice: t('good.update')
     else
       render :edit
     end

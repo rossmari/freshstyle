@@ -1,6 +1,6 @@
 class Good < ActiveRecord::Base
 
-  self.per_page = 20
+  self.per_page = 16
 
   # == REFERENCES
   belongs_to :origin_country, class_name: 'Country'

@@ -16,13 +16,7 @@
         %th
           = human_name('color')
         %th
-          = human_name('consist')
-        %th
           = human_name('brand')
-        %th
-          = human_name('origin_country')
-        %th
-          = human_name('design_country')
         %th
           = human_name('count_in_stock')
         %th
@@ -30,7 +24,10 @@
         %th
           = human_name('price')
         %th
+          = human_name('main_image')
+        %th
           = human_name('images')
+
         %th(width=70)
 
     %tbody
@@ -41,13 +38,16 @@
           %td= good.sizes.map(&:name).join('; ')
           %td= good.article
           %td= good.color
-          %td= good.consist
           %td= good.brand.title
-          %td= good.origin_country.name
-          %td= good.design_country.name
-          %td= good.count_in_stock
-          %td= good.season
-          %td= good.price
+
+          %td
+            %b
+              = good.count_in_stock
+          %td= t("good.seasons.#{good.season}")
+          %td= number_to_rubls(good.price)
+          %td
+            - if good.main_image.present?
+              = image_tag(good.main_image.picture.url(:admin_thumb))
           %td
             = good.images.count
             = link_to '(Изменить)', edit_admin_good_image_path(id: good.id)
@@ -56,6 +56,8 @@
             = show_button(admin_good_path(good))
             = edit_button(edit_admin_good_path(good))
             = delete_button(admin_good_path(good))
+
+= will_paginate @goods
 
 = content_for :side_bar do
   = add_button(new_admin_good_path)

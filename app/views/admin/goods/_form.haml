@@ -55,7 +55,7 @@
   .row
     .col-md-3
       .form-group
-        = f.label :category_id
+        = f.label :category
         = f.collection_select :category_id, Category.order(:name), :id, :name, {}, class: 'form-control'
 
     .col-md-3
