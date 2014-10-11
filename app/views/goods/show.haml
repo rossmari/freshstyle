@@ -1,7 +1,6 @@
 -# if it's need here , i don't know
 = goods_breadcrumbs(@good.category)
 
-
 .row
   .col-md-offset-9.col-md-2.text-right
     = link_to '', title: 'Предыдущий товар' do
@@ -33,18 +32,23 @@
           %del
             ="#{number_to_rubls(@good.monetary_discount)}"
     %br
-    .h4
+    .h5
       Доступные размеры:
-    .row
-      .col-md-offset-2.col-md-10.text-center.btn-group
+      %em{style: 'display:none', id: 'size_alert'}
+        %div{class: 'text-danger', style: 'display:inline'}
+          необходимо выбрать размер!!
+    .row.sizes
+      %div{class: 'col-md-offset-2 col-md-10 text-center btn-group', data: {toggle: 'buttons'}}
         - @good.sizes.each do |size|
-          = button_tag size.name, class: 'btn btn-default'
+          %label.btn.btn-default
+            = radio_button_tag :size, size.name
+            = size.name
 
     %br
       = link_to 'Таблица размеров', '#', class: 'btn btn-block btn-default', title: 'К таблице размеров'
     %br
       - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
-      = link_to raw("Добавить в корзину #{icon}"), '#', class: 'btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину'
+      = link_to raw("Добавить в корзину #{icon}"), '#', class: 'add_good_to_basket btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину', data: {good_id: @good.id}
 
     #accordion.panel-group
       .panel.panel-default
