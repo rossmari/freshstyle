@@ -2,12 +2,12 @@
   .row
     .h3.col-md-offset-1
 
-      = "В корзине #{@goods.count} товаров"
+      = "В корзине #{@hash.count} товаров"
       -##. Общая стоймость #{@goods.sum(:price)}"
 
   - @hash.each do |data|
     - good = @goods.select{|g| g.id = data['id']}.first
-    .row
+    .row.good_item
       .col-md-offset-1.col-md-3
         - if good.main_image.present?
           = link_to good_path(good), class: 'thumbnail' do
@@ -21,10 +21,17 @@
         .h5
           = "Стоймость: #{number_to_rubls(good.price)}"
         .h5
-          = "Выбранный размер: #{data['size']}"
+          Выбранный размер
+          %span.size
+            = data['size']
 
-        = link_to 'К товару', good_path(good), class: 'btn btn-info'
-        = link_to 'Удалить из корзины', '#', class: 'remove_good_from_basket btn btn-danger', data: {good_id: good.id}
+        = link_to good_path(good), class: 'btn btn-info' do
+          %span.glyphicon.glyphicon-search
+          К товару
+
+        = link_to '#', class: 'remove_good_from_basket btn btn-danger', data: {good_id: good.id} do
+          %span.glyphicon.glyphicon-remove
+          Удалить из корзины
 
   .row
     .h3
@@ -36,8 +43,12 @@
   %br
   .row
     .col-md-offset-8
-      = link_to 'Очистить корзину', '#', class: 'clear_basket btn btn-danger'
-      = link_to 'Оформить заказ', new_order_path, class: 'btn btn-primary'
+      = link_to '#', class: 'clear_basket btn btn-danger' do
+        %span.glyphicon.glyphicon-trash
+        Очистить корзину
+
+      - label = content_tag(:span, ' ', class: 'glyphicon glyphicon-chevron-right')
+      = link_to raw("Оформить заказ #{label}"), new_order_path, class: 'btn btn-success'
 
 - else
   Корзина пуста

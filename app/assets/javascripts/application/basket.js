@@ -26,7 +26,8 @@ $(document).ready(function() {
     $(document).on('click', '.remove_good_from_basket', function(event){
         event.preventDefault();
         var good_id = $(this).data('goodId');
-        remove_good(good_id);
+        var size = $(this).parent().find('.size').prop('innerText');
+        remove_good(good_id, size);
     })
 
     $(document).on('click', '.clear_basket', function(event){
@@ -39,11 +40,18 @@ $(document).ready(function() {
         update_basket();
     }
 
-    function remove_good(good_id){
-// TODO : update function to delete not just id but {id, size} hash
-        var index = localBasket.indexOf(good_id);
+    function remove_good(good_id, size){
+        var index = -1;
+        $.each(localBasket, function(i, element){
+            if(element['id'] == good_id && element['size'] == size)
+            {
+                index = i;
+            }
+        })
+
         if (index > -1) {
             localBasket.splice(index, 1);
+            location.reload();
         }
         update_basket();
     }
