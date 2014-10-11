@@ -2,13 +2,14 @@ class GoodsFilter
 
   JOINS = [:sizes]
 
-  SORT_PARAMS = [:season, :brand_id, :size_id ]
+  SORT_PARAMS = [:season, :brand_id, :size_id, :category_id ]
 
   attr_reader :season, :category, :brand_id, :size_id
 
   def initialize(params)
     @category = Category.find(params[:category_id])
     @params = params[:filter] || {}
+    @params[:category_id] = @category.id.to_s
     process_params
   end
 

@@ -4,7 +4,7 @@ class GoodsController < ApplicationController
 
   def index
     @filter = GoodsFilter.new(params)
-    @goods = @filter.search.paginate(page: params[:page])
+    @goods = @filter.search.order('updated_at DESC').paginate(page: params[:page])
   end
 
   def show

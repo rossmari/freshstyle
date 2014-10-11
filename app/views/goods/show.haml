@@ -47,8 +47,9 @@
     %br
       = link_to 'Таблица размеров', '#', class: 'btn btn-block btn-default', title: 'К таблице размеров'
     %br
-      - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
-      = link_to raw("Добавить в корзину #{icon}"), '#', class: 'add_good_to_basket btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину', data: {good_id: @good.id}
+      - if @good.count_in_stock > 0
+        - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
+        = link_to raw("Добавить в корзину #{icon}"), '#', class: 'add_good_to_basket btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину', data: {good_id: @good.id}
 
     #accordion.panel-group
       .panel.panel-default
