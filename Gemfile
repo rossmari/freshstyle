@@ -31,7 +31,9 @@ end
 gem 'devise', '~> 3.3.0'
 gem 'haml', '~> 4.0.5'
 
+gem 'ranked-model', '~> 0.4.0'
 gem 'awesome_nested_set', '~> 3.0.1'
+
 gem 'the_sortable_tree', '~> 2.5.0'
 gem 'jquery-ui-rails', '~> 5.0.0'
 

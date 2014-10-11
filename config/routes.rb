@@ -31,7 +31,9 @@ Rails.application.routes.draw do
     end
 
     resources :goods
-    resources :pages
+    resources :pages do
+      post :update_row_order, on: :collection
+    end
     resources :brands
     resources :countries
     resources :sizes

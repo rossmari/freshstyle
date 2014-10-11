@@ -2,7 +2,7 @@
   = t('page.pages')
 
 .table-responsive
-  %table.table.table-striped
+  %table.table.table-striped#sortable
     %thead
       %tr
         %th(width=10)
@@ -13,7 +13,7 @@
 
     %tbody
       - @pages.each do |page|
-        %tr
+        %tr.item{ data: { item: { id: page.id } } }
           %td= page.id
           %td= page.title
 
