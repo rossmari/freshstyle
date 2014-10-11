@@ -312,9 +312,12 @@ ru:
     orders: Заказы
     edit: Редактирование заказа
     new: Новый заказ
+
   carousel:
-    carousels: Слайдер
-    edit: Изменение изображения слайдера
+    carousels: Главный слайдер
+    edit: Изменение слайда
+    new: Новый слайд
+
   main_offer:
     main_offers: Главные предложения
 
@@ -357,11 +360,12 @@ ru:
           goods: Товары
           price: Цена
         carousel:
-          header: Заголовок текста
-          content_text: Текст
+          header: Заголовок текста слайда
+          content_text: Основной текст слайда
           main: Главный слайд
-          image: Изображение слайда
+          picture: Изображение слайда
           created_at: Дата создания
+
         back_call:
           phone: Телефон
         client_message:
