@@ -1,15 +1,37 @@
-= form_for @order do |f|
+= form_for @order, html: { class: 'form-horizontal'} do |f|
 
-  = f.label :name
-  = f.text_field :name
-  = f.label :family
-  = f.text_field :family
-  = f.label :second_name
-  = f.text_field :second_name
-  = f.label :city
-  = f.text_field :city
-  = f.label :post_index
-  = f.text_field :post_index
-  = f.label :street
-  = f.text_field :street
-  = f.submit
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :family, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :family, class: 'form-control'
+
+  .form-group
+    = f.label :second_name, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :second_name, class: 'form-control'
+
+  .form-group
+    = f.label :city, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :city, class: 'form-control'
+
+  .form-group
+    = f.label :post_index, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :post_index, class: 'form-control'
+
+  .form-group
+    = f.label :street, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :street, class: 'form-control'
+
+  .form-group
+    .col-sm-offset-2.col-sm-4
+      - label = content_tag(:span, ' Заказать' , class: 'glyphicon glyphicon-ok')
+      = f.button label, class: 'btn btn-success btn-lg btn-block'
+

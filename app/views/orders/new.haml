@@ -1,5 +1,28 @@
-- @order.goods.each do |good|
-  %br
-    = "#{good.title} - #{good.price}"
+- @hash.each do |data|
+  - good = @goods.select{|g| g.id = data['id']}.first
+  .row.good_item
+    .col-md-offset-1.col-md-2
+      - if good.main_image.present?
+        = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
+          = image_tag(good.main_image.picture.url(:admin_thumb))
 
+    .col-md-offset-1.col-md-7
+      .h4
+        = "#{good.category.name}, #{good.brand.title}"
+        = "Стоймость: #{number_to_rubls(good.price)}"
+      .h4
+        Размер:
+        %span.size
+          = data['size']
+
+.row
+  .h4
+    .col-md-offset-6.col-md-3
+      Общая стоймость:
+    .col-md-3
+      = number_to_rubls(@price)
+
+-#TODO : add nasty bootstrap separator
+
+%br
 = render partial: 'form'

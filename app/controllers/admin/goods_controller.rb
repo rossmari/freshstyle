@@ -3,7 +3,7 @@ class Admin::GoodsController < Admin::BaseController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
 
   def index
-    @goods = Good.all
+    @goods = Good.order('updated_at DESC').paginate(page: params[:page])
   end
 
   def show
@@ -21,7 +21,7 @@ class Admin::GoodsController < Admin::BaseController
 
     respond_to do |format|
       if @good.save
-        format.html { redirect_to admin_goods_path, notice: 'Good was successfully created.' }
+        format.html { redirect_to admin_goods_path, notice: t('good.add')}
         format.json { render :show, status: :created, location: @good }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class Admin::GoodsController < Admin::BaseController
   def update
     respond_to do |format|
       if @good.update(good_params)
-        format.html { redirect_to admin_goods_path, notice: 'Good was successfully updated.' }
+        format.html { redirect_to admin_goods_path, notice: t('good.update')}
         format.json { render :show, status: :ok, location: @good }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class Admin::GoodsController < Admin::BaseController
   def destroy
     @good.destroy
     respond_to do |format|
-      format.html { redirect_to admin_goods_path, notice: 'Good was successfully destroyed.' }
+      format.html { redirect_to admin_goods_path, notice: t('good.remove')}
       format.json { head :no_content }
     end
   end
@@ -67,6 +67,6 @@ class Admin::GoodsController < Admin::BaseController
                                  :design_country_id,
                                  :count_in_stock,
                                  :category_id,
-                                 :price, :percents_discount, :monetary_discount)
+                                 :price, :percents_discount, :monetary_discount, :main_offer)
   end
 end

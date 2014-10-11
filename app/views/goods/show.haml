@@ -1,7 +1,6 @@
 -# if it's need here , i don't know
 = goods_breadcrumbs(@good.category)
 
-
 .row
   .col-md-offset-9.col-md-2.text-right
     = link_to '', title: 'Предыдущий товар' do
@@ -12,7 +11,7 @@
 .row
   .col-md-2.text-center
     - @good.images.each do |image|
-      = link_to image.picture.url, class: 'preview fancybox thumbnail col-md-offset-2 col-md-8', rel: 'gallery1' do
+      = link_to image.picture.url, class: 'preview fancybox thumbnail col-md-offset-2 col-md-8', rel: 'gallery1', data: {big: image.picture.url(:big)} do
         = image_tag(image.picture.url(:preview))
 
   .col-md-4.text-center.big_image
@@ -33,18 +32,24 @@
           %del
             ="#{number_to_rubls(@good.monetary_discount)}"
     %br
-    .h4
+    .h5
       Доступные размеры:
-    .row
-      .col-md-offset-2.col-md-10.text-center.btn-group
+      %em{style: 'display:none', id: 'size_alert'}
+        %div{class: 'text-danger', style: 'display:inline'}
+          необходимо выбрать размер!!
+    .row.sizes
+      %div{class: 'col-md-offset-2 col-md-10 text-center btn-group', data: {toggle: 'buttons'}}
         - @good.sizes.each do |size|
-          = button_tag size.name, class: 'btn btn-default'
+          %label.btn.btn-default
+            = radio_button_tag :size, size.name
+            = size.name
 
     %br
       = link_to 'Таблица размеров', '#', class: 'btn btn-block btn-default', title: 'К таблице размеров'
     %br
-      - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
-      = link_to raw("Добавить в корзину #{icon}"), '#', class: 'btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину'
+      - if @good.count_in_stock > 0
+        - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
+        = link_to raw("Добавить в корзину #{icon}"), '#', class: 'add_good_to_basket btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину', data: {good_id: @good.id}
 
     #accordion.panel-group
       .panel.panel-default
@@ -54,7 +59,7 @@
               Состав продукта
         #collapseOne.panel-collapse.collapse.in
           .panel-body
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            = @good.consist
       .panel.panel-default
         .panel-heading
           %h4.panel-title

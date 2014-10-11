@@ -4,7 +4,7 @@ class GoodsController < ApplicationController
 
   def index
     @filter = GoodsFilter.new(params)
-    @goods = @filter.search.paginate(page: params[:page])
+    @goods = @filter.search.order('updated_at DESC').paginate(page: params[:page])
   end
 
   def show
@@ -22,7 +22,7 @@ class GoodsController < ApplicationController
 
     respond_to do |format|
       if @good.save
-        format.html { redirect_to admin_goods_path, notice: 'Good was successfully created.' }
+        format.html { redirect_to admin_goods_path, notice: t('good.add') }
         format.json { render :show, status: :created, location: @good }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class GoodsController < ApplicationController
   def update
     respond_to do |format|
       if @good.update(good_params)
-        format.html { redirect_to admin_goods_path, notice: 'Good was successfully updated.' }
+        format.html { redirect_to admin_goods_path, notice: t('good.update') }
         format.json { render :show, status: :ok, location: @good }
       else
         format.html { render :edit }
@@ -46,7 +46,7 @@ class GoodsController < ApplicationController
   def destroy
     @good.destroy
     respond_to do |format|
-      format.html { redirect_to admin_goods_path, notice: 'Good was successfully destroyed.' }
+      format.html { redirect_to admin_goods_path, notice: t('good.remove') }
       format.json { head :no_content }
     end
   end

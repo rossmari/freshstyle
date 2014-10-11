@@ -10,7 +10,7 @@
     %li
       = link_to category.name, category_goods_path(category)
 
-.row
+-#.row
   .col-lg-4
     %img.img-circle{:alt => "Generic placeholder image", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :style => "width: 140px; height: 140px;"}/
     %h2 Heading
@@ -31,3 +31,26 @@
     %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
     %p
       %a.btn.btn-default{:href => "#", :role => "button"} View details »
+
+- @main_offers.each_with_index do |good, index|
+  %hr.featurette-divider/
+  .row.featurette
+    - if index.odd?
+      .col-md-7
+        %h2.featurette-heading
+          = "#{good.title}, #{good.brand.title}"
+        .h4
+          = "Горячая цена: #{number_to_rubls(good.price)}"
+      .col-md-5
+        = link_to good_path(good) do
+          = image_tag(good.main_image.picture.url(:big))
+    - else
+      .col-md-7
+        = link_to good_path(good) do
+          = image_tag(good.main_image.picture.url(:big))
+      .col-md-5
+        %h2.featurette-heading
+
+          = "#{good.title}, #{good.brand.title}"
+        .h4
+          = "Горячая цена: #{number_to_rubls(good.price)}"

@@ -3,8 +3,8 @@
     .col-md-1
     .col-md-10.good_cell
       .row.image
-        -#= link_to image_tag(good.main_image.picture.url(:list)), good_path(good)
-        = link_to(image_tag('eva.jpg'), good_path(good))
+        - if good.main_image
+          = link_to image_tag(good.main_image.picture.url(:list)), good_path(good)
       .row.hidden_row
         = link_to 'Подробнее', good_path(good), class: 'btn btn-info'
       .row
@@ -21,9 +21,14 @@
           -# price with discount
           = good.price
       .row.discount_procents
-      .row.hidden_row
-        Размеры
-      .row.sizes.hidden_row
-        - good.sizes.each do |size|
-          %span
-            = size.name
+      - if good.count_in_stock > 0
+        .row.hidden_row
+          Размеры
+        .row.sizes.hidden_row
+          - good.sizes.each do |size|
+            %span
+              = size.name
+      - else
+        .row
+          %span.label.label-danger
+            Нет в наличии

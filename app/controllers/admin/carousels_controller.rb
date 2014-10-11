@@ -1,6 +1,6 @@
 class Admin::CarouselsController < Admin::BaseController
 
-  before_action :set_carousel, only: [:show, :edit, :update, :destroy]
+  before_action :set_carousel, only: [:show, :edit, :crop, :update, :destroy]
 
   def index
     @carousels = Carousel.all
@@ -14,6 +14,9 @@ class Admin::CarouselsController < Admin::BaseController
   end
 
   def edit
+  end
+
+  def crop
   end
 
   def create

@@ -1,33 +1,54 @@
 - if @goods.any?
   .row
-    = "В корзине #{@goods.count} товаров. Общая стоймость #{@goods.sum(:price)}"
+    .h3.col-md-offset-1
 
-  - @goods.each do | good|
-    .row.good_item.border_bottom
-      .col-md-5
+      = "В корзине #{@hash.count} товаров"
+      -##. Общая стоймость #{@goods.sum(:price)}"
+
+  - @hash.each do |data|
+    - good = @goods.select{|g| g.id = data['id']}.first
+    .row.good_item
+      .col-md-offset-1.col-md-3
         - if good.main_image.present?
-          = image_tag(good.main_image.picture.url(:main_thumb))
-      .col-md-7
-        .title.border_bottom
-          = good.title
-        .brand
-          = "#{good.brand.title} (#{good.brand.country.name})"
-        .info
-          .price
-            = "Р #{good.price}"
-          .price
-            = " Размеры: #{good.sizes.map(&:name).join(' - ')} "
-          .price
-            = " На складе осталось: #{good.count_in_stock}"
+          = link_to good_path(good), class: 'thumbnail' do
+            = image_tag(good.main_image.picture.url(:basket))
 
-        .brand
-          = link_to 'Подробнее ->', good_path(good)
-        .brand
-          = link_to good.category.name, ''
+      .col-md-offset-1.col-md-7
+        .h3
+          = "#{good.category.name}, #{good.brand.title}"
+        .h5
+          = "Страна производитель: #{good.origin_country.name}"
+        .h5
+          = "Стоймость: #{number_to_rubls(good.price)}"
+        .h5
+          Выбранный размер
+          %span.size
+            = data['size']
 
-        = link_to 'Удалить из корзины', '#', class: 'remove_good_from_basket', data: {good_id: good.id}
+        = link_to good_path(good), class: 'btn btn-info' do
+          %span.glyphicon.glyphicon-search
+          К товару
 
-  = link_to 'Очистить корзину', '#', class: 'clear_basket btn btn-danger'
-  = link_to 'Оформить заказ', new_order_path, class: 'btn btn-primary'
+        = link_to '#', class: 'remove_good_from_basket btn btn-danger', data: {good_id: good.id} do
+          %span.glyphicon.glyphicon-remove
+          Удалить из корзины
+
+  .row
+    .h3
+      .col-md-offset-6.col-md-3
+        Общая стоймость:
+      .col-md-3
+        = number_to_rubls(@price)
+
+  %br
+  .row
+    .col-md-offset-8
+      = link_to '#', class: 'clear_basket btn btn-danger' do
+        %span.glyphicon.glyphicon-trash
+        Очистить корзину
+
+      - label = content_tag(:span, ' ', class: 'glyphicon glyphicon-chevron-right')
+      = link_to raw("Оформить заказ #{label}"), new_order_path, class: 'btn btn-success'
+
 - else
   Корзина пуста

@@ -4,7 +4,7 @@ class Carousel < ActiveRecord::Base
   has_attached_file :picture,
                     :url  => '/carousel_pictures/:id/:style_:basename.:extension',
                     :path => ':rails_root/public/carousel_pictures/:id/:style_:basename.:extension',
-                    :styles => { small: '100x100#', large: '500x500>', cropped: '' }
+                    :styles => { small: '150x', large: '500x500>', cropped: '' }
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
@@ -17,7 +17,7 @@ class Carousel < ActiveRecord::Base
 
   def refresh_main
     if self.main
-      Carousel.update_all(main: false)
+      Carousel.where('id != ?', self.id).update_all(main: false)
     end
   end
 

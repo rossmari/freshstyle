@@ -8,6 +8,9 @@
               -# потому что как то нам надо на главную попадать
               = link_to 'Fresh Styles', root_path, title: 'На Главную страницу'
           %ul.nav.navbar-nav.navbar-right
+            - pages.each do |page|
+              %li
+                = link_to page.title, page
             %li
               = link_to 'Обратная связь', new_feedback_path
 
@@ -16,10 +19,8 @@
                 Помощь
                 %span.caret
               %ul.dropdown-menu{ role: 'menu' }
-                - Page.order(:title).each do |page|
-                  %li
-                    = link_to page.title, page
             %li
               = link_to baskets_path do
                 Корзина
-                %span.badge 0
+                %span.badge.basket_count_label
+                  0

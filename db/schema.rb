@@ -3,7 +3,7 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative fancybox for your
+# Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008112821) do
+ActiveRecord::Schema.define(version: 20141011154128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20141008112821) do
   end
 
   create_table "goods", force: true do |t|
-    t.string   "title",             null: false
+    t.string   "title",                             null: false
     t.string   "article"
     t.string   "color"
     t.text     "consist"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20141008112821) do
     t.integer  "design_country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "main_offer",        default: false
   end
 
   create_table "goods_sizes", force: true do |t|
@@ -143,6 +144,7 @@ ActiveRecord::Schema.define(version: 20141008112821) do
     t.integer  "good_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "size_id"
   end
 
   create_table "orders", force: true do |t|
@@ -163,6 +165,7 @@ ActiveRecord::Schema.define(version: 20141008112821) do
     t.boolean  "enabled",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "row_order"
   end
 
   create_table "sizes", force: true do |t|

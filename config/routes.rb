@@ -31,13 +31,19 @@ Rails.application.routes.draw do
     end
 
     resources :goods
-    resources :pages
+    resources :pages do
+      post :update_row_order, on: :collection
+    end
     resources :brands
     resources :countries
     resources :sizes
     resources :good_images
     resources :orders
-    resources :carousels
+    resources :carousels do
+      member do
+        get :crop
+      end
+    end
     resources :main_offers
 
   end

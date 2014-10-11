@@ -281,6 +281,12 @@ ru:
     edit: Изменение товара
     new: Новый товар
     show: Просмотр товара
+    add: Товар был успешно создан
+    update: Товар был успешно обновлен
+    remove: Товар был удален
+    seasons:
+      winter: Осень-зима
+      summer: Весна-лето
 
   brand:
     brands: Бренды
@@ -312,9 +318,14 @@ ru:
     orders: Заказы
     edit: Редактирование заказа
     new: Новый заказ
+    add: Заказ был успешно создан
+    remove: Заказ был удален
+
   carousel:
-    carousels: Слайдер
-    edit: Изменение изображения слайдера
+    carousels: Главный слайдер
+    edit: Изменение слайда
+    new: Новый слайд
+
   main_offer:
     main_offers: Главные предложения
 
@@ -345,6 +356,9 @@ ru:
           percents_discount: Скидка в процентах
           monetary_discount: Скидка в деньгах
           images: Изображения
+          category: Категория товара
+          main_offer: Главное предложение
+          main_image: Главное изображение
         brand:
           title: Название бренда
         country:
@@ -356,12 +370,21 @@ ru:
           user: Владелец
           goods: Товары
           price: Цена
+          name: Имя
+          family: Фамилия
+          second_name: Отчество
+          city: Город
+          post_index: Почтовый индекс
+          street: Улица, дом
+          address: Адрес
+
         carousel:
-          header: Заголовок текста
-          content_text: Текст
+          header: Заголовок текста слайда
+          content_text: Основной текст слайда
           main: Главный слайд
-          image: Изображение слайда
+          picture: Изображение слайда
           created_at: Дата создания
+
         back_call:
           phone: Телефон
         client_message:

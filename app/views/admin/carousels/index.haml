@@ -14,7 +14,7 @@
         %th
           = human_name('main')
         %th
-          = human_name('image')
+          = human_name('picture')
         %th
           = human_name('created_at')
         %th(width=70)
@@ -25,10 +25,14 @@
           %td= carousel.id
           %td= carousel.header
           %td= carousel.content_text
-          %td= carousel.main
+          %td= carousel.main ? 'Да' : 'Нет'
           %td= image_tag(carousel.picture.url(:small))
           %td= l(carousel.created_at, format: :long)
           %td
+            - if carousel.picture.present?
+              = link_to crop_admin_carousel_path(carousel), title: 'Нарезать изображение'do
+                %span.glyphicon.glyphicon-picture
+
             = edit_button(edit_admin_carousel_path(carousel))
             = delete_button(admin_carousel_path(carousel))
 
