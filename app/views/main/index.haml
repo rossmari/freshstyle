@@ -42,12 +42,15 @@
         .h4
           = "Горячая цена: #{number_to_rubls(good.price)}"
       .col-md-5
-        = image_tag(good.main_image.picture.url(:big))
+        = link_to good_path(good) do
+          = image_tag(good.main_image.picture.url(:big))
     - else
       .col-md-7
-        = image_tag(good.main_image.picture.url(:big))
+        = link_to good_path(good) do
+          = image_tag(good.main_image.picture.url(:big))
       .col-md-5
         %h2.featurette-heading
+
           = "#{good.title}, #{good.brand.title}"
         .h4
           = "Горячая цена: #{number_to_rubls(good.price)}"
