@@ -3,7 +3,6 @@ class GoodPicture < ActiveRecord::Base
   # == REFERENCES
   belongs_to :good
 
-
   # == RESOURCES
   has_attached_file :picture,
                     :url  => '/good_pictures/:id/:style_:basename.:extension',
@@ -12,6 +11,5 @@ class GoodPicture < ActiveRecord::Base
 
   # == VALIDATORS
   validates_attachment_presence :picture
-  validates_attachment_content_type :picture, :content_type => /\Aimage/
-
+  validates_attachment_content_type :picture, content_type: /\Aimage/
 end

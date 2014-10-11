@@ -1,6 +1,6 @@
 class Admin::PagesController < Admin::BaseController
 
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :update_row_order]
 
   def index
     @pages = Page.all
@@ -50,12 +50,20 @@ class Admin::PagesController < Admin::BaseController
     end
   end
 
+  def update_row_order
+    @page.row_order_position = page_params[:row_order_position]
+    @page.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
+
   private
+
   def set_page
     @page = Page.find(params[:id])
   end
 
   def page_params
-    params.require(:page).permit(:title, :content)
+    params.require(:page).permit(:title, :content, :row_order_position)
   end
 end
