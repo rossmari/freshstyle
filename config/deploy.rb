@@ -27,7 +27,7 @@ task :copy_secrets_yml, roles => :app do
   db_config = "#{shared_path}/secrets.yml"
   run "cp #{db_config} #{release_path}/config/secrets.yml"
 end
-
+before "deploy:finalize_update", "deploy:create_symlinks"
 # В rails 3 по умолчанию включена функция assets pipelining,
 # которая позволяет значительно уменьшить размер статических
 # файлов css и js.
@@ -92,8 +92,7 @@ task :set_current_release, :roles => :app do
     set :current_release, latest_release
 end
 
-  set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
-
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 # - for unicorn - #
 namespace :deploy do
@@ -110,5 +109,12 @@ namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
+  end
+
+  task :create_symlinks, :role => :app do
+    run "ln -nfs #{shared_path}/public/carousel_pictures #{release_path}/public/carousel_pictures" #Create symlink for public files
+    run "ln -nfs #{shared_path}/public/good_pictures #{release_path}/public/good_pictures" #Create symlink for public files
+    run "ln -nfs #{shared_path}/public/category_pictures #{release_path}/public/category_pictures" #Create symlink for public files
+    run "ln -nfs #{shared_path}/public/ckeditor_assets #{release_path}/public/ckeditor_assets" #Create symlink for public files
   end
 end
