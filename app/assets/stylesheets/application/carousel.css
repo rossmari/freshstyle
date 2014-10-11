@@ -7,8 +7,6 @@ body {
   color: #5a5a5a;
 }
 
-
-
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
@@ -33,7 +31,6 @@ body {
 .navbar-wrapper .navbar .container {
   width: auto;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -62,8 +59,6 @@ body {
   height: 500px;
 }
 
-
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
@@ -80,13 +75,12 @@ body {
   margin-left: 10px;
 }
 
-
 /* Featurettes
 ------------------------- */
 
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
+/*.featurette-divider {*/
+  /*margin: 80px 0; *//* Space out the Bootstrap <hr> more */
+/*}*/
 
 /* Thin out the marketing headings */
 .featurette-heading {
@@ -95,13 +89,9 @@ body {
   letter-spacing: -1px;
 }
 
-
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
 @media (min-width: 768px) {
-
   /* Navbar positioning foo */
   .navbar-wrapper {
     margin-top: 20px;

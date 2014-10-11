@@ -50,18 +50,13 @@
     .col-md-8
       subscription
     .col-md-2
-%hr.featurette-divider{ style: 'margin:20px 0;' }
-%ol.breadcrumb
-  - Page.order(:title).each do |page|
-    %li
-      = link_to page.title, page
-%hr.featurette-divider{ style: 'margin-top:0px;' }
 %footer
+  %hr.featurette-divider
   %p
-    © 2014 Fresh Styles. ·
-    %a{:href => "#"} Privacy
-    ·
-    %a{:href => "#"} Terms
+    © 2014 Fresh Styles ·
+    - pages.each do |page|
+      = link_to page.title, page
+      ·
 
   %p.pull-right
     = link_to 'Наверх', '#'
