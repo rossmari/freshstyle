@@ -343,6 +343,7 @@ ru:
           color: Цвет
           article: Артикул
           size: Размер
+          sizes: Размеры
           consist: Состав
           origin_country: Страна производитель
           design_country: Страна дизайна
@@ -391,6 +392,8 @@ ru:
           name: Ваше имя
           email: Email
           content: Сообщение
+        page:
+          title: Заголовок страницы
 
   ckeditor:
     page_title: 'CKEditor файловый менеджер'

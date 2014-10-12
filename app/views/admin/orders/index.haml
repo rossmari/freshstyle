@@ -24,7 +24,11 @@
         %tr
           %td= order.id
           %td
-            = raw(order.goods.map{|g| link_to(g.title, admin_good_path(g))}.join(', '))
+            - order.order_goods.each do |pack|
+              = link_to "#{pack.good.title} (#{pack.good.brand.title})", admin_good_path(pack.good)
+              %span.label.label-warning.white-text
+                = link_to "#{pack.good.article}", admin_good_path(pack.good)
+              = ", размер #{pack.size.name}"
           %td= number_to_rubls(order.price)
           %td= order.full_name
           %td= order.address
@@ -32,3 +36,4 @@
           %td
             = show_button(admin_order_path(order))
             = delete_button(admin_order_path(order))
+
