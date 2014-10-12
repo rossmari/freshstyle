@@ -12,13 +12,16 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @hash.each do |set|
-      good = Good.find(set['id'])
-      good.update_attribute(:count_in_stock, good.count_in_stock - 1)
-      @order.order_goods << OrderGood.create(good: good, size: Size.where(name: set['size']).first)
-    end
+
 
     if @order.save
+
+      @hash.each do |set|
+        good = Good.find(set['id'])
+        good.update_attribute(:count_in_stock, good.count_in_stock - 1)
+        @order.order_goods << OrderGood.create(good: good, size: Size.where(name: set['size']).first)
+      end
+
       cookies['basket'] = ''
       redirect_to root_path, notice: t('order.add')
     else
