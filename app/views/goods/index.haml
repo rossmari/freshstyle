@@ -2,11 +2,15 @@
 
 .row
   .col-md-6.text-left
-    = form_for :filter, url: category_goods_path(@filter.category), method: :get do |f|
-      = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], include_blank: true
-      = f.collection_select :brand_id, Brand.all, :id, :title, include_blank: true, class: 'form-control'
-      = f.collection_select :size_id, Size.all, :id, :name, include_blank: true
-      = f.submit 'Найти'
+    = form_for :filter, url: category_goods_path(@filter.category), method: :get, html: {class: 'form-inline'} do |f|
+      .form-group
+        = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], {include_blank: true}, {class: 'form-control input-sm'}
+      = f.collection_select :brand_id, Brand.all, :id, :title, {include_blank: true}, {class: 'form-control input-sm'}
+      = f.collection_select :size_id, Size.all, :id, :name, {include_blank: true}, {class: 'form-control input-sm'}
+
+      = f.button class: 'btn btn-primary' do
+        %span.glyphicon.glyphicon-search
+        Найти
 
   .col-md-6.text-right
     = will_paginate @goods
