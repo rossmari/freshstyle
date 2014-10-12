@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   has_many :goods, through: :order_goods
 
   # === VALIDATORS
-  validates_presence_of :name, :second_name, :family, :city, :street, :order_goods, :post_index
+  validates_presence_of :name, :second_name, :family, :city, :street, :order_goods, :post_index, :phone
 
   def price
     self.goods.sum(:price)

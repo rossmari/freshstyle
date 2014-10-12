@@ -378,6 +378,7 @@ ru:
           post_index: Почтовый индекс
           street: Улица, дом
           address: Адрес
+          phone: Контактный телефон
 
         carousel:
           header: Заголовок текста слайда
