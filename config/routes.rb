@@ -38,7 +38,11 @@ Rails.application.routes.draw do
     resources :countries
     resources :sizes
     resources :good_images
-    resources :orders
+    resources :orders do
+      member do
+        get :update_state
+      end
+    end
     resources :carousels do
       member do
         get :crop

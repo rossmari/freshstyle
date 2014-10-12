@@ -5,44 +5,49 @@
   = back(admin_goods_path)
   = edit_button(edit_admin_good_path(@good))
 
-%p
-  %strong
-    = human_name('title')
-  = @good.title
-%p
-  %strong
-    = human_name('article')
-  = @good.article
-%p
-  %strong
-    = human_name('color')
-  = @good.color
-%p
-  %strong
-    = human_name('size')
-  = @good.sizes.map(&:name).join(', ')
+.row
+  .col-md-6
+    %p
+      %strong
+        = human_name('title')
+      = @good.title
+    %p
+      %strong
+        = human_name('article')
+      = @good.article
+    %p
+      %strong
+        = human_name('color')
+      = @good.color
+    %p
+      %strong
+        = human_name('sizes')
+      = @good.sizes.map(&:name).join(', ')
 
-%p
-  %strong
-    = human_name('consist')
-  = @good.consist
+    %p
+      %strong
+        = human_name('consist')
+      = @good.consist
 
-%p
-  %strong
-    = human_name('origin_country')
-  = @good.origin_country.name
+    %p
+      %strong
+        = human_name('origin_country')
+      = @good.origin_country.name
 
-%p
-  %strong
-    = human_name('design_country')
-  = @good.design_country.name
+    %p
+      %strong
+        = human_name('design_country')
+      = @good.design_country.name
 
-%p
-  %strong
-    = human_name('count_in_stock')
-  = @good.count_in_stock
+    %p
+      %strong
+        = human_name('count_in_stock')
+      = @good.count_in_stock
 
-%p
-  %strong
-    = human_name('price')
-  = @good.price
+    %p
+      %strong
+        = human_name('price')
+      = number_to_rubls(@good.price)
+  .col-md-6
+    - if @good.main_image.present?
+      = image_tag(@good.main_image.picture.url(:big), class: 'img-thumbnail')

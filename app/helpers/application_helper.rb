@@ -33,4 +33,10 @@ module ApplicationHelper
     number_to_currency(number, :unit => "Руб.", :separator => ",", :delimiter => ".")
   end
 
+  def error_text(attribute, model)
+   if model.errors.messages.keys.include?(attribute)
+      content_tag(:em, "#{model.class.human_attribute_name(attribute)} #{@order.errors[attribute].join(', ')} !", class: 'text-danger')
+   end
+  end
+
 end

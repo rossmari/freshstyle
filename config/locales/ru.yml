@@ -320,6 +320,7 @@ ru:
     new: Новый заказ
     add: Заказ был успешно создан
     remove: Заказ был удален
+    state_sended: Заказ %{id} отмечен как Отправленный
 
   carousel:
     carousels: Главный слайдер
@@ -343,6 +344,7 @@ ru:
           color: Цвет
           article: Артикул
           size: Размер
+          sizes: Размеры
           consist: Состав
           origin_country: Страна производитель
           design_country: Страна дизайна
@@ -377,6 +379,12 @@ ru:
           post_index: Почтовый индекс
           street: Улица, дом
           address: Адрес
+          phone: Контактный телефон
+          state: Состояние заказа
+          states:
+            new: Новый заказ
+            sended: Заказ отправлен
+            done: Заказ доставлен
 
         carousel:
           header: Заголовок текста слайда
@@ -391,6 +399,8 @@ ru:
           name: Ваше имя
           email: Email
           content: Сообщение
+        page:
+          title: Заголовок страницы
 
   ckeditor:
     page_title: 'CKEditor файловый менеджер'

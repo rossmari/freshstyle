@@ -49,7 +49,9 @@
     %br
       - if @good.count_in_stock > 0
         - icon = content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up')
-        = link_to raw("Добавить в корзину #{icon}"), '#', class: 'add_good_to_basket btn btn-block  btn-success btn-default', title: 'Добавить этот товар в корзину', data: {good_id: @good.id}
+        = link_to raw("Добавить в корзину #{icon}"), '#', class: 'add_good_to_basket btn btn-block btn-success', title: 'Добавить этот товар в корзину', data: {good_id: @good.id}
+      - else
+        = link_to 'Товара нет в наличии', '#', class: 'btn btn-block btn-danger', disabled: true
 
     #accordion.panel-group
       .panel.panel-default
