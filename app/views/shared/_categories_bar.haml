@@ -1,6 +1,18 @@
 .navbar.navbar-default
   .container-fluid
     .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li
-          = link_to 'Каталог', '#'
+      %ul.nav.navbar-nav.nav-justified
+        %li.dropdown
+          = link_to 'Каталог', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }
+          .dropdown-menu.categories-dropdown
+            .container-fluid
+              - Category.roots.includes(:children).in_groups_of(4, false) do |roots|
+                .col-md-3
+                  - roots.each do |category|
+                    %h5
+                      = category.name
+                    %ul.subcategories
+                      - category.children.each do |subscat|
+                        %li
+                          %h6
+                            = link_to subscat.name, category_goods_path(subscat)
