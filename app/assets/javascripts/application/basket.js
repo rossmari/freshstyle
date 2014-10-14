@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    cookie.defaults.expires = 2;
     cookie.defaults.path = '/';
     var localBasket = [];
     check_basket();
