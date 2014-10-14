@@ -2,7 +2,7 @@
   - if @carousels
     %ol.carousel-indicators
       - @carousels.each_with_index do |carousel, index|
-        %li{ class: ('active' if carousel.main), data: { 'slide-to' => "#{index}", target: '#myCarousel' } }
+        %li{ class: ('active' if carousel.main), data: { slide: { to: index.to_s }, target: '#myCarousel' } }
 
     .carousel-inner
       - @carousels.each_with_index do |carousel, index|
