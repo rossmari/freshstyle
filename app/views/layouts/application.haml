@@ -22,8 +22,13 @@
       %script{ src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' }
 
   %body
-    = render 'partials/navbar'
-    = render 'partials/carousel'
-    .container.marketing
+    -#= render 'partials/navbar'
+    -#.container.marketing
       = yield
       = render 'partials/footer'
+    = render 'shared/header'
+    = render 'shared/categories_bar'
+    = yield(:carousel)
+    = render 'shared/pages_bar'
+    = yield
+    = render 'shared/footer'

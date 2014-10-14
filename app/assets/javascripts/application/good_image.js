@@ -5,9 +5,8 @@ $(document).ready(function() {
         event.stopPropagation();
         var original = $(this).data('big');
         $('.big_image').find('img').prop('src', original);
-    })
+    });
 
 
     $(".fancybox").fancybox();
-
 });
