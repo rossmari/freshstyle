@@ -1,44 +1,45 @@
-- if @goods.any?
+- if @processor.any_goods?
   .row
     .h3.col-md-offset-1
 
-      = "В корзине #{@hash.count} товаров"
+      = "В корзине #{@processor.goods_count} товаров"
       -##. Общая стоймость #{@goods.sum(:price)}"
 
-  - @hash.each do |data|
-    - good = @goods.select{|g| g.id = data['id']}.first
-    .row.good_item
-      .col-md-offset-1.col-md-3
-        - if good.main_image.present?
-          = link_to good_path(good), class: 'thumbnail' do
-            = image_tag(good.main_image.picture.url(:basket))
+  - @processor.goods_wrappers.each do |wrapper|
+    - if wrapper.exist
+      - good = wrapper.good
+      .row.good_item
+        .col-md-offset-1.col-md-3
+          - if good.main_image.present?
+            = link_to good_path(good), class: 'thumbnail' do
+              = image_tag(good.main_image.picture.url(:basket))
 
-      .col-md-offset-1.col-md-7
-        .h3
-          = "#{good.category.name}, #{good.brand.title}"
-        .h5
-          = "Страна производитель: #{good.origin_country.name}"
-        .h5
-          = "Стоймость: #{number_to_rubls(good.price)}"
-        .h5
-          Выбранный размер
-          %span.size
-            = data['size']
+        .col-md-offset-1.col-md-7
+          .h3
+            = "#{good.category.name}, #{good.brand.title}"
+          .h5
+            = "Страна производитель: #{good.origin_country.name}"
+          .h5
+            = "Стоймость: #{number_to_rubls(good.price)}"
+          .h5
+            Выбранный размер
+            %span.size
+              = wrapper.size
 
-        = link_to good_path(good), class: 'btn btn-info' do
-          %span.glyphicon.glyphicon-search
-          К товару
+          = link_to good_path(good), class: 'btn btn-info' do
+            %span.glyphicon.glyphicon-search
+            К товару
 
-        = link_to '#', class: 'remove_good_from_basket btn btn-danger', data: {good_id: good.id} do
-          %span.glyphicon.glyphicon-remove
-          Удалить из корзины
+          = link_to '#', class: 'remove_good_from_basket btn btn-danger', data: {good_id: good.id} do
+            %span.glyphicon.glyphicon-remove
+            Удалить из корзины
 
   .row
     .h3
       .col-md-offset-6.col-md-3
         Общая стоймость:
       .col-md-3
-        = number_to_rubls(@price)
+        = number_to_rubls(@processor.total_price)
 
   %br
   .row
