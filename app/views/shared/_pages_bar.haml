@@ -1,0 +1,8 @@
+- if controller_name == 'main'
+  .navbar.navbar-default
+    .container-fluid
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          - pages.each do |page|
+            %li
+              = link_to page.title, page
