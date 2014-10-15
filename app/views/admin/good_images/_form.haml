@@ -9,12 +9,17 @@
 
     %table
       = f.fields_for :images do |image|
-        = image.file_field :picture
-        Главное изображение
-        = image.radio_button :main_image, true, checked: image.object.main_image
-        - if image.object.picture.present?
-          = image_tag image.object.picture(:admin_thumb)
-        = image.link_to_remove 'Удалить изображение', class: 'btn btn-danger btn-sm'
+        .row
+          .col-sm-2
+            = image.file_field :picture
+          .col-sm-2
+            Главное изображение
+            = image.radio_button :main_image, true, checked: image.object.main_image
+          .col-sm-2
+            - if image.object.picture.present?
+              = image_tag image.object.picture(:admin_thumb)
+          .col-sm-2
+            = image.link_to_remove 'Удалить изображение', class: 'btn btn-danger btn-sm'
     =  f.link_to_add 'Добавить фотографию', :images, class: 'btn btn-primary btn-sm'
 
   = f.submit t('actions.save'), class: 'btn btn-primary'
