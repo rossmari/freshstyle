@@ -25,8 +25,15 @@ class Good < ActiveRecord::Base
   scope :by_season, ->(season){where(season: season)}
   scope :main_offers, ->{where(main_offer: true)}
 
-  def main_image
-    GoodPicture.where(main_image: true, good_id: self.id).first
+  def main_image(thumb_style = '')
+    main_image = GoodPicture.where(main_image: true, good_id: self.id).first
+    if main_image && main_image.picture
+      main_image.picture(thumb_style.to_sym)
+    elsif images.any?
+      images.first.picture(thumb_style.to_sym)
+    else
+      ''
+    end
   end
 
 end

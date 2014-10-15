@@ -99,6 +99,14 @@
     /*cursor: zoom-in;*/
 /*}*/
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    padding-bottom: 33px;
+}
+
 .jumbotron {
     margin-bottom: 0;
     padding-top: 0;
