@@ -46,8 +46,7 @@
           %td= t("good.seasons.#{good.season}")
           %td= number_to_rubls(good.price)
           %td
-            - if good.main_image.present?
-              = image_tag(good.main_image.picture.url(:admin_thumb))
+            = image_tag(good.main_image(:admin_thumb))
           %td
             = good.images.count
             = link_to '(Изменить)', edit_admin_good_image_path(id: good.id)

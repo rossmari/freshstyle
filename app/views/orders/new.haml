@@ -2,9 +2,8 @@
   - good = @goods.select{|g| g.id = data['id']}.first
   .row.good_item
     .col-md-offset-1.col-md-2
-      - if good.main_image.present?
-        = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
-          = image_tag(good.main_image.picture.url(:admin_thumb))
+      = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
+        = image_tag(good.main_image(:admin_thumb))
 
     .col-md-offset-1.col-md-7
       .h4

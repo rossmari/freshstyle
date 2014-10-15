@@ -49,5 +49,4 @@
         = human_name('price')
       = number_to_rubls(@good.price)
   .col-md-6
-    - if @good.main_image.present?
-      = image_tag(@good.main_image.picture.url(:big), class: 'img-thumbnail')
+    = image_tag(@good.main_image(:big), class: 'img-thumbnail')

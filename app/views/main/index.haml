@@ -12,11 +12,11 @@
           = "Горячая цена: #{number_to_rubls(good.price)}"
       .col-md-5
         = link_to good_path(good) do
-          = image_tag(good.main_image.picture.url(:big))
+          = image_tag(good.main_image(:big))
     - else
       .col-md-7
         = link_to good_path(good) do
-          = image_tag(good.main_image.picture.url(:big))
+          = image_tag(good.main_image(:big))
       .col-md-5
         %h2.featurette-heading
 

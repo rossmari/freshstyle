@@ -9,7 +9,7 @@
 
     %table
       = f.fields_for :images do |image|
-        = image.file_field :picture#, class: 'btn btn-primary'
+        = image.file_field :picture
         Главное изображение
         = image.radio_button :main_image, true, checked: image.object.main_image
         - if image.object.picture.present?

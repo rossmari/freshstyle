@@ -10,9 +10,8 @@
       - good = wrapper.good
       .row.good_item
         .col-md-offset-1.col-md-3
-          - if good.main_image.present?
-            = link_to good_path(good), class: 'thumbnail' do
-              = image_tag(good.main_image.picture.url(:basket))
+          = link_to good_path(good), class: 'thumbnail' do
+            = image_tag(good.main_image(:basket))
 
         .col-md-offset-1.col-md-7
           .h3
