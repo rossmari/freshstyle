@@ -1,6 +1,6 @@
 -#= goods_breadcrumbs(@filter.category)
 
-.row
+.row{ style: 'padding-top:10px;' }
   .col-md-6.text-left
     = form_for :filter, url: category_goods_path(@filter.category), method: :get, html: {class: 'form-inline'} do |f|
       .form-group

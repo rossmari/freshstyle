@@ -1,7 +1,6 @@
 -# if it's need here , i don't know
-= goods_breadcrumbs(@good.category)
-
-.row
+-#= goods_breadcrumbs(@good.category)
+.row{ style: 'padding-top:10px;' }
   .col-md-offset-9.col-md-2.text-right
     = link_to '', title: 'Предыдущий товар' do
       %span.glyphicon.glyphicon-chevron-left
@@ -11,16 +10,16 @@
 .row
   .col-md-2.text-center
     - @good.images.each do |image|
-      = link_to image.picture.url, class: 'preview fancybox thumbnail col-md-offset-2 col-md-8', rel: 'gallery1', data: {big: image.picture.url(:big)} do
+      = link_to image.picture.url, class: 'preview fancybox thumbnail col-md-offset-2 col-md-8', rel: 'gallery1', data: { big: image.picture.url(:big) } do
         = image_tag(image.picture.url(:preview))
 
   .col-md-4.text-center.big_image
-    = link_to @good.main_image, class: 'fancybox', rel: 'gallery1' do
+    = link_to @good.main_image(:original), class: 'fancybox', rel: 'gallery1' do
       = image_tag(@good.main_image(:big))
 
   .col-md-4
     .h3.text-center
-      = "#{@good.category.name}, #{@good.brand.title}"
+      = "#{@good.category.name}, #{@good.title}, #{@good.brand.title}"
     .h5.text-muted.text-center
       = "артикул: #{@good.article}"
 

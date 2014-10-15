@@ -1,25 +1,13 @@
 = content_for :carousel do
   = render 'partials/carousel'
 
-- @main_offers.each_with_index do |good, index|
-  %hr.featurette-divider
-  .row.featurette
-    - if index.odd?
-      .col-md-7
-        %h2.featurette-heading
-          = "#{good.title}, #{good.brand.title}"
-        .h4
-          = "Горячая цена: #{number_to_rubls(good.price)}"
-      .col-md-5
-        = link_to good_path(good) do
-          = image_tag(good.main_image(:big))
-    - else
-      .col-md-7
-        = link_to good_path(good) do
-          = image_tag(good.main_image(:big))
-      .col-md-5
-        %h2.featurette-heading
-
-          = "#{good.title}, #{good.brand.title}"
-        .h4
-          = "Горячая цена: #{number_to_rubls(good.price)}"
+.row
+  - @main_offers.each do |good|
+    .col-lg-4
+      = image_tag good.main_image(:big), class: 'img-circle', style: 'width: 140px; height: 140px;'
+      %h2
+        #{good.title}, #{good.brand.title}
+      %p
+        Специальная цена: #{number_to_rubls(good.price)}
+      %p
+        = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'
