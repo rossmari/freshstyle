@@ -350,10 +350,10 @@ ru:
           design_country: Страна дизайна
           name: Название товара
           price: Цена
-          count_in_stock: Количество на складе
+          count_in_stock: Кол-во
           active: В наличии
           brand: Бренд
-          title: Название товара
+          title: Название
           season: Сезон
           percents_discount: Скидка в процентах
           monetary_discount: Скидка в деньгах

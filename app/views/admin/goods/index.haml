@@ -24,8 +24,6 @@
         %th
           = human_name('price')
         %th
-          = human_name('main_image')
-        %th
           = human_name('images')
 
         %th(width=70)
@@ -46,11 +44,8 @@
           %td= t("good.seasons.#{good.season}")
           %td= number_to_rubls(good.price)
           %td
-            = image_tag(good.main_image(:admin_thumb))
-          %td
-            = good.images.count
-            = link_to '(Изменить)', edit_admin_good_image_path(id: good.id)
-
+            = link_to edit_admin_good_image_path(id: good.id) do
+              = image_tag(good.main_image(:admin_thumb))
           %td
             = show_button(admin_good_path(good))
             = edit_button(edit_admin_good_path(good))
