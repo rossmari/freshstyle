@@ -4,7 +4,7 @@
 .row
   - @main_offers.each do |good|
     .col-lg-4
-      = image_tag good.main_image(:big), class: 'img-circle', style: 'width: 140px; height: 140px;'
+      = image_tag good.main_image(:basket)
       %h2
         #{good.title}, #{good.brand.title}
       %p

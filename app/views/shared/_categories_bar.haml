@@ -6,16 +6,26 @@
           = link_to 'Каталог', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }
           .dropdown-menu.categories-dropdown
             .container-fluid
-              - Category.roots.includes(:children).in_groups_of(4, false) do |roots|
-                .col-md-3
-                  - roots.each do |category|
-                    %h5
-                      = category.name
-                    %ul.subcategories
-                      - category.children.each do |subscat|
-                        %li
-                          %h6
-                            = link_to subscat.name, category_goods_path(subscat)
+              .col-md-9
+                .container-fluid
+                  - Category.roots.includes(:children).in_groups_of(2, false) do |roots|
+                    .col-md-3
+                      - roots.each do |category|
+                        %h5
+                          = category.name
+                        %ul.subcategories
+                          - category.children.each do |subscat|
+                            %li
+                              %h6
+                                = link_to subscat.name, category_goods_path(subscat)
+              .col-md-3
+                - super_good = Good.main_offers.first
+                %h5
+                  Лучшее предложение
+                = link_to good_path(super_good) do
+                  = image_tag super_good.main_image(:basket)
+                %h5
+                  Специальная цена: #{number_to_rubls(super_good.price)}
 
       - if controller_name != 'main'
         %ul.nav.navbar-nav
