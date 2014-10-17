@@ -64,6 +64,10 @@
 /* MARKETING CONTENT*/
 /*-------------------------------------------------- */
 
+.marketing {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
  /*Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin: 20px 0;

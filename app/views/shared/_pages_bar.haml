@@ -1,7 +1,13 @@
 - if controller_name == 'main'
   .navbar.navbar-default
     .container-fluid
-      .collapse.navbar-collapse
+      .navbar-header
+        %button.navbar-toggle.collapsed{ data: { target: '#bs-example-navbar-collapse-1', toggle: 'collapse' }, type: 'button' }
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      .collapse.navbar-collapse#bs-example-navbar-collapse-1
         %ul.nav.navbar-nav
           - pages.each do |page|
             %li
