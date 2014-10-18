@@ -79,6 +79,10 @@
     /*padding: 2px;*/
 /*}*/
 
+.sizes {
+    padding-bottom: 10px;
+}
+
 /*.sizes span {*/
     /*display: inline-block;*/
     /*border: 1px solid rgb(245, 117, 17);*/
@@ -118,6 +122,9 @@ body {
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
+}
+.navbar-nav {
+    margin: 0;
 }
 
 .footer {

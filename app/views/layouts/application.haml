@@ -15,6 +15,8 @@
 
     = yield(:assets)
 
+    = render 'shared/cleversite_script' if Rails.env.production?
+
     -#HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     -#WARNING: Respond.js doesn't work if you view the page via file://
     /[if lt IE 9]
@@ -31,5 +33,6 @@
     = yield(:carousel)
     = render 'shared/pages_bar'
     .container.marketing
+      = render 'admin/shared/flashes'
       = yield
     = render 'shared/footer'

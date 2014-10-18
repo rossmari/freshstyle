@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012092846) do
+ActiveRecord::Schema.define(version: 20141018085343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "back_calls", force: true do |t|
     t.string   "phone"
-    t.boolean  "answered"
-    t.string   "comment"
+    t.boolean  "processed",  default: false, null: false
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20141012092846) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "processed",  default: false, null: false
   end
 
   create_table "countries", force: true do |t|
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 20141012092846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "main_offer",        default: false
+    t.text     "description"
   end
 
   create_table "goods_sizes", force: true do |t|
@@ -159,6 +161,7 @@ ActiveRecord::Schema.define(version: 20141012092846) do
     t.string   "street"
     t.string   "phone"
     t.string   "state",       default: "new"
+    t.string   "email"
   end
 
   create_table "pages", force: true do |t|

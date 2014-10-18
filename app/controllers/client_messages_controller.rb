@@ -1,22 +1,22 @@
 class ClientMessagesController < ApplicationController
 
-  def create
-    @client_message = ClientMessage.new(clien_message_params)
+  def new
+    @message = ClientMessage.new
+  end
 
-    respond_to do |format|
-      if @client_message.save
-        format.html { redirect_to new_feedback_path, notice: 'Client message created' }
-        format.json { render :show, status: :created, location: @client_message }
-      else
-        format.html { render :new }
-        format.json { render json: @client_message.errors, status: :unprocessable_entity }
-      end
+  def create
+    @message = ClientMessage.new(client_message_params)
+
+    if @message.save
+      redirect_to root_path, notice: t('client_message.created')
+    else
+      render :new
     end
   end
 
   private
 
-  def clien_message_params
+  def client_message_params
     params.require(:client_message).permit(:email, :name, :content)
   end
 end

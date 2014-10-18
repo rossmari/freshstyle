@@ -14,13 +14,18 @@ Rails.application.routes.draw do
 
   resources :baskets
   resources :orders
-  resources :feedbacks
   resources :back_calls
   resources :client_messages
 
   namespace :admin do
     root to: 'categories#index'
 
+    resources :client_messages do
+      member do
+        get :process_message
+      end
+    end
+    resources :back_calls
 
     resources :users
     resources :categories do

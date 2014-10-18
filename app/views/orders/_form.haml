@@ -49,6 +49,14 @@
     .col-sm-4
       = error_text(:phone, @order)
 
+  .form-group
+    = f.label :email, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :email, class: 'form-control'
+    .col-sm-4
+      = error_text(:email, @order)
+
+
 
   .form-group
     .col-sm-offset-2.col-sm-4

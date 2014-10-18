@@ -2,7 +2,8 @@ module Admin::OrdersHelper
 
   def order_state_label(order)
     content = ''
-    label = content_tag(:span, t("activerecord.attributes.order.states.#{order.state}"), class: 'label label-success')
+    label_type = order.state == 'new' ? 'success' : 'default'
+    label = content_tag(:span, t("activerecord.attributes.order.states.#{order.state}"), class: "label label-#{label_type}")
     content << content_tag(:h4, label, style: 'display:inline;')
 
 

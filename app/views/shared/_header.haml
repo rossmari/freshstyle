@@ -1,23 +1,29 @@
 .jumbotron
   .container-fluid
-    .col-md-2
+    .col-lg-2
       = link_to root_path do
         = image_tag 'logo_fresh.png', height: 80
-    .col-md-2
-      %h6 Интернет-магазин
-      %h6 Женская одежда
-      %h6 Детская одежда
-      %h6 Аксессуары
-    .col-md-2
-    .col-md-2
+      %h4 Интернет-магазин
+    .col-lg-2
+      %h5 Женская одежда
+      %h5 Детская одежда
+      %h5 Аксессуары
+    .col-lg-2
+    .col-lg-2
       %h5
         = link_to baskets_path do
           Корзина
           %span.badge.basket_count_label
             0
-    .col-md-4
+      %h5
+        = link_to 'Доставка', Page.where("LOWER(title) LIKE '%доставка%'").first
+      %h5
+        = link_to 'Оплата', Page.where("LOWER(title) LIKE '%оплата%'").first || '#'
+    .col-lg-4
       %h5
         Контакты:
         = link_to '+7 (916) 779-45-70', 'tel:+79167794570'
-      %h5= link_to 'Доставка', Page.where("LOWER(title) LIKE '%доставка%'").first
-      %h5= link_to 'Оплата', Page.where("LOWER(title) LIKE '%оплата%'").first || '#'
+      %h5
+        = link_to 'Заказать обратный звонок ', new_back_call_path
+      %h5
+        = link_to 'Оставить нам сообщение', new_client_message_path

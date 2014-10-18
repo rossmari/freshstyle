@@ -22,7 +22,6 @@ class BasketProcessor
     end
   end
 
-
   def goods_count
     @goods_wrappers.select{|w| w.exist}.count
   end

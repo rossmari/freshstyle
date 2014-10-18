@@ -11,6 +11,8 @@ module Admin::MenuHelper
       link_to(t('brand.brands'), admin_brands_path),
       link_to(t('country.countries'), admin_countries_path),
       link_to(t('size.sizes'), admin_sizes_path),
+      link_to("#{t('back_call.back_calls')} (#{BackCall.new_calls.count})", admin_back_calls_path),
+      link_to("#{t('client_message.client_messages')} (#{ClientMessage.new_messages.count})", admin_client_messages_path),
       link_to(t('carousel.carousels'), admin_carousels_path),
     ]
     raw(generate_menu(items))
@@ -21,7 +23,7 @@ module Admin::MenuHelper
     items.each do |item|
       menu += content_tag(:li, item, class: ('active' if is_active_item?(item)))
     end
-    return menu
+    menu
   end
 
   def is_active_item?(item)

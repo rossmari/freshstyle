@@ -34,11 +34,11 @@ module ApplicationHelper
   end
 
   def error_text(attribute, model)
-   if model.errors.messages.keys.include?(attribute)
-     unless @order.errors[attribute].empty?
-      content_tag(:em, "#{model.class.human_attribute_name(attribute)} #{@order.errors[attribute].join(', ')} !", class: 'text-danger')
-     end
-   end
+    if model.errors.messages.keys.include?(attribute)
+      unless model.errors[attribute].empty?
+        content_tag(:em, "#{model.class.human_attribute_name(attribute)} #{model.errors[attribute].join(', ')} !", class: 'text-danger')
+      end
+    end
   end
 
 end

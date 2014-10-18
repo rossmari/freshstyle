@@ -1,0 +1,36 @@
+%h2.page-header
+  = t('client_message.client_messages')
+%h5.page-header
+  При нажатии на email автоматически открывается ваш почтовик
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          Имя клиента
+        %th
+          = human_name('email')
+        %th
+          = human_name('content')
+        %th
+          = human_name('processed')
+
+        %th(width=50)
+
+    %tbody
+      - @client_messages.each do |message|
+        %tr
+          %td= message.id
+          %td= message.name
+          %td
+            = mail_to(message.email)
+          %td= message.content
+          %td
+            = answered_label(message)
+          %td
+            = edit_button(edit_admin_client_message_path(message))
+            = delete_button(admin_client_message_path(message))
+            = template_button(process_message_admin_client_message_path(message), 'Обработано!', 'glyphicon glyphicon-ok')
