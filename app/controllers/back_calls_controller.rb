@@ -1,4 +1,4 @@
-class Admin::BackCallsController < ApplicationController
+class BackCallsController < ApplicationController
 
   def new
     @back_call = BackCall.new
