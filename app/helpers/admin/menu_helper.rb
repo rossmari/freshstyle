@@ -23,7 +23,7 @@ module Admin::MenuHelper
     items.each do |item|
       menu += content_tag(:li, item, class: ('active' if is_active_item?(item)))
     end
-    return menu
+    menu
   end
 
   def is_active_item?(item)
