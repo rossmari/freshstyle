@@ -1,18 +1,19 @@
-- @hash.each do |data|
-  - good = @goods.select{|g| g.id = data['id']}.first
-  .row.good_item
-    .col-md-offset-1.col-md-2
-      = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
-        = image_tag(good.main_image(:admin_thumb))
+- @processor.goods_wrappers.each do |wrapper|
+  - if wrapper.exist
+    - good = wrapper.good
+    .row.good_item
+      .col-md-offset-1.col-md-2
+        = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
+          = image_tag(good.main_image(:admin_thumb))
 
-    .col-md-offset-1.col-md-7
-      .h4
-        = "#{good.category.name}, #{good.brand.title}"
-        = "Стоймость: #{number_to_rubls(good.price)}"
-      .h4
-        Размер:
-        %span.size
-          = data['size']
+      .col-md-offset-1.col-md-7
+        .h4
+          = "#{good.category.name}, #{good.brand.title}"
+          = "Стоймость: #{number_to_rubls(good.price)}"
+        .h4
+          Размер:
+          %span.size
+            = wrapper.size
 
 .row
   .h4

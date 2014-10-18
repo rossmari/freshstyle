@@ -32,11 +32,12 @@
       %h5 Страна производитель: #{@good.origin_country.name}
 
     .row
-      .h5
+      .h5{style: 'display:inline;'}
         Доступные размеры:
-      -#%em{ style: 'display:none', id: 'size_alert' }
+      %em{ style: 'display:none', id: 'size_alert' }
         %div{ class: 'text-danger', style: 'display:inline' }
-          необходимо выбрать размер!!
+          %b
+            Необходимо выбрать размер!!
     .row.sizes
       %div{ class: 'col-md-10 btn-group', style: 'padding-left:0;', data: { toggle: 'buttons' } }
         - @good.sizes.each do |size|

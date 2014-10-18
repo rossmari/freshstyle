@@ -19,6 +19,10 @@
       %h5
         Контакты:
         = link_to '+7 (916) 779-45-70', 'tel:+79167794570'
-      %h5= link_to 'Свяжитесь с нами', new_feedback_path
+      %h5
+        = link_to 'Оставить сообщение', new_client_message_path
+        (
+        = link_to ' заказать обратный звонок ', new_back_call_path
+        )
       %h5= link_to 'Доставка', Page.where("LOWER(title) LIKE '%доставка%'").first
       %h5= link_to 'Оплата', Page.where("LOWER(title) LIKE '%оплата%'").first || '#'

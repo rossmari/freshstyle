@@ -1,0 +1,10 @@
+= content_for :page_title do
+  = t('back_call.edit')
+
+%h1.page-header
+  = t('back_call.edit')
+
+= render 'form'
+
+= content_for :side_bar do
+  = back(admin_client_messages_path)

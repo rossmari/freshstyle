@@ -1,0 +1,28 @@
+%h2.page-header
+  = t('back_call.back_calls')
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th(width=10)
+          ID
+        %th
+          = human_name('phone')
+        %th
+          = human_name('processed')
+        %th
+          = human_name('comment')
+        %th(width=50)
+
+    %tbody
+      - @back_calls.each do |call|
+        %tr
+          %td= call.id
+          %td= call.phone
+          %td= answered_label(call)
+          %td
+            = call.comment.blank? ? '[нет комментария]' : call.comment
+          %td
+            = edit_button(edit_admin_back_call_path(call))
+            = delete_button(admin_back_call_path(call))

@@ -1,16 +1,16 @@
-class BackCallsController < ApplicationController
+class Admin::BackCallsController < ApplicationController
+
+  def new
+    @back_call = BackCall.new
+  end
 
   def create
     @back_call = BackCall.new(back_call_params)
 
-    respond_to do |format|
-      if @back_call.save
-        format.html { redirect_to new_feedback_path, notice: 'Back call created!' }
-        format.json { render :show, status: :created, location: @back_call }
-      else
-        format.html { render :new }
-        format.json { render json: @back_call.errors, status: :unprocessable_entity }
-      end
+    if @back_call.save
+      redirect_to root_path, notice: t('back_call.created')
+    else
+      render :new
     end
   end
 

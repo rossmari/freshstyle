@@ -16,10 +16,11 @@ class OrdersController < ApplicationController
 
     if @order.save
 
-      @hash.each do |set|
-        good = Good.find(set['id'])
+      @wrappers.each do |wrapper|
+        good = wrapper.good
+        size = Size.where(name: wrapper.size).first
         good.update_attribute(:count_in_stock, good.count_in_stock - 1)
-        @order.order_goods << OrderGood.create(good: good, size: Size.where(name: set['size']).first)
+        @order.order_goods << OrderGood.create(good: good, size: size)
       end
 
       cookies['basket'] = ''
@@ -31,10 +32,8 @@ class OrdersController < ApplicationController
 
   private
     def get_goods
-      @hash = cookies['basket'].blank? ? [] : JSON.parse(cookies['basket'])
-      good_ids = @hash.map{|h| h['id']}
-      @goods = Good.where(id: good_ids ).uniq
-      @price = PriceCalculator.calculate_price(good_ids, @goods)
+      @processor = BasketProcessor.new(cookies['basket'])
+      @wrappers = @processor.goods_wrappers.select{|w| w.exist}
     end
 
     def order_params
