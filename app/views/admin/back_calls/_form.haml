@@ -15,6 +15,12 @@
   .row
     .col-md-4
       .form-group
+        = f.label :name
+        = @back_call.name
+
+  .row
+    .col-md-4
+      .form-group
         = f.label :comment
         = f.text_area :comment, class: 'form-control'
 
