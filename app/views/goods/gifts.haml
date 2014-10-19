@@ -1,0 +1,6 @@
+.page-header
+  %h3 Подарки
+
+.row
+  - @gifts.each do |good|
+    = render 'goods/good_cart', good: good

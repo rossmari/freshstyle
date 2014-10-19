@@ -51,6 +51,14 @@ class GoodsController < ApplicationController
     end
   end
 
+  def sale
+    @sales = Good.on_sale
+  end
+
+  def gifts
+    @gifts = Good.gifts
+  end
+
   private
 
   def set_good

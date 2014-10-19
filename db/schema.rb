@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018085343) do
+ActiveRecord::Schema.define(version: 20141019055823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(version: 20141018085343) do
     t.datetime "updated_at"
     t.boolean  "main_offer",        default: false
     t.text     "description"
+    t.boolean  "on_sale",           default: false
+    t.boolean  "is_gift",           default: false
   end
 
   create_table "goods_sizes", force: true do |t|

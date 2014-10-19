@@ -1,55 +1,48 @@
+.page-header
+  %h3 В корзине #{@processor.goods_count} товаров
+
 - if @processor.any_goods?
-  .row
-    .h3.col-md-offset-1
-
-      = "В корзине #{@processor.goods_count} товаров"
-      -##. Общая стоймость #{@goods.sum(:price)}"
-
   - @processor.goods_wrappers.each do |wrapper|
     - if wrapper.exist
       - good = wrapper.good
-      .row.good_item
-        .col-md-offset-1.col-md-3
+      .row{ style: 'padding-top:10px;' }
+        .col-md-offset-1.col-md-4
           = link_to good_path(good), class: 'thumbnail' do
             = image_tag(good.main_image(:basket))
 
-        .col-md-offset-1.col-md-7
-          .h3
-            = "#{good.category.name}, #{good.brand.title}"
-          .h5
-            = "Страна производитель: #{good.origin_country.name}"
-          .h5
-            = "Стоймость: #{number_to_rubls(good.price)}"
-          .h5
-            Выбранный размер
+        .col-md-5
+          %h4
+            #{good.category.name}, #{good.title}, #{good.brand.title}
+          %h5
+            Страна производитель: #{good.origin_country.name}
+          %h5
+            Страна дизайна: #{good.design_country.name}
+          %h5
+            Цвет: #{good.color}
+          %h5
+            Выбранный размер:
             %span.size
               = wrapper.size
+          %h5
+            Стоймость: #{number_to_rubls(good.cost)}
 
           = link_to good_path(good), class: 'btn btn-info' do
             %span.glyphicon.glyphicon-search
             К товару
 
-          = link_to '#', class: 'remove_good_from_basket btn btn-danger', data: {good_id: good.id} do
-            %span.glyphicon.glyphicon-remove
+          = link_to '#', class: 'remove_good_from_basket btn btn-danger', data: { good_id: good.id } do
             Удалить из корзины
+            %span.glyphicon.glyphicon-remove
 
   .row
-    .h3
-      .col-md-offset-6.col-md-3
-        Общая стоймость:
-      .col-md-3
-        = number_to_rubls(@processor.total_price)
+    .col-md-offset-5.col-md-7
+      %h3
+        Общая стоимость: #{number_to_rubls(@processor.total_price)}
 
-  %br
-  .row
-    .col-md-offset-8
       = link_to '#', class: 'clear_basket btn btn-danger' do
         %span.glyphicon.glyphicon-trash
         Очистить корзину
 
-      - label = content_tag(:span, ' ', class: 'glyphicon glyphicon-chevron-right')
-      = link_to raw("Оформить заказ #{label}"), new_order_path, class: 'btn btn-success'
-
-- else
-  .row{ style: 'padding: 10px 0;' }
-    Корзина пуста
+      = link_to new_order_path, class: 'btn btn-success' do
+        Оформить заказ
+        %span.glyphicon.glyphicon-chevron-right

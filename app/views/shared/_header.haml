@@ -19,7 +19,8 @@
         = link_to 'Доставка', Page.where("LOWER(title) LIKE '%доставка%'").first
       %h5
         = link_to 'Оплата', Page.where("LOWER(title) LIKE '%оплата%'").first || '#'
-    .col-lg-4
+    .col-lg-2
+    .col-lg-2
       %h5
         Контакты:
         = link_to '+7 (916) 779-45-70', 'tel:+79167794570'

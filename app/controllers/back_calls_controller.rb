@@ -8,7 +8,7 @@ class BackCallsController < ApplicationController
     @back_call = BackCall.new(back_call_params)
 
     if @back_call.save
-      redirect_to root_path, notice: t('back_call.created')
+      redirect_to [:new, :back_call], notice: t('back_call.created')
     else
       render :new
     end

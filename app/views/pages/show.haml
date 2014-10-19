@@ -1,4 +1,4 @@
-%h2
-  = @page.title
-%p
-  = @page.content.html_safe
+.page-header
+  .h3 #{@page.title}
+
+= @page.content.html_safe

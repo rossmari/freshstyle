@@ -3,11 +3,4 @@
 
 .row
   - @main_offers.each do |good|
-    .col-lg-4
-      = image_tag good.main_image(:basket)
-      %h2
-        #{good.title}, #{good.brand.title}
-      %p
-        Специальная цена: #{number_to_rubls(good.price)}
-      %p
-        = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'
+    = render 'goods/good_cart', good: good

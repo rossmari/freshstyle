@@ -18,12 +18,14 @@ class Good < ActiveRecord::Base
   validates :title, :count_in_stock, :price, presence: true
 
   # === SCOPES
-  scope :by_category, ->(id){where(category_id: id)}
+  scope :by_category, -> (id) { where(category_id: id) }
 
-  scope :winter, ->{where(season: 'winter')}
-  scope :summer, ->{where(season: 'summer')}
-  scope :by_season, ->(season){where(season: season)}
-  scope :main_offers, ->{where(main_offer: true)}
+  scope :by_season,   -> (season) { where(season: season) }
+  scope :winter,      -> { where(season: 'winter') }
+  scope :summer,      -> { where(season: 'summer') }
+  scope :main_offers, -> { where(main_offer: true) }
+  scope :on_sale,     -> { where(on_sale: true) }
+  scope :gifts,       -> { where(is_gift: true) }
 
   def main_image(thumb_style = '')
     main_image = GoodPicture.where(main_image: true, good_id: self.id).first
@@ -36,4 +38,7 @@ class Good < ActiveRecord::Base
     end
   end
 
+  def cost
+    price - (monetary_discount || 0)
+  end
 end

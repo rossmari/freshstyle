@@ -3,9 +3,6 @@
   %h2
     #{good.title}, #{good.brand.title}
   %p
-    - if good.count_in_stock > 0
-      Цена: #{number_to_rubls(good.price)}
-    - else
-      Нет в наличии
+    Специальная цена: #{number_to_rubls(good.cost)}
   %p
     = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'
