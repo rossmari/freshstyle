@@ -93,15 +93,13 @@
     /*padding: 5px;*/
 /*}*/
 
-/* === GOOD PAGE SHOW === */
-/*.preview img {*/
-    /*cursor: hand;*/
-/*}*/
+.preview img {
+    cursor: hand;
+}
 
-/*.big_image img {*/
-    /*margin: 5px;*/
-    /*cursor: zoom-in;*/
-/*}*/
+.big_image img {
+    cursor: zoom-in;
+}
 
 html {
     position: relative;

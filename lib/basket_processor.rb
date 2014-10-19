@@ -31,7 +31,7 @@ class BasketProcessor
   end
 
   def calculate_total_price
-    @total_price = @goods_wrappers.select{|w| w.exist}.sum{|w| w.good.price}
+    @total_price = @goods_wrappers.select { |w| w.exist }.sum { |w| w.good.cost }
   end
 
 end

@@ -1,7 +1,6 @@
 class GoodsFilter
 
   JOINS = [:sizes]
-
   SORT_PARAMS = [:season, :brand_id, :size_id, :category_id ]
 
   attr_reader :season, :category, :brand_id, :size_id

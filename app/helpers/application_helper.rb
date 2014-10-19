@@ -26,11 +26,11 @@ module ApplicationHelper
       # wrap links into <ol> and push to levels
       levels << content_tag(:ol, raw(level_content) , class: 'breadcrumb')
     end
-    return raw(levels)
+    raw(levels)
   end
 
   def number_to_rubls(number)
-    number_to_currency(number, :unit => "Руб.", :separator => ",", :delimiter => ".")
+    number_to_currency(number, unit: 'руб.', separator: ',', delimiter: '.')
   end
 
   def error_text(attribute, model)
@@ -40,5 +40,4 @@ module ApplicationHelper
       end
     end
   end
-
 end

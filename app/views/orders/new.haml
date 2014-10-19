@@ -1,7 +1,7 @@
 - @processor.goods_wrappers.each do |wrapper|
   - if wrapper.exist
     - good = wrapper.good
-    .row.good_item
+    .row
       .col-md-offset-1.col-md-2
         = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
           = image_tag(good.main_image(:admin_thumb))

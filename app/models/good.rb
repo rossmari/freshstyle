@@ -36,4 +36,7 @@ class Good < ActiveRecord::Base
     end
   end
 
+  def cost
+    price - (monetary_discount || 0)
+  end
 end

@@ -1,33 +1,11 @@
-.col-md-3.text-center
-  .row
-    .col-md-1
-    .col-md-10.good_cell
-      .row.image
-        = link_to image_tag(good.main_image(:list)), good_path(good)
-      .row.hidden_row
-        = link_to 'Подробнее', good_path(good), class: 'btn btn-info'
-      .row
-        = good.brand.title
-      .row
-        = @filter.category.name
-
-      .row.prices
-
-        .col-md-offset-2.col-md-4.text-center
-          -# price without discount
-          = good.price
-        .col-md-4.text-center
-          -# price with discount
-          = good.price
-      .row.discount_procents
-      - if good.count_in_stock > 0
-        .row.hidden_row
-          Размеры
-        .row.sizes.hidden_row
-          - good.sizes.each do |size|
-            %span
-              = size.name
-      - else
-        .row
-          %span.label.label-danger
-            Нет в наличии
+.col-lg-4
+  = image_tag good.main_image(:basket)
+  %h2
+    #{good.title}, #{good.brand.title}
+  %p
+    - if good.count_in_stock > 0
+      Цена: #{number_to_rubls(good.price)}
+    - else
+      Нет в наличии
+  %p
+    = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'

@@ -432,3 +432,8 @@ ru:
       upload: 'Загрузить'
       delete: 'Удалить'
       next: 'Дальше'
+
+  will_paginate:
+    previous_label: "&laquo; Назад"
+    next_label: "Вперед &raquo;"
+    page_gap: "&hellip;"

@@ -1,34 +1,27 @@
--#= goods_breadcrumbs(@filter.category)
+.page-header
+  %h3
+    #{@filter.category.name}
+    %small Найдено #{@goods.count} товаров
 
-.row{ style: 'padding-top:10px;' }
+.row
   .col-md-6.text-left
     = form_for :filter, url: category_goods_path(@filter.category), method: :get, html: {class: 'form-inline'} do |f|
       .form-group
-        = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], {include_blank: true}, {class: 'form-control input-sm'}
-      = f.collection_select :brand_id, Brand.all, :id, :title, {include_blank: true}, {class: 'form-control input-sm'}
-      = f.collection_select :size_id, Size.all, :id, :name, {include_blank: true}, {class: 'form-control input-sm'}
+        = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], { include_blank: true }, { class: 'form-control input-sm' }
+      .form-group
+        = f.collection_select :brand_id, Brand.order(:title), :id, :title, { include_blank: true }, { class: 'form-control input-sm' }
+      .form-group
+        = f.collection_select :size_id, Size.order(:name), :id, :name, { include_blank: true }, { class: 'form-control input-sm' }
 
       = f.button class: 'btn btn-primary' do
         %span.glyphicon.glyphicon-search
         Найти
 
-  .col-md-6.text-right
-    = will_paginate @goods
-
-.row
-  .col-md-offset-3.col-md-6.text-center
-    .h3
-      = @filter.category.name
-
-.row
-  .col-md-offset-3.col-md-6.text-center
-    = "Найдено #{@goods.count} товаров"
-
 - @goods.in_groups_of(4).each do |group|
   .row
     - group.each do |good|
       - if good
-        = render partial: 'good_cell', locals: {good: good}
+        = render partial: 'good_cell', locals: { good: good }
 
 .row
   .col-md-offset-3.col-md-6.text-center

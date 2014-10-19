@@ -38,7 +38,25 @@
       .row
         .col-sm-3.col-md-2.sidebar
           %ul.nav.nav-sidebar
-            %b
+            %li{ class: "#{'active' if controller_name == 'orders'}" }
+              = link_to admin_orders_path do
+                Заказы
+                %span.badge
+                  = Order.count_of_new
+                %span.badge
+                  = Order.count
+            %li{ class: "#{'active' if controller_name == 'back_calls'}" }
+              = link_to admin_back_calls_path do
+                Обратные звонки
+                %span.badge
+                  = BackCall.new_calls.count
+
+            %li{ class: "#{'active' if controller_name == 'client_messages'}" }
+              = link_to admin_client_messages_path do
+                Отзывы
+                %span.badge
+                  = ClientMessage.new_messages.count
+
           = yield(:side_bar)
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
           = render 'admin/shared/flashes'
