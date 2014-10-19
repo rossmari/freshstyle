@@ -44,8 +44,11 @@
           %td= t("good.seasons.#{good.season}")
           %td= number_to_rubls(good.price)
           %td
-            = link_to edit_admin_good_image_path(id: good.id) do
-              = image_tag(good.main_image(:admin_thumb))
+            - if good.main_image(:admin_thumb)
+              = link_to edit_admin_good_image_path(id: good.id) do
+                = image_tag(good.main_image(:admin_thumb))
+            - else
+              = link_to 'Добавить', edit_admin_good_image_path(id: good.id)
           %td
             = show_button(admin_good_path(good))
             = edit_button(edit_admin_good_path(good))
