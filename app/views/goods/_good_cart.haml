@@ -1,0 +1,8 @@
+.col-lg-4
+  = image_tag good.main_image(:basket)
+  %h2
+    #{good.title}, #{good.brand.title}
+  %p
+    Специальная цена: #{number_to_rubls(good.cost)}
+  %p
+    = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'

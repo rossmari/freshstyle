@@ -70,7 +70,6 @@ $(document).ready(function() {
     }
 
     function clear_basket() {
-        console.log('run');
         localBasket = [];
         cookie.set('basket', []);
         location.reload();
@@ -78,12 +77,12 @@ $(document).ready(function() {
 
     function up_basket_label() {
         var label = $('.basket_count_label');
-        var new_count = parseInt(label.prop('innerText')) + 1;
-        label.prop('innerText', new_count);
+        var new_count = parseInt(label.text()) + 1;
+        label.text(new_count);
     }
 
     function update_basket_label() {
         var label = $('.basket_count_label');
-        label.prop('innerText', localBasket.length);
+        label.text(localBasket.length);
     }
 });

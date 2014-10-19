@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   resources :users
   resources :pages
   resources :brands
-  resources :goods
+  resources :goods do
+    collection do
+      get :sale
+      get :gifts
+    end
+  end
 
   resources :baskets
   resources :orders

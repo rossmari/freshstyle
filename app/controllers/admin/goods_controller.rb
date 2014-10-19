@@ -59,7 +59,7 @@ class Admin::GoodsController < Admin::BaseController
     params.require(:good).permit(:title,
                                  :color,
                                  :article,
-                                 {size_ids: []},
+                                 { size_ids: [] },
                                  :season,
                                  :brand_id,
                                  :consist,
@@ -67,6 +67,10 @@ class Admin::GoodsController < Admin::BaseController
                                  :design_country_id,
                                  :count_in_stock,
                                  :category_id,
-                                 :price, :percents_discount, :monetary_discount, :main_offer)
+                                 :price,
+                                 :percents_discount,
+                                 :monetary_discount,
+                                 :main_offer,
+                                 :on_sale, :is_gift)
   end
 end

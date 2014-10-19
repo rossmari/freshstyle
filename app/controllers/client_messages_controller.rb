@@ -8,7 +8,7 @@ class ClientMessagesController < ApplicationController
     @message = ClientMessage.new(client_message_params)
 
     if @message.save
-      redirect_to root_path, notice: t('client_message.created')
+      redirect_to [:new, :client_message], notice: t('client_message.created')
     else
       render :new
     end

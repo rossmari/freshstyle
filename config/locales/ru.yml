@@ -365,18 +365,21 @@ ru:
           origin_country: Страна производитель
           design_country: Страна дизайна
           name: Название товара
-          price: Цена
+          price: Цена в рублях
           count_in_stock: Кол-во
           active: В наличии
           brand: Бренд
           title: Название
           season: Сезон
           percents_discount: Скидка в процентах
-          monetary_discount: Скидка в деньгах
+          monetary_discount: Скидка в рублях
           images: Изображения
           category: Категория товара
-          main_offer: Главное предложение
+          main_offer: Поместить на главную
           main_image: Главное изображение
+          description: Описание
+          on_sale: Поместить в SALE
+          is_gift: Поместить в Подарки
         brand:
           title: Название бренда
         country:

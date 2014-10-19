@@ -1,0 +1,6 @@
+.page-header
+  %h3 SALE
+
+.row
+  - @sales.each do |good|
+    = render 'goods/good_cart', good: good

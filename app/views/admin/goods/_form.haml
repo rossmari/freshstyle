@@ -36,10 +36,21 @@
         = f.label :color
         = f.text_field :color, class: 'form-control'
 
+  .row
     .col-md-3
       .form-group
         = f.label :main_offer
         = f.check_box :main_offer, class: 'form-control'
+
+    .col-md-3
+      .form-group
+        = f.label :on_sale
+        = f.check_box :on_sale, class: 'form-control'
+
+    .col-md-3
+      .form-group
+        = f.label :is_gift
+        = f.check_box :is_gift, class: 'form-control'
 
   .row
     .col-md-3
