@@ -34,7 +34,7 @@ class Good < ActiveRecord::Base
     elsif images.any?
       images.first.picture(thumb_style.to_sym)
     else
-      ''
+      nil
     end
   end
 
