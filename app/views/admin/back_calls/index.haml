@@ -8,6 +8,8 @@
         %th(width=10)
           ID
         %th
+          = human_name('name')
+        %th
           = human_name('phone')
         %th
           = human_name('processed')
@@ -19,6 +21,7 @@
       - @back_calls.each do |call|
         %tr
           %td= call.id
+          %td= call.name
           %td= link_to call.phone, edit_admin_back_call_path(call)
           %td= answered_label(call)
           %td

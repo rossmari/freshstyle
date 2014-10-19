@@ -17,6 +17,6 @@ class BackCallsController < ApplicationController
   private
 
   def back_call_params
-    params.require(:back_call).permit(:phone)
+    params.require(:back_call).permit(:phone, :name)
   end
 end

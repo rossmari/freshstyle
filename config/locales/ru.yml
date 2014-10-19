@@ -414,6 +414,7 @@ ru:
           created_at: Дата создания
 
         back_call:
+          name: Имя
           phone: Телефон
           processed: Статус обработки
           comment: Комментарий к звонку
