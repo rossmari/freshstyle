@@ -58,6 +58,7 @@ set :bundle_without,  [:development, :test]
 set :user,            "hosting_cjkmws5571355"
 set :login,           "cjkmws5571355"
 set :use_sudo,        false
+set :keep_releases,   5
 set :deploy_to,       "/home/#{user}/projects/#{application}"
 set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
 set :unicorn_pid,     "/var/run/unicorn/#{user}/#{application}.#{login}.pid"
