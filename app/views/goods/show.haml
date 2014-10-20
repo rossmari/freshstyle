@@ -1,6 +1,3 @@
-.page-header
-  .h3 #{@good.title}, #{@good.brand.title}
-
 .row
   .col-md-2.text-center
     - @good.images.each do |image|
@@ -12,55 +9,60 @@
       = image_tag(@good.main_image(:big))
 
   .col-md-4
-    .h5.text-muted
-      = "Артикул: #{@good.article}"
+    .row
+      .h3 #{@good.title}, #{@good.brand.title}
 
-    %h5 Цвет: #{@good.color}
+    .row
+      .h5.text-muted
+        = "Артикул: #{@good.article}"
 
-    %h5 Страна дизайна: #{@good.design_country.name}
+    .row
+      .h4
+        Цена: #{number_to_rubls(@good.price)}
+        %span.label.label-danger
+          %del
+            #{number_to_rubls(@good.monetary_discount)}
+    .row
+      %h5 Цвет: #{@good.color}
 
-    %h5 Страна производитель: #{@good.origin_country.name}
+    .row
+      %h5 Страна дизайна: #{@good.design_country.name}
 
-    .h5{style: 'display:inline;'}
-      Доступные размеры:
+    .row
+      %h5 Страна производитель: #{@good.origin_country.name}
 
+    .row
+      .h5{style: 'display:inline;'}
+        Доступные размеры:
+      %em{ style: 'display:none', id: 'size_alert' }
+        %div{ class: 'text-danger', style: 'display:inline' }
+          %b
+            Необходимо выбрать размер!!
+    .row.sizes
+      %div{ class: 'col-md-10 btn-group', style: 'padding-left:0;', data: { toggle: 'buttons' } }
+        - @good.sizes.each do |size|
+          %label.btn.btn-default
+            = radio_button_tag :size, size.name
+            = size.name
+    .row
+      .panel.panel-success
+        .panel-heading
+          %h4.panel-title
+            Состав
+        .panel-body
+          = @good.consist
 
-    .btn-group.sizes{ data: { toggle: 'buttons' } }
-      - @good.sizes.each do |size|
-        %label.btn.btn-default
-          = radio_button_tag :size, size.name
-          = size.name
+    .row
+      .panel.panel-success
+        .panel-heading
+          %h4.panel-title
+            Описание
+        .panel-body
+          = @good.description
 
-    %em{ style: 'display:none', id: 'size_alert' }
-      %div{ class: 'text-danger', style: 'display:inline' }
-        %b Необходимо выбрать размер!
-    %br
-    %br
-    .panel.panel-success
-      .panel-heading
-        %h4.panel-title
-          Состав
-      .panel-body
-        = @good.consist
-
-    .panel.panel-success
-      .panel-heading
-        %h4.panel-title
-          Описание
-      .panel-body
-        = @good.description
-
-    %h4
-      Цена:
-      - if @good.monetary_discount && @good.monetary_discount > 0
-        %del
-          #{number_to_rubls(@good.price)}
-      %span.label.label-danger{ style: 'font-size:120%;' }
-        #{number_to_rubls(@good.cost)}
-
-    - if @good.count_in_stock > 0
-      = link_to '#', class: 'add_good_to_basket btn btn-block btn-success', data: { good_id: @good.id } do
-        %span.glyphicon.glyphicon-plus
-        Добавить в корзину
-    - else
-      = link_to 'Товара нет в наличии', '#', class: 'btn btn-block btn-danger', disabled: true
+    .row
+      - if @good.count_in_stock > 0
+        = link_to 'Добавить в корзину', '#', class: 'add_good_to_basket btn btn-block btn-success', data: { good_id: @good.id }
+        = hidden_field :goods_count, @good.count_in_stock, id: 'goods_count_in_stock'
+      - else
+        = link_to 'Товара нет в наличии', '#', class: 'btn btn-block btn-danger', disabled: true
