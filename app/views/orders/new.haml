@@ -17,11 +17,11 @@
           %span.size
             = wrapper.size
         %h5
-          = "Стоймость: #{number_to_rubls(good.cost)}"
+          = "Стоимость: #{number_to_rubls(good.cost)}"
 
 .row
   .col-md-offset-4.col-md-7
     .h4
-      Общая стоймость: #{number_to_rubls(@processor.total_price)}
+      Общая стоимость: #{number_to_rubls(@processor.total_price)}
 %hr
 = render partial: 'form'
