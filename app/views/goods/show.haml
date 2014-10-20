@@ -63,6 +63,6 @@
     .row
       - if @good.count_in_stock > 0
         = link_to 'Добавить в корзину', '#', class: 'add_good_to_basket btn btn-block btn-success', data: { good_id: @good.id }
-        = hidden_field :goods_count, @good.count_in_stock, id: 'goods_count_in_stock'
+        = hidden_field_tag :goods_count, @good.count_in_stock, id: 'goods_count_in_stock'
       - else
         = link_to 'Товара нет в наличии', '#', class: 'btn btn-block btn-danger', disabled: true
