@@ -4,8 +4,8 @@
     %small Найдено #{@goods.count} товаров
 
 .row
-  .col-md-6.text-left
-    = form_for :filter, url: category_goods_path(@filter.category), method: :get, html: {class: 'form-inline'} do |f|
+  .col-xs-6.text-left
+    = form_for :filter, url: category_goods_path(@filter.category), method: :get, html: { class: 'form-inline' } do |f|
       .form-group
         = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], { include_blank: true }, { class: 'form-control input-sm' }
       .form-group
@@ -24,5 +24,5 @@
         = render partial: 'good_cell', locals: { good: good }
 
 .row
-  .col-md-offset-3.col-md-6.text-center
+  .col-xs-offset-3.col-xs-6.text-center
     = will_paginate @goods

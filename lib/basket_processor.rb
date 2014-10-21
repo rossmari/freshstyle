@@ -1,5 +1,4 @@
 class BasketProcessor
-
   attr_reader :goods_wrappers, :total_price
 
   def initialize(basket)
@@ -33,11 +32,9 @@ class BasketProcessor
   def calculate_total_price
     @total_price = @goods_wrappers.select { |w| w.exist }.sum { |w| w.good.cost }
   end
-
 end
 
 class BasketGoodWrapper
-
   attr_accessor :id, :size, :exist, :good
 
   def initialize(id, size)
@@ -51,5 +48,4 @@ class BasketGoodWrapper
     @exist = !row.blank?
     @good = row.blank? ? nil : row
   end
-
 end

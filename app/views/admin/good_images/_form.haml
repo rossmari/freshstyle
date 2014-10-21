@@ -9,15 +9,15 @@
 
   = f.fields_for :images do |image|
     .row
-      .col-md-3
+      .col-xs-3
         = image.file_field :picture
-      .col-md-3
+      .col-xs-3
         Главное изображение
         = image.radio_button :main_image, image.object.main_image?
-      .col-md-3
+      .col-xs-3
         - if image.object.picture.present?
           = image_tag image.object.picture(:admin_thumb)
-      .col-md-3
+      .col-xs-3
         = image.link_to_remove 'Удалить изображение', class: 'btn btn-danger btn-sm'
     %hr
   = f.link_to_add 'Добавить фотографию', :images, class: 'btn btn-default'

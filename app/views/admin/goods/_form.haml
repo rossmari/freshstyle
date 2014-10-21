@@ -3,97 +3,97 @@
   = render partial: 'partials/errors', locals: {model: @good}
 
   .row
-    .col-md-4
+    .col-xs-4
       .form-group
         = f.label :title
         = f.text_field :title, class: 'form-control'
 
-    .col-md-4
+    .col-xs-4
       .form-group
         = f.label :article
         = f.text_field :article, class: 'form-control'
 
   .row
-    .col-md-4
+    .col-xs-4
       .form-group
         = f.label :size
         = f.collection_select :size_ids, Size.all, :id, :name, {}, class: 'form-control', multiple: true
         Ctrl + ЛКМ для выделения
 
-    .col-md-4
+    .col-xs-4
       .form-group
         = f.label :consist
         = f.text_area :consist, class: 'form-control'
   .row
-    .col-md-8
+    .col-xs-8
       .form-group
         = f.label :description
         = f.text_area :description, class: 'form-control'
 
   .row
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :color
         = f.text_field :color, class: 'form-control'
 
   .row
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :main_offer
         = f.check_box :main_offer, class: 'form-control'
 
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :on_sale
         = f.check_box :on_sale, class: 'form-control'
 
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :is_gift
         = f.check_box :is_gift, class: 'form-control'
 
   .row
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :brand
         = f.collection_select :brand_id, Brand.all, :id, :title, {}, class: 'form-control'
 
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :design_country
         = f.collection_select :design_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :origin_country
         = f.collection_select :origin_country_id, Country.all, :id, :name, {}, class: 'form-control'
 
   .row
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :category
         = f.collection_select :category_id, Category.order(:name), :id, :name, {}, class: 'form-control'
 
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :season
         = f.select :season, [ ['Осень - Зима', 'winter'], ['Весна - Лето', 'summer']], {include_blank: false}, class: 'form-control'
 
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :count_in_stock
         = f.text_field :count_in_stock, class: 'form-control'
 
   .row
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :price
         = f.text_field :price, class: 'form-control'
-    -#.col-md-3
+    -#.col-xs-3
       .form-group
         = f.label :percents_discount
         = f.text_field :percents_discount, class: 'form-control'
-    .col-md-3
+    .col-xs-3
       .form-group
         = f.label :monetary_discount
         = f.text_field :monetary_discount, class: 'form-control'

@@ -5,26 +5,23 @@
   - @processor.goods_wrappers.each do |wrapper|
     - if wrapper.exist
       - good = wrapper.good
-      .row{ style: 'padding-top:10px;' }
-        .col-md-offset-1.col-md-4
+      .row
+        .col-xs-offset-1.col-xs-4
           = link_to good_path(good), class: 'thumbnail' do
             = image_tag(good.main_image(:basket))
 
-        .col-md-5
-          %h4
-            #{good.category.name}, #{good.title}, #{good.brand.title}
-          %h5
-            Страна производитель: #{good.origin_country.name}
-          %h5
-            Страна дизайна: #{good.design_country.name}
-          %h5
-            Цвет: #{good.color}
+        .col-xs-5
+          %h4 #{good.category.name}, #{good.title}, #{good.brand.title}
+          %h5 Страна производитель: #{good.origin_country.name}
+          %h5 Страна дизайна: #{good.design_country.name}
+          %h5 Цвет: #{good.color}
           %h5
             Выбранный размер:
-            %span.size
-              = wrapper.size
+            %span.size{ data: { size: wrapper.size } }= wrapper.size
           %h5
-            Стоимость: #{number_to_rubls(good.cost)}
+            Стоимость:
+            %span.label.label-danger{ style: 'font-size:100%;' }
+              #{number_to_rubls(good.cost)}
 
           = link_to good_path(good), class: 'btn btn-info' do
             %span.glyphicon.glyphicon-search
@@ -35,10 +32,12 @@
             %span.glyphicon.glyphicon-remove
 
   .row
-    .col-md-offset-5.col-md-7
+    .col-xs-offset-5.col-xs-7
       %h3
-        Общая стоимость: #{number_to_rubls(@processor.total_price)}
-
+        Итого:
+        %span.label.label-danger{ style: 'font-size:100%;' }
+          #{number_to_rubls(@processor.total_price)}
+      %br
       = link_to '#', class: 'clear_basket btn btn-danger' do
         %span.glyphicon.glyphicon-trash
         Очистить корзину
