@@ -1,8 +1,0 @@
-/*you must make this work beach! ^_^ */
-
-.carousel-inner .item img {
-    display: block;
-    /*we don't need 100% of width*/
-    max-width: none !important;
-    height: auto;
-}
