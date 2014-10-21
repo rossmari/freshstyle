@@ -13,18 +13,16 @@ $(document).ready(function() {
             $('#size_alert').show();
             return;
         } else {
-            var size = $('.sizes').find('.active').find('input').prop('value');
+            var size = $('.sizes').find('.active').find('input').val();
             $('#size_alert').hide();
         }
 
         var good_id = $(this).data('goodId');
-        if(check_goods_count(good_id)) {
+        if (check_goods_count(good_id)) {
             add_good(good_id, size);
             up_basket_label();
             alert('Товар добавлен в корзину!')
-        }
-        else
-        {
+        } else {
             alert('Товар не добавлен в корзину. Количество данного товара ограничено!')
         }
     });
@@ -67,7 +65,7 @@ $(document).ready(function() {
         cookie.set('basket', text);
     }
 
-    function check_basket(){
+    function check_basket() {
         if (cookie.get('basket') == null || cookie.get('basket') == "") {
             cookie.set('basket', []);
         } else {
@@ -76,7 +74,6 @@ $(document).ready(function() {
     }
 
     function clear_basket() {
-        console.log('run');
         localBasket = [];
         cookie.set('basket', []);
         location.reload();
@@ -94,10 +91,9 @@ $(document).ready(function() {
     }
 
     function check_goods_count(good_id) {
-        var goods = jQuery.grep(localBasket, function( a ) {
+        var goods = jQuery.grep(localBasket, function(a) {
             return a['id'] == good_id;
         });
-        return goods.length < $('#goods_count_in_stock').prop('value');
+        return goods.length < $('#goods_count_in_stock').val();
     }
-
 });

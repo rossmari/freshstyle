@@ -6,7 +6,7 @@
   = edit_button(edit_admin_good_path(@good))
 
 .row
-  .col-md-6
+  .col-xs-6
     %p
       %strong
         = human_name('title')
@@ -48,5 +48,5 @@
       %strong
         = human_name('price')
       = number_to_rubls(@good.price)
-  .col-md-6
+  .col-xs-6
     = image_tag(@good.main_image(:big), class: 'img-thumbnail')

@@ -3,7 +3,6 @@
   %head
     %meta{ charset: 'utf-8' }
     %meta{ content: 'IE=edge', http: { equiv: 'X-UA-Compatible' } }
-    %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport' }
     %meta{ content: 'https://github.com/rossmari', name: 'description' }
     %meta{ content: 'Rossmari', name: 'author' }
     = csrf_meta_tags
@@ -36,7 +35,7 @@
 
     .container-fluid
       .row
-        .col-sm-3.col-md-2.sidebar
+        .col-xs-2.sidebar
           %ul.nav.nav-sidebar
             %li{ class: "#{'active' if controller_name == 'orders'}" }
               = link_to admin_orders_path do
@@ -58,6 +57,6 @@
                   = ClientMessage.new_messages.count
 
           = yield(:side_bar)
-        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+        .col-xs-10.col-xs-offset-2.main
           = render 'admin/shared/flashes'
           = yield

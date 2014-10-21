@@ -13,9 +13,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
-
     if @order.save
-
       @wrappers.each do |wrapper|
         good = wrapper.good
         size = Size.where(name: wrapper.size).first
@@ -31,12 +29,13 @@ class OrdersController < ApplicationController
   end
 
   private
-    def get_goods
-      @processor = BasketProcessor.new(cookies['basket'])
-      @wrappers = @processor.goods_wrappers.select{|w| w.exist}
-    end
 
-    def order_params
-      params.require(:order).permit(:name, :second_name, :family, :second_name, :city, :post_index, :street, :phone, :email)
-    end
+  def get_goods
+    @processor = BasketProcessor.new(cookies['basket'])
+    @wrappers = @processor.goods_wrappers.select { |w| w.exist }
+  end
+
+  def order_params
+    params.require(:order).permit(:name, :second_name, :family, :second_name, :city, :post_index, :street, :phone, :email)
+  end
 end

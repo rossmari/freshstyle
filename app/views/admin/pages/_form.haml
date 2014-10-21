@@ -3,13 +3,13 @@
   = render partial: 'partials/errors', locals: { model: @page }
 
   .row
-    .col-md-4
+    .col-xs-4
       .form-group
         = f.label :title
         = f.text_field :title, class: 'form-control'
 
   .row
-    .col-md-12
+    .col-xs-12
       .form-group
         = f.label :content
         = f.cktext_area :content, class: 'form-control'

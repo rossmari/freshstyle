@@ -5,11 +5,11 @@
   - if wrapper.exist
     - good = wrapper.good
     .row
-      .col-md-offset-2.col-md-2
+      .col-xs-offset-2.col-xs-2
         = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
           = image_tag(good.main_image(:admin_thumb))
 
-      .col-md-7
+      .col-xs-7
         %h4
           #{good.category.name}, #{good.title}, #{good.brand.title}
         %h5
@@ -17,11 +17,15 @@
           %span.size
             = wrapper.size
         %h5
-          = "Стоимость: #{number_to_rubls(good.cost)}"
+          Стоимость:
+          %span.label.label-danger{ style: 'font-size:100%;' }
+            #{number_to_rubls(good.cost)}
 
 .row
-  .col-md-offset-4.col-md-7
+  .col-xs-offset-4.col-xs-7
     .h4
-      Общая стоимость: #{number_to_rubls(@processor.total_price)}
+      Итого:
+      %span.label.label-danger{ style: 'font-size:100%;' }
+        #{number_to_rubls(@processor.total_price)}
 %hr
 = render partial: 'form'

@@ -7,10 +7,10 @@
           .dropdown-menu.categories-dropdown
             .container-fluid
               - Category.roots.includes(:children).in_groups_of(1, false) do |roots|
-                .col-md-3
+                .col-xs-3
                   - roots.each do |category|
                     %h5
-                      = link_to category.name, category_goods_path(category)
+                      = link_to category.name, category_goods_path(category), class: 'black_link', style: 'font-size:14pt;'
                     %ul.subcategories
                       - category.children.each do |subscat|
                         %li

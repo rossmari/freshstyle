@@ -1,11 +1,12 @@
-.col-lg-4
+.col-xs-4
   = image_tag good.main_image(:basket)
   %h2
     #{good.title}, #{good.brand.title}
   %p
     - if good.count_in_stock > 0
+      Цена:
       %span.label.label-danger{ style: 'font-size:100%;' }
-        Цена: #{number_to_rubls(good.cost)}
+        #{number_to_rubls(good.cost)}
     - else
       Нет в наличии
   %p

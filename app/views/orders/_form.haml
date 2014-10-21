@@ -1,65 +1,65 @@
 = form_for @order, html: { class: 'form-horizontal'} do |f|
 
   .form-group
-    = f.label :name, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :name, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :name, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:name, @order)
 
   .form-group
-    = f.label :family, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :family, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :family, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:family, @order)
 
   .form-group
-    = f.label :second_name, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :second_name, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :second_name, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:second_name, @order)
 
   .form-group
-    = f.label :city, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :city, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :city, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:city, @order)
 
   .form-group
-    = f.label :post_index, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :post_index, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :post_index, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:post_index, @order)
 
   .form-group
-    = f.label :street, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :street, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :street, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:street, @order)
 
   .form-group
-    = f.label :phone, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :phone, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :phone, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:phone, @order)
 
   .form-group
-    = f.label :email, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :email, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :email, class: 'form-control'
-    .col-md-4
+    .col-xs-4
       = error_text(:email, @order)
 
 
 
   .form-group
-    .col-md-offset-4.col-md-4
+    .col-xs-offset-4.col-xs-4
       - label = content_tag(:span, ' Заказать' , class: 'glyphicon glyphicon-ok')
       = f.button label, class: 'btn btn-success btn-lg btn-block'
 

@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
 
-  before_action :set_good, only: [:show, :edit, :update, :destroy]
+  before_action :set_good, only: [:show]
 
   def index
     @filter = GoodsFilter.new(params)
@@ -22,19 +22,5 @@ class GoodsController < ApplicationController
 
   def set_good
     @good = Good.find(params[:id])
-  end
-
-  def good_params
-    params.require(:good).permit(:title,
-                                 :color,
-                                 :article,
-                                 { size_ids: [] },
-                                 :season,
-                                 :brand_id,
-                                 :consist,
-                                 :origin_country_id,
-                                 :design_country_id,
-                                 :count_in_stock,
-                                 :price, :percents_discount, :monetary_discount)
   end
 end

@@ -93,6 +93,10 @@
     /*padding: 5px;*/
 /*}*/
 
+a.black_link {
+    color: #000000;
+}
+
 .preview img {
     cursor: hand;
 }
