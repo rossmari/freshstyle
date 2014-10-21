@@ -4,22 +4,22 @@
 = form_for @message, url: client_messages_path, method: :post, html: { class: 'form-horizontal' } do |f|
   .form-group
 
-    = f.label :name, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :name, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :name, class: 'form-control'
       = error_text(:name, @message)
 
   .form-group
-    = f.label :email, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :email, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_field :email, class: 'form-control'
       = error_text(:email, @message)
 
   .form-group
-    = f.label :content, class: 'col-md-offset-2 col-md-2 control-label'
-    .col-md-4
+    = f.label :content, class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
       = f.text_area :content, class: 'form-control'
       = error_text(:content, @message)
 
-  .col-md-offset-5.col-md-2
+  .col-xs-offset-5.col-xs-2
     = f.submit 'Отправить', class: 'btn btn-primary btn-block'

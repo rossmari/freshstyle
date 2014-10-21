@@ -13,26 +13,25 @@ $(document).ready(function() {
             $('#size_alert').show();
             return;
         } else {
-            var size = $('.sizes').find('.active').find('input').prop('value');
+            var size = $('.sizes').find('.active').find('input').val();
             $('#size_alert').hide();
         }
 
-        var good_id = $(this).data('goodId');
-        if(check_goods_count(good_id)) {
+        var good_id = $(this).data('good-id');
+        if (check_goods_count(good_id)) {
             add_good(good_id, size);
             up_basket_label();
             alert('Товар добавлен в корзину!')
-        }
-        else
-        {
-            alert('Товар не добавлен в корзину. Количество данного товара ограничено!')
+        } else {
+            alert('Товар не добавлен в корзину!\nКоличество товара на складе ограничено!')
         }
     });
 
     $(document).on('click', '.remove_good_from_basket', function(event) {
         event.preventDefault();
-        var good_id = $(this).data('goodId');
-        var size = parseInt($(this).parent().find('.size').text());
+        var target = $(event.currentTarget);
+        var good_id = target.data('good-id');
+        var size = target.parent().find('.size').data('size');
         remove_good(good_id, size);
     });
 
@@ -67,7 +66,7 @@ $(document).ready(function() {
         cookie.set('basket', text);
     }
 
-    function check_basket(){
+    function check_basket() {
         if (cookie.get('basket') == null || cookie.get('basket') == "") {
             cookie.set('basket', []);
         } else {
@@ -76,7 +75,6 @@ $(document).ready(function() {
     }
 
     function clear_basket() {
-        console.log('run');
         localBasket = [];
         cookie.set('basket', []);
         location.reload();
@@ -94,10 +92,9 @@ $(document).ready(function() {
     }
 
     function check_goods_count(good_id) {
-        var goods = jQuery.grep(localBasket, function( a ) {
+        var goods = $.grep(localBasket, function(a) {
             return a['id'] == good_id;
         });
-        return goods.length < $('#goods_count_in_stock').prop('value');
+        return goods.length < $('#goods_count_in_stock').val();
     }
-
 });

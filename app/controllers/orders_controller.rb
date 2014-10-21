@@ -13,11 +13,9 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
-
     if @order.save
-
       @wrappers.each do |wrapper|
-        good = wrapper.good
+        good = wrapper.good.reload
         size = Size.where(name: wrapper.size).first
         good.update_attribute(:count_in_stock, good.count_in_stock - 1)
         @order.order_goods << OrderGood.create(good: good, size: size)
@@ -31,12 +29,13 @@ class OrdersController < ApplicationController
   end
 
   private
-    def get_goods
-      @processor = BasketProcessor.new(cookies['basket'])
-      @wrappers = @processor.goods_wrappers.select{|w| w.exist}
-    end
 
-    def order_params
-      params.require(:order).permit(:name, :second_name, :family, :second_name, :city, :post_index, :street, :phone, :email)
-    end
+  def get_goods
+    @processor = BasketProcessor.new(cookies['basket'])
+    @wrappers = @processor.goods_wrappers.select { |w| w.exist }
+  end
+
+  def order_params
+    params.require(:order).permit(:name, :second_name, :family, :second_name, :city, :post_index, :street, :phone, :email)
+  end
 end

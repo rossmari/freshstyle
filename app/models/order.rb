@@ -23,5 +23,4 @@ class Order < ActiveRecord::Base
   def self.count_of_new
     Order.where(state: 'new').count
   end
-
 end
