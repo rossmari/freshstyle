@@ -15,12 +15,6 @@ class Carousel < ActiveRecord::Base
   # == BEFORE FILTERS
   before_save :refresh_main
 
-  def refresh_main
-    if self.main
-      Carousel.where('id != ?', self.id).update_all(main: false)
-    end
-  end
-
   def picture_geometry(style = :original)
     @geometry ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(picture.path(style))
@@ -31,4 +25,11 @@ class Carousel < ActiveRecord::Base
     cropper.process(crop_x, crop_y, crop_w, crop_h)
   end
 
+  private
+
+  def refresh_main
+    if self.main
+      Carousel.where('id != ?', self.id).update_all(main: false)
+    end
+  end
 end
