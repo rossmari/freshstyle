@@ -17,20 +17,21 @@ $(document).ready(function() {
             $('#size_alert').hide();
         }
 
-        var good_id = $(this).data('goodId');
+        var good_id = $(this).data('good-id');
         if (check_goods_count(good_id)) {
             add_good(good_id, size);
             up_basket_label();
             alert('Товар добавлен в корзину!')
         } else {
-            alert('Товар не добавлен в корзину. Количество данного товара ограничено!')
+            alert('Товар не добавлен в корзину!\nКоличество товара на складе ограничено!')
         }
     });
 
     $(document).on('click', '.remove_good_from_basket', function(event) {
         event.preventDefault();
-        var good_id = $(this).data('goodId');
-        var size = parseInt($(this).parent().find('.size').text());
+        var target = $(event.currentTarget);
+        var good_id = target.data('good-id');
+        var size = target.parent().find('.size').data('size');
         remove_good(good_id, size);
     });
 
@@ -91,7 +92,7 @@ $(document).ready(function() {
     }
 
     function check_goods_count(good_id) {
-        var goods = jQuery.grep(localBasket, function(a) {
+        var goods = $.grep(localBasket, function(a) {
             return a['id'] == good_id;
         });
         return goods.length < $('#goods_count_in_stock').val();

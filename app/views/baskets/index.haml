@@ -11,18 +11,13 @@
             = image_tag(good.main_image(:basket))
 
         .col-xs-5
-          %h4
-            #{good.category.name}, #{good.title}, #{good.brand.title}
-          %h5
-            Страна производитель: #{good.origin_country.name}
-          %h5
-            Страна дизайна: #{good.design_country.name}
-          %h5
-            Цвет: #{good.color}
+          %h4 #{good.category.name}, #{good.title}, #{good.brand.title}
+          %h5 Страна производитель: #{good.origin_country.name}
+          %h5 Страна дизайна: #{good.design_country.name}
+          %h5 Цвет: #{good.color}
           %h5
             Выбранный размер:
-            %span.size
-              = wrapper.size
+            %span.size{ data: { size: wrapper.size } }= wrapper.size
           %h5
             Стоимость:
             %span.label.label-danger{ style: 'font-size:100%;' }
