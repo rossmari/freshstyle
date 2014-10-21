@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 
     if @order.save
       @wrappers.each do |wrapper|
-        good = wrapper.good
+        good = wrapper.good.reload
         size = Size.where(name: wrapper.size).first
         good.update_attribute(:count_in_stock, good.count_in_stock - 1)
         @order.order_goods << OrderGood.create(good: good, size: size)
