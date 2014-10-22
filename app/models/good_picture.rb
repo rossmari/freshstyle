@@ -14,8 +14,8 @@ class GoodPicture < ActiveRecord::Base
                             watermarks: [
                                 {
                                     path: 'watermarks/watermark.png',
-                                    gravity: 'SouthEast'
-
+                                    gravity: 'SouthEast',
+                                    transparency: '60%'
                                 }
                             ],
                             processors: [:thumbnail, :watermark_processor]
@@ -24,14 +24,26 @@ class GoodPicture < ActiveRecord::Base
                             watermarks: [
                                 {
                                     path: 'watermarks/watermark.png',
-                                    gravity: 'SouthEast'
+                                    gravity: 'SouthEast',
+                                    transparency: '60%'
                                 }
                             ],
                             processors: [:thumbnail, :watermark_processor]
                         },
                         preview: '80x',
                         list: '220x',
-                        basket: 'x200'
+                        basket: {
+                            geometry: 'x200',
+                            watermarks: [
+                                {
+                                    path: 'watermarks/watermark.png',
+                                    gravity: 'SouthEast',
+                                    transparency: '60%'
+                                }
+                            ],
+                            processors: [:thumbnail, :watermark_processor]
+                        },
+
                     }
 
 
