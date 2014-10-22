@@ -36,7 +36,7 @@ class GoodPicture < ActiveRecord::Base
                             geometry: 'x200',
                             watermarks: [
                                 {
-                                    path: 'watermarks/watermark.png',
+                                    path: 'watermarks/wtm-vertical-small.png',
                                     gravity: 'SouthEast',
                                     transparency: '60%'
                                 }
