@@ -47,4 +47,16 @@ class GoodsFilter
   def clear_params_array(array)
     array.delete_if{|value| value.empty?}
   end
+
+  def root_category_goods
+    wrappers = []
+    @category.children.each do |category|
+      goods = Good.where(category: category).limit(3)
+      if goods.count > 0
+        wrappers << { category: category, goods: goods}
+      end
+    end
+    return wrappers
+  end
+
 end

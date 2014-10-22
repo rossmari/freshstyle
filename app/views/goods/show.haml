@@ -4,11 +4,11 @@
 .row
   .col-xs-2.text-center
     - @good.images.each do |image|
-      = link_to image.picture.url, class: 'preview fancybox thumbnail col-xs-offset-2 col-xs-8', rel: 'gallery1', data: { big: image.picture.url(:big) } do
+      = link_to image.picture.url(:original_watermarked), class: 'preview fancybox thumbnail col-xs-offset-2 col-xs-8', rel: 'gallery1', data: { big: image.picture.url(:big) } do
         = image_tag(image.picture.url(:preview))
 
   .col-xs-5.text-center.big_image
-    = link_to @good.main_image(:original), class: 'fancybox', rel: 'gallery1' do
+    = link_to @good.main_image(:original_watermarked), class: 'fancybox', rel: 'gallery1' do
       = image_tag(@good.main_image(:big))
 
   .col-xs-5
