@@ -1,14 +1,12 @@
 .page-header
   %h3
     #{@filter.category.name}
-    %small Найдено #{@goods.count} товаров
 
 - @goods.each do |wrapper|
+  .h2
+    = link_to  wrapper[:category].name, category_goods_path(wrapper[:category])
   .row
-    .h2
-      = link_to  wrapper[:category].name, category_goods_path(wrapper[:category])
-    .row
-      - wrapper[:goods].each do |good|
-        - if good
-          = render partial: 'good_cell', locals: { good: good }
-    %hr
+    - wrapper[:goods].each do |good|
+      - if good
+        = render partial: 'good_cell', locals: { good: good }
+  %hr
