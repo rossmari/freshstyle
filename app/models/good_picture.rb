@@ -13,7 +13,7 @@ class GoodPicture < ActiveRecord::Base
                             geometry: '360x550>',
                             watermarks: [
                                 {
-                                    path: 'watermarks/watermark.png',
+                                    path: 'watermarks/wtm-big.png',
                                     gravity: 'SouthEast',
                                     transparency: '60%'
                                 }
@@ -21,9 +21,10 @@ class GoodPicture < ActiveRecord::Base
                             processors: [:thumbnail, :watermark_processor]
                         },
                         original_watermarked: {
+                            geometry: 'x900',
                             watermarks: [
                                 {
-                                    path: 'watermarks/watermark.png',
+                                    path: 'watermarks/wtm-large.png',
                                     gravity: 'SouthEast',
                                     transparency: '60%'
                                 }
@@ -31,12 +32,11 @@ class GoodPicture < ActiveRecord::Base
                             processors: [:thumbnail, :watermark_processor]
                         },
                         preview: '80x',
-                        list: '220x',
                         basket: {
                             geometry: 'x200',
                             watermarks: [
                                 {
-                                    path: 'watermarks/wtm-vertical-small.png',
+                                    path: 'watermarks/wtm-basket.png',
                                     gravity: 'SouthEast',
                                     transparency: '60%'
                                 }
