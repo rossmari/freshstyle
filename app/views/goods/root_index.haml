@@ -1,0 +1,16 @@
+.page-header
+  %h3
+    #{@filter.category.name}
+    %small Найдено #{@goods.count} товаров
+
+= render partial: 'filter_form'
+
+- @goods.each do |wrapper|
+  .row
+    .h2
+      = link_to  wrapper[:category].name, category_goods_path(wrapper[:category])
+    .row
+      - wrapper[:goods].each do |good|
+        - if good
+          = render partial: 'good_cell', locals: { good: good }
+    %hr

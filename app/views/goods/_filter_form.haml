@@ -1,0 +1,13 @@
+.row
+  .col-xs-6.text-left
+    = form_for :filter, url: category_goods_path(@filter.category), method: :get, html: { class: 'form-inline' } do |f|
+      .form-group
+        = f.select :season, [['Весна - Лето', 'summer'], ['Осень - Зима', 'winter']], { include_blank: true }, { class: 'form-control input-sm' }
+      .form-group
+        = f.collection_select :brand_id, Brand.order(:title), :id, :title, { include_blank: true }, { class: 'form-control input-sm' }
+      .form-group
+        = f.collection_select :size_id, Size.order(:name), :id, :name, { include_blank: true }, { class: 'form-control input-sm' }
+
+      = f.button class: 'btn btn-primary' do
+        %span.glyphicon.glyphicon-search
+        Найти

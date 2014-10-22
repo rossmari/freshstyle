@@ -11,6 +11,3 @@
       Нет в наличии
   %p
     = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'
-    - if @filter.category.root?
-      %p
-        = link_to 'Товары этой категории »', category_goods_path(good.category), class: 'btn btn-default'

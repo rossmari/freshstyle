@@ -27,7 +27,7 @@ class GoodsFilter
         goods = goods.where("#{key} = ?", value)
       end
     end
-    check_goods_and_category(goods.uniq)
+    goods.uniq
   end
 
   def clear_params_hash(hash)
@@ -48,18 +48,15 @@ class GoodsFilter
     array.delete_if{|value| value.empty?}
   end
 
-  def check_goods_and_category(goods)
-    if @category.root? && goods.empty?
-      return root_category_goods
-    else
-      return goods
-    end
-  end
-
   def root_category_goods
-    category = @category.children
-    ids = Good.where(category: category).to_a.uniq(&:category_id).map(&:id)
-    return Good.where(id: ids)
+    wrappers = []
+    @category.children.each do |category|
+      goods = Good.where(category: category).limit(3)
+      if goods.count > 0
+        wrappers << { category: category, goods: goods}
+      end
+    end
+    return wrappers
   end
 
 end
