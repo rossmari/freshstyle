@@ -1,5 +1,6 @@
 .col-xs-4
-  = image_tag good.main_image(:basket)
+  = link_to good_path(good) do
+    = image_tag good.main_image(:basket)
   %h2
     #{good.title}, #{good.brand.title}
   %p
