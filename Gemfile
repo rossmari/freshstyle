@@ -46,3 +46,5 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'capistrano', '~> 2.15.5'
 gem 'unicorn'
+
+gem 'rails-settings-cached'

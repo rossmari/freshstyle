@@ -11,6 +11,12 @@
   .row
     .col-xs-12
       .form-group
+        = f.label :meta_tags
+        = f.text_area :meta_tags, class: 'form-control', rows: 6
+
+  .row
+    .col-xs-12
+      .form-group
         = f.label :content
         = f.cktext_area :content, class: 'form-control'
 

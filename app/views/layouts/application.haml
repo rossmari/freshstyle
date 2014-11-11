@@ -6,6 +6,7 @@
     %meta{ content: 'https://github.com/rossmari', name: 'description' }
     %meta{ content: 'Rossmari', name: 'author' }
     = csrf_meta_tags
+    = yield(:meta_tags).presence || Setting.meta_tags.try(:html_safe)
 
     %title Fresh Styles
 

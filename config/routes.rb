@@ -59,6 +59,8 @@ Rails.application.routes.draw do
       end
     end
     resources :main_offers
-
+    resources :settings, only: [:index] do
+      post :change, on: :collection
+    end
   end
 end
