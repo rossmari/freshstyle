@@ -1,11 +1,15 @@
 = form_for :settings, url: [:change, :admin, :settings] do |f|
 
-  -#= render partial: 'partials/errors', locals: { model: @page }
+  .row
+    .col-xs-12
+      .form-group
+        = f.label :meta_title, t('setting.meta_title')
+        = f.text_field :meta_title, class: 'form-control', value: Setting.meta_title
 
   .row
     .col-xs-12
       .form-group
-        = f.label :meta_tags
+        = f.label :meta_tags, t('setting.meta_tags')
         = f.text_area :meta_tags, class: 'form-control', rows: 6, value: Setting.meta_tags
 
   .form-group

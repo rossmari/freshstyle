@@ -272,6 +272,8 @@ ru:
 
   setting:
     settings: Настройки
+    meta_title: Заголовок страниц
+    meta_tags: Мета-теги (вводить в виде HTML-кода)
 
   category:
     categories: Категории
@@ -359,6 +361,7 @@ ru:
           email: Электронная почта
         category:
           name: Название категории
+          meta_title: Заголовок страницы (Title)
           meta_tags: Мета-теги (вводить в виде HTML-кода)
           parent_id: Родительская категория
         good:
@@ -433,6 +436,7 @@ ru:
         page:
           title: Заголовок страницы
           meta_tags: Мета-теги (вводить в виде HTML-кода)
+          meta_title: Заголовок страницы (Title)
           content: Содержимое страницы
 
   ckeditor:
