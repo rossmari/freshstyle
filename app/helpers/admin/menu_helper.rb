@@ -11,6 +11,7 @@ module Admin::MenuHelper
       link_to(t('country.countries'), admin_countries_path),
       link_to(t('size.sizes'), admin_sizes_path),
       link_to(t('carousel.carousels'), admin_carousels_path),
+      link_to(t('setting.settings'), admin_settings_path)
     ]
     raw(generate_menu(items))
   end
