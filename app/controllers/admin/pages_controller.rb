@@ -64,6 +64,6 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def page_params
-    params.require(:page).permit(:title, :content, :row_order_position, :meta_tags)
+    params.require(:page).permit(:title, :content, :row_order_position, :meta_tags, :meta_title)
   end
 end

@@ -1,6 +1,9 @@
 - content_for :meta_tags do
   = @page.meta_tags.try(:html_safe)
 
+- content_for :meta_title do
+  = @page.meta_title
+
 .page-header
   .h3 #{@page.title}
 

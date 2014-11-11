@@ -8,7 +8,8 @@
     = csrf_meta_tags
     = yield(:meta_tags).presence || Setting.meta_tags.try(:html_safe)
 
-    %title Fresh Styles
+    %title
+      = yield(:meta_title).presence || Setting.meta_title || 'FreshStyles'
 
     = stylesheet_link_tag 'bootstrap_manifest', 'application'
     = javascript_include_tag 'application'
