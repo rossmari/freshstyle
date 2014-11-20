@@ -1,6 +1,6 @@
 class Good < ActiveRecord::Base
 
-  self.per_page = 16
+  self.per_page = 18
 
   # == REFERENCES
   belongs_to :origin_country, class_name: 'Country'
@@ -16,6 +16,7 @@ class Good < ActiveRecord::Base
 
   # == VALIDATORS
   validates :title, :count_in_stock, :price, presence: true
+  validates_presence_of :goods_sizes
 
   # === SCOPES
   scope :by_category, -> (id) { where(category_id: id) }

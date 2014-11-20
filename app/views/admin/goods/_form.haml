@@ -72,7 +72,7 @@
     .col-xs-3
       .form-group
         = f.label :category
-        = f.collection_select :category_id, Category.order(:name), :id, :name, {}, class: 'form-control'
+        = f.grouped_collection_select :category_id, Category.roots.order(:name), :children, :name, :id, :name, {}, class: 'form-control'
 
     .col-xs-3
       .form-group
