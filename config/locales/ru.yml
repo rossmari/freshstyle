@@ -356,6 +356,7 @@ ru:
       models:
         user: Пользователь
         category: Категория
+        goods_size: Размер
       attributes:
         user:
           email: Электронная почта
@@ -366,6 +367,7 @@ ru:
           parent_id: Родительская категория
         good:
           color: Цвет
+          goods_sizes: Размер
           article: Артикул
           size: Размер
           sizes: Размеры
