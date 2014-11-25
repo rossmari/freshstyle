@@ -25,10 +25,7 @@
       %script{ src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' }
 
   %body
-    -#= render 'partials/navbar'
-    -#.container.marketing
-      = yield
-      = render 'partials/footer'
+    = render 'shared/yandex_metrika_script' if Rails.env.production?
     = render 'shared/header'
     = render 'admin/shared/flashes'
     = render 'shared/categories_bar'
