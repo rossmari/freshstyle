@@ -23,6 +23,6 @@
 - name: reload shell
   shell: bash -lc "fancybox ~/.bash_profile"
 - name: install ruby
-  shell: bash -lc "rbenv install 2.1.2"
+  shell: bash -lc "rbenv install 2.1.5"
 - name: set default ruby
-  shell: bash -lc "rbenv global 2.1.2"
+  shell: bash -lc "rbenv global 2.1.5"
