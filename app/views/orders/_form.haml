@@ -1,7 +1,7 @@
 = form_for @order, html: { class: 'form-horizontal'} do |f|
 
   .form-group
-    = f.label :name, class: 'col-xs-offset-1 col-xs-3 control-label'
+    = f.label :name, "* #{t('activerecord.attributes.order.name')}", class: 'col-xs-offset-1 col-xs-3 control-label'
     .col-xs-4
       = f.text_field :name, class: 'form-control'
     .col-xs-4
@@ -20,6 +20,20 @@
       = f.text_field :second_name, class: 'form-control'
     .col-xs-4
       = error_text(:second_name, @order)
+
+  .form-group
+    = f.label :email, "* #{t('activerecord.attributes.order.email')}", class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
+      = f.text_field :email, class: 'form-control'
+    .col-xs-4
+      = error_text(:email, @order)
+
+  .form-group
+    = f.label :phone, "* #{t('activerecord.attributes.order.phone')}", class: 'col-xs-offset-1 col-xs-3 control-label'
+    .col-xs-4
+      = f.text_field :phone, class: 'form-control'
+    .col-xs-4
+      = error_text(:phone, @order)
 
   .form-group
     = f.label :city, class: 'col-xs-offset-1 col-xs-3 control-label'
@@ -43,20 +57,11 @@
       = error_text(:street, @order)
 
   .form-group
-    = f.label :phone, class: 'col-xs-offset-1 col-xs-3 control-label'
+    = f.label :comment, class: 'col-xs-offset-1 col-xs-3 control-label'
     .col-xs-4
-      = f.text_field :phone, class: 'form-control'
+      = f.text_area :comment, class: 'form-control', rows: 3
     .col-xs-4
-      = error_text(:phone, @order)
-
-  .form-group
-    = f.label :email, class: 'col-xs-offset-1 col-xs-3 control-label'
-    .col-xs-4
-      = f.text_field :email, class: 'form-control'
-    .col-xs-4
-      = error_text(:email, @order)
-
-
+      = error_text(:comment, @order)
 
   .form-group
     .col-xs-offset-4.col-xs-4

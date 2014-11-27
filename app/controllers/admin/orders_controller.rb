@@ -1,12 +1,12 @@
 class Admin::OrdersController < Admin::BaseController
-
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :destroy]
 
   def index
-    @orders = Order.all
+    @orders = Order.order('created_at DESC').page(params[:page])
   end
 
   def show
+    @order = OrderDecorator.new(@order)
   end
 
   def destroy
@@ -27,8 +27,8 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   private
+
   def set_order
     @order = Order.find(params[:id])
   end
-
 end
