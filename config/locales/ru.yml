@@ -408,13 +408,14 @@ ru:
           post_index: Почтовый индекс
           street: Улица, дом
           address: Адрес
-          phone: Контактный телефон
+          phone: Телефон
           state: Состояние заказа
           states:
             new: Новый заказ
             sended: Заказ отправлен
             done: Заказ доставлен
-          email: Электронная почта
+          email: E-mail
+          comment: Комментарий
 
         carousel:
           header: Заголовок текста слайда

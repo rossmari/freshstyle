@@ -18,33 +18,38 @@
         %th
           = human_name('email')
         %th
-          = human_name('state')
-        %th
-          = human_name('address')
-        %th
           = human_name('created_at')
+        %th
+          = human_name('state')
         %th(width=70)
 
     %tbody
-      - @orders.each do |order|
-        %tr
-          %td= order.id
-          %td
-            - order.order_goods.each do |pack|
-              = link_to "#{pack.good.title} (#{pack.good.brand.title})", admin_good_path(pack.good)
-              %span.label.label-warning.white-text
-                = link_to "#{pack.good.article}", admin_good_path(pack.good)
-              = ", размер #{pack.size.name}"
-              %br
-          %td= number_to_rubls(order.price)
-          %td= order.full_name
-          %td= order.phone
-          %td= mail_to(order.email)
-          %td
-            = order_state_label(order)
-          %td= order.address
-          %td= l(order.created_at, format: :long)
-          %td
-            = show_button(admin_order_path(order))
-            = delete_button(admin_order_path(order))
+      - @orders.each do |item|
+        - OrderDecorator.new(item).tap do |order|
+          %tr
+            %td
+              = order.id
+            %td
+              - order.order_goods.each do |pack|
+                = link_to "#{pack.good.title} (#{pack.good.brand.title})", admin_good_path(pack.good)
+                %span.label.label-warning.white-text
+                  = link_to "#{pack.good.article}", admin_good_path(pack.good)
+                = ", #{pack.size.name}"
+                %br
+            %td
+              = number_to_rubls(order.price)
+            %td
+              = order.name
+            %td
+              = order.phone
+            %td
+              = mail_to(order.email)
+            %td
+              = l(order.created_at, format: :short)
+            %td
+              = order_state_label(order.object)
+            %td
+              = show_button(admin_order_path(order.object))
+              = delete_button(admin_order_path(order.object))
 
+= will_paginate @orders

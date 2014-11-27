@@ -1,11 +1,62 @@
-= content_for :page_title do
-  = t('order.show')
-
-= content_for :side_bar do
-  = back(admin_orders_path)
-  = edit_button(edit_admin_order_path(@order))
+%h2.page-header
+  = t('order.new')
 
 %p
-  %strong
-    = human_name('name')
-  = @order.name
+  %strong= human_name('name')
+  \:
+  = @order.full_name
+
+%p
+  %strong= human_name('address')
+  \:
+  = @order.address
+
+%p
+  %strong= human_name('phone')
+  \:
+  = @order.phone
+
+%p
+  %strong= human_name('email')
+  \:
+  = mail_to @order.email
+
+%p
+  %strong= human_name('price')
+  \:
+  = number_to_rubls(@order.price)
+
+%p
+  %strong= human_name('created_at')
+  \:
+  = l(@order.created_at, format: :long)
+
+%p
+  %strong= human_name('comment')
+  \:
+  = @order.comment
+
+%p
+  %strong= human_name('state')
+  \:
+  = order_state_label(@order.object)
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t('activerecord.attributes.good.title')
+        %th= t('activerecord.attributes.good.brand')
+        %th= t('activerecord.attributes.good.article')
+        %th= t('activerecord.attributes.good.size')
+    %tbody
+      - @order.order_goods.each do |pack|
+        %tr
+          %td
+            = pack.good.title
+          %td
+            = pack.good.brand.title
+          %td
+            = pack.good.article
+          %td
+            = pack.size.name
