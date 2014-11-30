@@ -11,7 +11,9 @@
         - pages.each do |page|
           %li
             = link_to page.title, page
-        %li
-          = link_to 'SALE', sale_goods_path
-        %li
-          = link_to 'Подарки', gifts_goods_path
+        - if Good.on_sale.any?
+          %li
+            = link_to 'SALE', sale_goods_path
+        - if Good.gifts.any?
+          %li
+            = link_to 'Подарки', gifts_goods_path
