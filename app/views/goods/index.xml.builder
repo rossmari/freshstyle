@@ -31,7 +31,6 @@ xml.yml_catalog date: Time.zone.now.strftime('%Y-%M-%d %H:%M') do
           xml.vendorCode good.article
           xml.model good.title
           xml.description (good.description || '')
-          xml.available !good.count_in_stock.zero?
           xml.country_of_origin good.origin_country.try(:name)
           xml.param good.color, name: 'Цвет'
           xml.param human_season(good.season), name: 'Сезон'
@@ -41,3 +40,4 @@ xml.yml_catalog date: Time.zone.now.strftime('%Y-%M-%d %H:%M') do
     end
   end
 end
+
