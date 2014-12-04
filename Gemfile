@@ -26,6 +26,7 @@ group :development do
   gem 'spring'
   gem 'foreman'
   gem 'quiet_assets'
+  gem 'mailcatcher'
 end
 
 gem 'devise', '~> 3.3.0'
