@@ -9,7 +9,7 @@
     #{@filter.category.name}
     %small Найдено #{@goods.count} товаров
 
-= render partial: 'filter_form'
+= render 'filter_form'
 
 - @goods.in_groups_of(3).each do |group|
   .row

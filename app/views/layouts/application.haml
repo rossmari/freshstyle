@@ -29,7 +29,7 @@
   %body
     = render 'shared/yandex_metrika_script' if Rails.env.production?
     = render 'shared/header'
-    = render 'admin/shared/flashes'
+    = render 'shared/flashes'
     = render 'shared/categories_bar'
     = yield(:carousel)
     = render 'shared/pages_bar'
