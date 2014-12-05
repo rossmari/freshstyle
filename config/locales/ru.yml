@@ -359,7 +359,9 @@ ru:
         goods_size: Размер
       attributes:
         user:
-          email: Электронная почта
+          email: Email
+          password: Пароль
+          password_confirmation: Повтор пароля
         category:
           name: Название категории
           meta_title: Заголовок страницы (Title)
@@ -432,7 +434,7 @@ ru:
 
         client_message:
           name: Ваше имя
-          email: Электронная почта
+          email: Email
           content: Сообщение
           processed: Статус обработки
 
