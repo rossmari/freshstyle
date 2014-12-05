@@ -3,7 +3,7 @@ class Admin::PagesController < Admin::BaseController
   before_action :set_page, only: [:show, :edit, :update, :destroy, :update_row_order]
 
   def index
-    @pages = Page.all
+    @pages = Page.order(:row_order)
   end
 
   def show

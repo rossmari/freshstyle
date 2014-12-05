@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def goods_breadcrumbs(selected_category)
     # no matter how many levels category will have
     # we take parents tree
