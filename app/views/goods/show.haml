@@ -51,11 +51,11 @@
 
     %h4
       Цена:
-      - if @good.monetary_discount && @good.monetary_discount > 0
+      - if @good.has_discount?
         %del
-          #{number_to_rubls(@good.price)}
+          = number_to_currency(@good.price)
       %span.label.label-danger{ style: 'font-size:120%;' }
-        #{number_to_rubls(@good.cost)}
+        = number_to_currency(@good.cost)
 
     - if @good.count_in_stock > 0
       = link_to '#', class: 'add_good_to_basket btn btn-block btn-success', data: { good_id: @good.id } do

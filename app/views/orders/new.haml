@@ -19,13 +19,13 @@
         %h5
           Стоимость:
           %span.label.label-danger{ style: 'font-size:100%;' }
-            #{number_to_rubls(good.cost)}
+            #{number_to_currency(good.cost)}
 
 .row
   .col-xs-offset-4.col-xs-7
     .h4
       Итого:
       %span.label.label-danger{ style: 'font-size:100%;' }
-        #{number_to_rubls(@processor.total_price)}
+        #{number_to_currency(@processor.total_price)}
 %hr
 = render 'form'

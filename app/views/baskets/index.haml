@@ -21,7 +21,7 @@
           %h5
             Стоимость:
             %span.label.label-danger{ style: 'font-size:100%;' }
-              #{number_to_rubls(good.cost)}
+              #{number_to_currency(good.cost)}
 
           = link_to good_path(good), class: 'btn btn-info' do
             %span.glyphicon.glyphicon-search
@@ -36,7 +36,7 @@
       %h3
         Итого:
         %span.label.label-danger{ style: 'font-size:100%;' }
-          #{number_to_rubls(@processor.total_price)}
+          #{number_to_currency(@processor.total_price)}
       %br
       = link_to '#', class: 'clear_basket btn btn-danger' do
         %span.glyphicon.glyphicon-trash

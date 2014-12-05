@@ -42,7 +42,7 @@
             %b
               = good.count_in_stock
           %td= t("good.seasons.#{good.season}")
-          %td= number_to_rubls(good.price)
+          %td= number_to_currency(good.price)
           %td
             - if good.main_image(:admin_thumb)
               = link_to edit_admin_good_image_path(id: good.id) do

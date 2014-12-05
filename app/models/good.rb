@@ -19,9 +19,9 @@ class Good < ActiveRecord::Base
   validates_presence_of :goods_sizes
 
   # === SCOPES
-  scope :by_category, -> (id) { where(category_id: id) }
+  # scope :by_category, -> (id) { where(category_id: id) }
 
-  scope :by_season,   -> (season) { where(season: season) }
+  # scope :by_season,   -> (season) { where(season: season) }
   scope :winter,      -> { where(season: 'winter') }
   scope :summer,      -> { where(season: 'summer') }
   scope :main_offers, -> { where(main_offer: true) }
@@ -37,6 +37,10 @@ class Good < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def has_discount?
+    !!(monetary_discount && monetary_discount > 0)
   end
 
   def cost

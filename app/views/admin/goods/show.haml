@@ -47,6 +47,6 @@
     %p
       %strong
         = human_name('price')
-      = number_to_rubls(@good.price)
+      = number_to_currency(@good.price)
   .col-xs-6
     = image_tag(@good.main_image(:big), class: 'img-thumbnail')
