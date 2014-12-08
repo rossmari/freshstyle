@@ -53,3 +53,4 @@ gem 'rails-settings-cached'
 
 gem 'rails-assets-fancybox'
 gem 'rails-assets-bootstrap'
+gem 'rails-assets-elevatezoom'

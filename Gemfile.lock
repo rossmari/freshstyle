@@ -138,6 +138,7 @@ GEM
       sprockets-rails (~> 2.0)
     rails-assets-bootstrap (3.3.1)
       rails-assets-jquery (>= 1.9.0)
+    rails-assets-elevatezoom (2.2.3)
     rails-assets-fancybox (2.1.5)
     rails-assets-jquery (2.1.1)
     rails-settings-cached (0.4.1)
@@ -231,6 +232,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.6)
   rails-assets-bootstrap
+  rails-assets-elevatezoom
   rails-assets-fancybox
   rails-settings-cached
   ranked-model (~> 0.4.0)

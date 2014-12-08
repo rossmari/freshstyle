@@ -44,9 +44,9 @@
           %td= t("good.seasons.#{good.season}")
           %td= number_to_currency(good.price)
           %td
-            - if good.main_image(:admin_thumb)
+            - if good.main_image
               = link_to edit_admin_good_image_path(id: good.id) do
-                = image_tag(good.main_image(:admin_thumb))
+                = image_tag(good.main_image.url(:admin_thumb))
             - else
               = link_to 'Добавить', edit_admin_good_image_path(id: good.id)
           %td

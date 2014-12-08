@@ -6,8 +6,9 @@
     - good = wrapper.good
     .row
       .col-xs-offset-2.col-xs-2
-        = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
-          = image_tag(good.main_image(:admin_thumb))
+        - if good.main_image
+          = link_to good_path(good), class: 'thumbnail', title: 'К товару' do
+            = image_tag(good.main_image.url(:admin_thumb))
 
       .col-xs-7
         %h4
