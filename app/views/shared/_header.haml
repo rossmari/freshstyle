@@ -1,36 +1,40 @@
-.jumbotron
-  .container-fluid
-    .col-xs-3
-      = link_to root_path do
-        = image_tag 'logo_fresh.png', height: 78
-      %h4 Интернет-магазин
-    .col-xs-3
-      %h5
-        - women_wear = Category.where("LOWER(name) LIKE '%женская одежда%'").first
-        = link_to 'Женская одежда', women_wear ? category_goods_path(women_wear) : '#', class: 'black_link'
-      %h5
-        - children_wear = Category.where("LOWER(name) LIKE '%детская одежда%'").first
-        = link_to 'Детская одежда', children_wear ? category_goods_path(children_wear) : '#', class: 'black_link'
-      %h5
-        - accessoires = Category.where("LOWER(name) LIKE '%аксессуары%'").first
-        = link_to 'Аксессуары', accessoires ? category_goods_path(accessoires) : '#', class: 'black_link'
-    .col-xs-3
-      %h5
-        = link_to baskets_path do
-          Корзина
-          %span.badge.basket_count_label
-            0
-      %h5
-        = link_to 'Доставка', Page.where("LOWER(title) LIKE '%доставка%'").first || '#'
-      %h5
-        = link_to 'Оплата', Page.where("LOWER(title) LIKE '%оплата%'").first || '#'
-    .col-xs-3
-      %h5
-        Телефон:
-        = link_to '+7 (916) 779-45-70', 'tel:+79167794570'
-      %h5
-        = link_to 'Заказать обратный звонок ', new_back_call_path
-      %h5
-        = link_to 'Оставить нам сообщение', new_client_message_path
-      %h5
-        Aдрес: г. Москва, ул. Рудневка 41
+- cache do
+  .jumbotron
+    .container-fluid
+      .col-xs-3
+        = link_to root_path do
+          = image_tag 'logo_fresh.png', height: 78
+        %h4 Интернет-магазин
+
+      .col-xs-3
+        %h5
+          - women_wear = Category.where("LOWER(name) LIKE '%женская одежда%'").first
+          = link_to 'Женская одежда', women_wear ? category_goods_path(women_wear) : '#', class: 'black_link'
+        %h5
+          - children_wear = Category.where("LOWER(name) LIKE '%детская одежда%'").first
+          = link_to 'Детская одежда', children_wear ? category_goods_path(children_wear) : '#', class: 'black_link'
+        %h5
+          - accessoires = Category.where("LOWER(name) LIKE '%аксессуары%'").first
+          = link_to 'Аксессуары', accessoires ? category_goods_path(accessoires) : '#', class: 'black_link'
+
+      .col-xs-3
+        %h5
+          = link_to baskets_path do
+            Корзина
+            %span.badge.basket_count_label
+              0
+        %h5
+          = link_to 'Доставка', Page.where("LOWER(title) LIKE '%доставка%'").first || '#'
+        %h5
+          = link_to 'Оплата', Page.where("LOWER(title) LIKE '%оплата%'").first || '#'
+
+      .col-xs-3
+        %h5
+          Телефон:
+          = link_to '+7 (916) 779-45-70', 'tel:+79167794570'
+        %h5
+          = link_to 'Заказать обратный звонок ', new_back_call_path
+        %h5
+          = link_to 'Оставить нам сообщение', new_client_message_path
+        %h5
+          Aдрес: г. Москва, ул. Рудневка 41
