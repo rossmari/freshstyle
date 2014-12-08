@@ -1,19 +1,15 @@
 = nested_form_for @good, url: admin_good_image_path(id: @good.id), method: :put  do |f|
-
-  = render partial: 'admin/shared/errors', locals: { model: @good }
-
   = f.hidden_field :id
 
-  -#.form-group
-  -#  = f.label :images
+  = render partial: 'admin/shared/errors', locals: { model: @good }
 
   = f.fields_for :images do |image|
     .row
       .col-xs-3
         = image.file_field :picture
       .col-xs-3
-        Главное изображение
-        = image.radio_button :main_image, image.object.main_image?
+        = image.label :main_image, 'Главное изображение', style: 'font-weight:normal;'
+        = image.check_box :main_image, checked: image.object.main_image?, class: 'radio-box'
       .col-xs-3
         - if image.object.picture.present?
           = image_tag image.object.picture(:admin_thumb)

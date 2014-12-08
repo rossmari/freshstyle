@@ -392,6 +392,8 @@ ru:
           description: Описание
           on_sale: Поместить в SALE
           is_gift: Поместить в Подарки
+        images:
+          picture: Изображение
         brand:
           title: Название бренда
         country:
