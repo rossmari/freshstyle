@@ -1,4 +1,8 @@
 /*
- *= require_tree ./admin/.
+ *= require tree
+ *= require sortable_tree
+ *= require nested_options
  *= require jquery.jcrop
+ *= require bootstrap
+ *= require admin/custom
  */

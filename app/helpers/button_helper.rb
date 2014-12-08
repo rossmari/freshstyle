@@ -1,6 +1,4 @@
-#encoding: utf-8
 module ButtonHelper
-
   def add_button(route)
     link_to route, class: 'btn btn-primary btn-sm btn-block' do
        content_tag(:span, '', class: 'glyphicon glyphicon-plus') +
@@ -31,5 +29,4 @@ module ButtonHelper
       content_tag(:span, nil, class: icon_class)
     end
   end
-
 end

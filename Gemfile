@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,6 +27,7 @@ group :development do
   gem 'spring'
   gem 'foreman'
   gem 'quiet_assets'
+  gem 'mailcatcher'
 end
 
 gem 'devise', '~> 3.3.0'
@@ -48,3 +50,7 @@ gem 'capistrano', '~> 2.15.5'
 gem 'unicorn'
 
 gem 'rails-settings-cached'
+
+gem 'rails-assets-fancybox'
+gem 'rails-assets-bootstrap'
+gem 'rails-assets-elevatezoom'

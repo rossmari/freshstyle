@@ -1,6 +1,6 @@
 = form_for [:admin, @category] do |f|
 
-  = render partial: 'partials/errors', locals: { model: @category }
+  = render partial: 'admin/shared/errors', locals: { model: @category }
 
   .form-group
     = f.label :name

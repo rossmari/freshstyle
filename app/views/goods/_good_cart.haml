@@ -1,11 +1,21 @@
 .col-xs-4
-  = link_to good_path(good) do
-    = image_tag good.main_image(:basket)
-  %h4
-    #{good.title}, #{good.brand.title}
+  - if good.main_image
+    = link_to good_path(good) do
+      = image_tag good.main_image.url(:basket)
+
+  %h4= good.title
+  %h4= good.brand.title
+
   %p
-    Специальная цена:
-    %span.label.label-danger{ style: 'font-size:100%;' }
-      #{number_to_rubls(good.cost)}
+    - if good.count_in_stock > 0
+      Цена:
+      - if good.has_discount?
+        %del
+          = number_to_currency(good.price)
+
+      %span.label.label-danger{ style: 'font-size:100%;' }
+        = number_to_currency(good.cost)
+    - else
+      Нет в наличии
   %p
     = link_to 'Узнать больше »', good_path(good), class: 'btn btn-default'

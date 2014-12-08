@@ -1,7 +1,7 @@
+= devise_error_messages!
 = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-signin' } do |f|
   %h2.form-signin-heading Напомнить пароль
-  = devise_error_messages!
-  = f.email_field :email, class: 'form-control', placeholder: 'Email address', autofocus: true
+  = f.email_field :email, class: 'form-control', placeholder: 'Email', autofocus: true
   %br
   = f.submit 'Отправить', class: 'btn btn-lg btn-primary btn-block'
-  = render "devise/shared/links"
+  = render 'devise/shared/links'

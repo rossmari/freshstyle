@@ -1,6 +1,6 @@
 = nested_form_for @good, url: admin_good_image_path(id: @good.id), method: :put  do |f|
 
-  = render partial: 'partials/errors', locals: { model: @good }
+  = render partial: 'admin/shared/errors', locals: { model: @good }
 
   = f.hidden_field :id
 

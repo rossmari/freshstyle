@@ -12,6 +12,8 @@ class Good < ActiveRecord::Base
   has_many :sizes, through: :goods_sizes
   has_many :images, class_name: 'GoodPicture'
 
+  has_one :main_image, ->{ where main_image: true }, class_name: 'GoodPicture'
+
   accepts_nested_attributes_for :images, allow_destroy: true
 
   # == VALIDATORS
@@ -19,24 +21,17 @@ class Good < ActiveRecord::Base
   validates_presence_of :goods_sizes
 
   # === SCOPES
-  scope :by_category, -> (id) { where(category_id: id) }
+  # scope :by_category, -> (id) { where(category_id: id) }
 
-  scope :by_season,   -> (season) { where(season: season) }
+  # scope :by_season,   -> (season) { where(season: season) }
   scope :winter,      -> { where(season: 'winter') }
   scope :summer,      -> { where(season: 'summer') }
   scope :main_offers, -> { where(main_offer: true) }
   scope :on_sale,     -> { where(on_sale: true) }
   scope :gifts,       -> { where(is_gift: true) }
 
-  def main_image(thumb_style = '')
-    main_image = GoodPicture.where(main_image: true, good_id: self.id).first
-    if main_image && main_image.picture
-      main_image.picture(thumb_style.to_sym)
-    elsif images.any?
-      images.first.picture(thumb_style.to_sym)
-    else
-      nil
-    end
+  def has_discount?
+    !!(monetary_discount && monetary_discount > 0)
   end
 
   def cost

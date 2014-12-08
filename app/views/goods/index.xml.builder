@@ -24,7 +24,7 @@ xml.yml_catalog date: Time.zone.now.strftime('%Y-%M-%d %H:%M') do
           xml.price good.price
           xml.currencyId 'RUR'
           xml.categoryId good.category_id
-          xml.picture good.main_image(:big) ? "http://freshstyles.ru#{good.main_image(:big)}" : ''
+          xml.picture good.main_image ? "http://freshstyles.ru#{good.main_image.url(:big)}" : ''
           xml.delivery true
           xml.local_delivery_cost 250
           xml.vendor good.brand.try(:title)
