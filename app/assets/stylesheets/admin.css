@@ -3,5 +3,6 @@
  *= require sortable_tree
  *= require nested_options
  *= require jquery.jcrop
- *= require admin/dashboard
+ *= require bootstrap
+ *= require admin/custom
  */

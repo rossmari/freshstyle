@@ -52,3 +52,4 @@ gem 'unicorn'
 gem 'rails-settings-cached'
 
 gem 'rails-assets-fancybox'
+gem 'rails-assets-bootstrap'
