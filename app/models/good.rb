@@ -28,7 +28,7 @@ class Good < ActiveRecord::Base
   scope :gifts,       -> { where(is_gift: true) }
 
   # == CALLBACKS
-  after_update :check_main_image, if: -> (good) { good.images.any? }
+  after_save :check_main_image, if: -> (good) { good.images.any? }
 
   def has_discount?
     !!(monetary_discount && monetary_discount > 0)
