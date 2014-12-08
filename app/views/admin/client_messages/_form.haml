@@ -1,6 +1,6 @@
 = form_for [:admin, @back_call]  do |f|
 
-  = render partial: 'partials/errors', locals: { model: @back_call }
+  = render partial: 'admin/shared/errors', locals: { model: @back_call }
 
   %h5
     При сохранении заявка будет отмечена как обработанная. Добавте комментарий чтобы ничего не забыть.

@@ -2,27 +2,23 @@
   .h3 #{@good.title}, #{@good.brand.title}
 
 .row
-  .col-xs-2.text-center
+  .col-xs-2.text-center#gallery
     - @good.images.each do |image|
-      = link_to image.picture.url(:original_watermarked), class: 'preview fancybox thumbnail col-xs-offset-2 col-xs-8', rel: 'gallery1', data: { big: image.picture.url(:big) } do
-        = image_tag(image.picture.url(:preview))
+      = link_to '#', data: { image: image.url(:big), zoom_image: image.url(:original_watermarked) }, class: 'preview thumbnail col-xs-offset-2 col-xs-8' do
+        = image_tag image.url(:preview)
 
   .col-xs-5.text-center.big_image
-    = link_to @good.main_image(:original_watermarked), class: 'fancybox', rel: 'gallery1' do
-      = image_tag(@good.main_image(:big))
+    - if @good.main_image
+      = image_tag @good.main_image.url(:big), data: { zoom_image: @good.main_image.url(:original_watermarked) }
 
   .col-xs-5
-    .h5.text-muted
-      = "Артикул: #{@good.article}"
+    .h5.text-muted Артикул: #{@good.article}
 
     %h5 Цвет: #{@good.color}
-
     %h5 Страна дизайна: #{@good.design_country.name}
-
     %h5 Страна производитель: #{@good.origin_country.name}
 
-    .h5{style: 'display:inline;'}
-      Доступные размеры:
+    .h5{ style: 'display:inline;' } Доступные размеры:
 
     .btn-group.sizes{ data: { toggle: 'buttons' } }
       - @good.sizes.each do |size|
@@ -51,11 +47,11 @@
 
     %h4
       Цена:
-      - if @good.monetary_discount && @good.monetary_discount > 0
+      - if @good.has_discount?
         %del
-          #{number_to_rubls(@good.price)}
+          = number_to_currency(@good.price)
       %span.label.label-danger{ style: 'font-size:120%;' }
-        #{number_to_rubls(@good.cost)}
+        = number_to_currency(@good.cost)
 
     - if @good.count_in_stock > 0
       = link_to '#', class: 'add_good_to_basket btn btn-block btn-success', data: { good_id: @good.id } do

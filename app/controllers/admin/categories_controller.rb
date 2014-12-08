@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.nested_set.select('id, name, parent_id').all
   end
 
   def show
@@ -51,16 +51,13 @@ class Admin::CategoriesController < Admin::BaseController
     end
   end
 
-  def manage
-    @categories = Category.nested_set.select('id, name, parent_id').all
+  private
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 
-  private
-    def set_category
-      @category = Category.find(params[:id])
-    end
-
-    def category_params
-      params.require(:category).permit(:name, :parent_id, :meta_tags, :meta_title)
-    end
+  def category_params
+    params.require(:category).permit(:name, :parent_id, :meta_tags, :meta_title)
+  end
 end

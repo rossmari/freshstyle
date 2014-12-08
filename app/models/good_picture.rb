@@ -52,4 +52,9 @@ class GoodPicture < ActiveRecord::Base
   # == VALIDATORS
   validates_attachment_presence :picture
   validates_attachment_content_type :picture, content_type: /\Aimage/
+
+
+  def url(style = :original)
+    picture.url style
+  end
 end

@@ -13,10 +13,8 @@
 
     = favicon_link_tag 'favicon.png'
 
-    = stylesheet_link_tag 'bootstrap_manifest', 'application'
+    = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
-
-    = yield(:assets)
 
     = render 'shared/cleversite_script' if Rails.env.production?
 
@@ -28,10 +26,13 @@
 
   %body
     = render 'shared/yandex_metrika_script' if Rails.env.production?
+
     = render 'shared/header'
-    = render 'admin/shared/flashes'
+    = render 'shared/flashes'
     = render 'shared/categories_bar'
+
     = yield(:carousel)
+
     = render 'shared/pages_bar'
     .container.marketing
       = yield

@@ -1,5 +1,4 @@
 module Admin::MenuHelper
-
   # for bootstrap
   def admin_menu
     # menu items list, add here some menu new items
@@ -32,5 +31,4 @@ module Admin::MenuHelper
     model = controller_name.classify.constantize
     model.send('human_attribute_name', attribute_name)
   end
-
 end

@@ -24,7 +24,7 @@
 %p
   %strong= human_name('price')
   \:
-  = number_to_rubls(@order.price)
+  = number_to_currency(@order.price)
 
 %p
   %strong= human_name('created_at')

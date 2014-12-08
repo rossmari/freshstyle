@@ -1,8 +1,9 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min
 //= require cookie.min
-//= require fancybox/jquery.fancybox.pack
+//= require fancybox/source/jquery.fancybox.pack
+//= require elevatezoom/jquery.elevatezoom
+//= require bootstrap
 //= require_tree ./application/.
 
 
