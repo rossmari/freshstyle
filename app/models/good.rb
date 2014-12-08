@@ -12,7 +12,7 @@ class Good < ActiveRecord::Base
   has_many :sizes, through: :goods_sizes
   has_many :images, class_name: 'GoodPicture'
 
-  has_one :main_image, ->{ where main_image: true }, class_name: 'GoodPicture'
+  has_one :main_image, -> { where main_image: true }, class_name: 'GoodPicture'
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
@@ -21,14 +21,14 @@ class Good < ActiveRecord::Base
   validates_presence_of :goods_sizes
 
   # === SCOPES
-  # scope :by_category, -> (id) { where(category_id: id) }
-
-  # scope :by_season,   -> (season) { where(season: season) }
   scope :winter,      -> { where(season: 'winter') }
   scope :summer,      -> { where(season: 'summer') }
   scope :main_offers, -> { where(main_offer: true) }
   scope :on_sale,     -> { where(on_sale: true) }
   scope :gifts,       -> { where(is_gift: true) }
+
+  # == CALLBACKS
+  after_save :check_main_image, if: -> (good) { good.images.any? }
 
   def has_discount?
     !!(monetary_discount && monetary_discount > 0)
@@ -36,5 +36,13 @@ class Good < ActiveRecord::Base
 
   def cost
     price - (monetary_discount || 0)
+  end
+
+  private
+
+  def check_main_image
+    unless main_image
+      images.first.update_column(:main_image, true)
+    end
   end
 end

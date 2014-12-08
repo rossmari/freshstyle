@@ -20,6 +20,7 @@ class Admin::GoodImagesController < Admin::BaseController
   end
 
   private
+
   def images_params
     params.require(:good).permit(:id, images_attributes: [:id, :_destroy, :main_image, :picture])
   end
