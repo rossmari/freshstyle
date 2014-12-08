@@ -1,5 +1,5 @@
 /*
- *= require_tree ./application/.
- *= require jquery.jcrop.css
- *= require fancybox/jquery.fancybox
+ *= require fancybox/source/jquery.fancybox
+ *= require application/non-responsive
+ *= require application/styles
  */

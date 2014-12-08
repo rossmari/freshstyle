@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -49,3 +50,5 @@ gem 'capistrano', '~> 2.15.5'
 gem 'unicorn'
 
 gem 'rails-settings-cached'
+
+gem 'rails-assets-fancybox'

@@ -1,7 +1,7 @@
 /*
- *= require admin/dashboard
  *= require tree
  *= require sortable_tree
  *= require nested_options
  *= require jquery.jcrop
+ *= require admin/dashboard
  */
