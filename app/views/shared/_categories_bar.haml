@@ -4,8 +4,8 @@
       %ul.nav.navbar-nav.nav-justified
         - Category.roots.includes(:children).each do |cat|
           %li.dropdown
-            = link_to cat.name, '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }, style: 'font-size:14pt;'
+            = link_to cat.name, '#', class: 'dropdown-toggle root-category', data: { toggle: 'dropdown' }
             %ul.dropdown-menu{ role: 'menu', style: 'width:100%;' }
               - cat.children.each do |subcat|
                 %li
-                  = link_to subcat.name, category_goods_path(subcat), style: 'font-size:12pt;'
+                  = link_to subcat.name, category_goods_path(subcat), class: 'subcategory'
