@@ -28,6 +28,7 @@ group :development do
   gem 'foreman'
   gem 'quiet_assets'
   gem 'mailcatcher'
+  gem 'awesome_print', git: 'https://github.com/michaeldv/awesome_print.git', branch: 'v2'
 end
 
 gem 'devise', '~> 3.3.0'
