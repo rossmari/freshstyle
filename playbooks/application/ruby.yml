@@ -12,6 +12,8 @@
     - libreadline6-dev
     - zlib1g-dev
     - libncurses5-dev
+    - libsqlite3-dev
+    - libmagickwand-dev
 - name: install rbenv
   git: repo=git://github.com/sstephenson/rbenv.git dest=~/.rbenv
 - name: install ruby-build
@@ -21,7 +23,7 @@
 - name: enable shims
   shell: echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 - name: reload shell
-  shell: bash -lc "fancybox ~/.bash_profile"
+  shell: bash -lc "source ~/.bash_profile"
 - name: install ruby
   shell: bash -lc "rbenv install 2.1.5"
 - name: set default ruby
